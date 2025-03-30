@@ -1,0 +1,11 @@
+.firstClass{
+    background-color:yellow;
+}
+
+.bg-yellow{
+    color: red;
+}
+
+#secondId{
+    background-color: blue;
+}
