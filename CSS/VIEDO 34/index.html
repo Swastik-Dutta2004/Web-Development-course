@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --color:  rgb(7, 92, 68);
+            --secolor:  rgb(123, 123, 18);
+            --defpadding:  30px;
+        }
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        ul{
+            display: flex;
+
+        }
+        .nav{
+            background-color: var(--color);
+            color: white;
+        }
+        ul li:first-child{
+            --color:  rgb(30, 7, 102);
+            background-color: var(--color);
+            
+        }
+        ul li {
+            padding: var(--defpadding);
+            list-style: none;
+        }
+
+        .contant{
+            background-color: var(--secolor)
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+    <div class="contant">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos aut, sapiente repellendus vitae consectetur asperiores dolorum reiciendis voluptates aperiam dignissimos debitis qui fugiat?</p>
+    </div>
+</body>
+</html>
