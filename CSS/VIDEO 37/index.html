@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            height: fit-content;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            width: 100%;
+            background-color: aqua;
+        }
+        ul li {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        ul li a{
+            text-decoration: none;
+            color: black;
+            position: relative;
+            left: 1030px;
+            font-size: 20px;
+        }
+
+        .container{
+            background-color: gray;
+            width: 100%;
+            height: 60vh;
+        }
+
+        .boxes{
+            display: inline-block;
+            
+        }
+
+        .box-1{
+            background-color: burlywood;
+            width: 40vw;
+            height: 40vh; 
+            margin: 50px 95px 50px 35px;
+        }
+
+        .box-2{
+            background-color: chartreuse;
+            width: 40vw;
+            height: 40vh; 
+            margin: 50px 30px 50px 120px;
+        }
+
+        .content{
+            padding: 70px;
+            margin: 10px auto;
+            border-radius: 50px;
+            width: 60vw;
+            height: 15vh;
+            color: aqua;
+            background-color: black;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .company-logo{
+            position: fixed;
+            right: 0;
+            bottom: 0;
+        }
+
+        footer{
+            width: 100%;
+            height: 50px;
+            background-color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="box-1"></div>
+            <div class="box-2"></div>
+            <div class="contant"><p>Welcome to Sigma Web Development Express</p>
+            </div>
+            <figure>
+                <img class="Company logo" src="logo" alt="company_logo.png">
+            </figure>
+            <footer>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis, aliquam!</p>
+            </footer>
+        </div>
+    </main>
+</body>
+</html>
