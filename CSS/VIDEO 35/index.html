@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .box::first-line{
+            color: red;
+        } */
+
+        /* .boxes *{
+            padding: 2px;
+            color: rgb(230, 101, 85);
+            border: 2px solid black;
+        }
+        .box ,[data-color = "primary"] {
+            margin-top: 23px; ;
+        /* } */
+         /* .box:nth-child(odd){
+            background-color: orange;
+         } */ 
+         .box:nth-last-child(1){
+            background-color: olivedrab;
+         }
+         .boxes::before{
+            content: "Swastik consistance is the only key";
+            color: orangered;
+         }
+         .boxes::after{
+            content: "you can just keep doing";
+            color: orangered;
+         }
+         ::selection{
+            color: orange;
+            background-color: black;
+         }
+         .input::placeholder{
+            font-size: large;
+            color: rgb(207, 25, 25);
+         }
+    </style>
+</head>
+<body>
+    <div class="boxes">
+        <div data-color = "primary" class="box">i am first box</div>
+        <div class="box">i am second box</div>
+        <div class="box">i am third box</div>
+        <input type="text" placeholder="Type your name">
+    </div>
+</body>
+</html>
