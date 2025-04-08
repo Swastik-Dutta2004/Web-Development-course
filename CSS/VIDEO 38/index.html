@@ -14,20 +14,35 @@
             /* flex-direction: column-reverse; */
             flex-wrap:wrap-reverse;
             align-content: center;
+            flex-flow: row wrap;
+            gap: 40px 10px;
         }
         .item{
+            flex-grow: 1;
             height: 62px;
             width: 52px;
             border: 2px solid black;
-            margin: 4px;
+            /* margin: 4px; */
             background-color: orangered;
+        }
+        .order-1{
+            order: 1;
+        }
+        .order-2{
+            order: 2;
+        }
+        .order-3{
+            order: 3;
+        }
+        .item1{
+            flex-grow: 2;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="item">1</div>
-        <div class="item">2</div>
+        <div class="item order-1">1</div>
+        <div class="item item1">2</div>
         <div class="item">3</div>
         <div class="item">4</div>
         <div class="item">5</div>
@@ -37,35 +52,8 @@
         <div class="item"></div>
         <div class="item"></div>
         <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item">1</div>
-        <div class="item">2</div>
-        <div class="item">3</div>
-        <div class="item">4</div>
-        <div class="item">5</div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
+        
+        
     </div>
 </body>
 </html>
