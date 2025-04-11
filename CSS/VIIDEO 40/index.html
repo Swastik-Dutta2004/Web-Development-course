@@ -9,6 +9,10 @@
             margin: 0;
             padding: 0;
         }
+        header{
+            position: sticky;
+            top: 0;
+        }
         nav{
             background-color: rgb(242, 173, 196);
             height: 83px;
@@ -43,14 +47,22 @@
         .text-box{
             padding: 34px;
             border: 2px solid white;
-            padding: 20px 0px;
-            margin: 20px 34vw;
+            text-align: center;
             font-size: 2em;
             border-radius: 13px;
         }
         footer{
             background-color: brown;
             height: 100px;
+        }
+        .orange-box {
+            height: 32px;
+            width: 32px;
+            background: orange;
+            position: fixed;
+            bottom: 12px;
+            right: 23px;
+            border-radius: 60px;
         }
     </style>
 </head>
@@ -67,6 +79,8 @@
             <div class="box2"></div>
         </div>
         <div class="text-box">Welcome to web development GanduGiri</div>
+
+        <div class="orange-box"></div>
     </main>
 
     <footer>
