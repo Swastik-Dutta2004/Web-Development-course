@@ -13,20 +13,43 @@
         .box{
             height: 45px;
             width: 34px;
-            background-color: rebeccapurple;
-            animation-name: swastikAnimation;
+            /* background-color: rebeccapurple; */
+            /* animation-name: swastikAnimation;
             animation-duration: 3s;
             animation-iteration-count: infinite;
             animation-timing-function: cubic-bezier(0,-0.29, 0, 1.06);
             animation-delay: 2s;
+            animation-direction: alternate-reverse;
+            animation-play-state: paused; */
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: swastikAnimation 3s cubic-bezier(0,-0.29, 0, 1.06) 2s 1 alternate forwards, 
+            Swastik2 3s cubic-bezier(0,-0.29, 0, 1.06) 2s 1 alternate forwards;
         }
         @keyframes swastikAnimation{
             from{
-
+                background-color: rebeccapurple;
             }
             to{
+                background-color: yellowgreen;
                 transform: translateX(1000px)
                 ;
+            }
+        }
+        @keyframes Swastik2 {
+            0%{
+                transform: rotate(100deg);
+            }
+            20%{
+                transform: rotate(180deg);
+            }
+            50%{
+                transform: rotate(250deg);
+            }
+            80%{
+                transform: rotate(3000deg);
+            }
+            100%{
+                transform: rotate(380deg);
             }
         }
     </style>
