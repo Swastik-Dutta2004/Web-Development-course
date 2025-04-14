@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animations</title>
+    <style>
+        .container{
+            height: 89vh;
+            width: 60vw;
+            background-color: rgb(232, 142, 33);
+        }
+        .box{
+            height: 45px;
+            width: 34px;
+            background-color: rebeccapurple;
+            animation-name: swastikAnimation;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: cubic-bezier(0,-0.29, 0, 1.06);
+            animation-delay: 2s;
+        }
+        @keyframes swastikAnimation{
+            from{
+
+            }
+            to{
+                transform: translateX(1000px)
+                ;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">BOX</div>
+    </div>
+</body>
+</html>
