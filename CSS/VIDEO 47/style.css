@@ -1,0 +1,85 @@
+
+.logo{
+    
+}
+.logo img{
+    width:164px;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Segoe ul";
+}
+.right ul{
+    display: flex;
+    gap: 32px;
+}
+.right ul li{
+ list-style: none;  
+ display: flex; 
+ align-items: center;
+ cursor: pointer;
+}
+.right ul li span{
+    padding:0 9px ;
+}
+.first{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 19px;
+    margin: 35px;
+    font-family: sans-serif;
+}
+.first span{
+    font-size: 40px;
+}
+.first span img{
+    width: 82px;
+    margin: 0 23px;
+}
+p{
+    font-size: 19px;
+    width: 49vw;
+    text-align: center;
+}
+.btn{ 
+    background-color: #00b6d1;
+    padding: 14px 10px;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    font-weight: 700;
+}
+.green{
+    background-color:#5cb85c;
+}
+.small{
+   font-size: 12px;
+}
+.second{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.item{
+    max-width: 302px;
+    background-color: #ebd2d258;
+    padding: 16px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.item-lang{
+    font-weight: 700;
+    text-align: center;
+    padding-bottom: 36px;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
