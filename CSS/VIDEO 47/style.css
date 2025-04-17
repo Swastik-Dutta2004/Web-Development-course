@@ -83,3 +83,6 @@ p{
     grid-template-columns: 1fr 1fr 1fr;
     gap: 12px;
 }
+.downlode :nth-child(2){
+    /* font-size: 40px;    */
+}
