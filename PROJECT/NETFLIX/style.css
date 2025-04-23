@@ -82,6 +82,13 @@ nav button {
   height: 5px;
   background-color: rgb(61, 59, 59);
 }
+
+.hero-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
 .btn{
   padding: 3px 5px;
   font-weight: bold;
@@ -89,9 +96,18 @@ nav button {
 }
 
 .btn-red{
-  /* padding: 3px 5px; */
+  padding: 3px 24px;
+  font-size: 20px;
+  border-radius: 4px;
   background-color: red;
   color: white;
+}
+
+.main input{
+  padding: 8px 35px;
+  font-size: 12px;
+  border-radius: 4px;
+  background-color: rgba(248, 243, 243, 0.021);
 }
 
 .btn-red-sm{
