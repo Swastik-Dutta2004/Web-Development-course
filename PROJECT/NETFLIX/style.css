@@ -27,3 +27,15 @@ nav{
     margin: auto;
     height:62px;
 }
+nav img{
+    color: red;
+    width: 5.5625rem;
+    height: 1.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+nav button{
+    position: relative;
+    z-index: 10;
+}
