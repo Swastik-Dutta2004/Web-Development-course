@@ -82,3 +82,20 @@ nav button {
   height: 5px;
   background-color: rgb(61, 59, 59);
 }
+.btn{
+  padding: 3px 5px;
+  font-weight: bold;
+  background-color: white;
+}
+
+.btn-red{
+  /* padding: 3px 5px; */
+  background-color: red;
+  color: white;
+}
+
+.btn-red-sm{
+  padding: 3px 5px;
+  background-color: red;
+  color: white;
+}
