@@ -20,18 +20,18 @@ body{
 .main .box {
   height: 70vh;
   width: 100%;
-  opacity: 0.44;
+  opacity: 0.68;
   background-color: black;
   position: absolute;
   top: 0;
 }
 nav {
-  display: flex;
-  align-items: center;
-  max-width: 80vw;
-  justify-content: space-between;
-  margin: auto;
-  height: 62px;
+    max-width: 60vw;
+    justify-content: space-between;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    height: 100px;
 }
 nav img {
   color: red;
@@ -47,16 +47,18 @@ nav button {
 }
 
 .hero {
-  font-family: "Martel Sans", sans-serif;
-  height: 100%;
+  font-family: 'Martel Sans', sans-serif;
+  height: calc(100% - 100px);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   color: white;
   position: relative;
   gap: 23px;
+  padding: 0 30px;
 }
+
 .hero>:nth-child(1){
   font-family: 'Poppins', sans-serif;
   font-weight: bolder;
@@ -77,4 +79,9 @@ nav button {
 .hero>:nth-child(4){
   font-weight: 400;
   font-size: 20px;
+}
+
+.separation{
+  height: 5px;
+  background-color: grey;
 }
