@@ -59,29 +59,26 @@ nav button {
   padding: 0 30px;
 }
 
-.hero>:nth-child(1){
+.hero> :nth-child(1) {
   font-family: 'Poppins', sans-serif;
   font-weight: bolder;
-  font-size: 30px;
+  font-size: 48px;
   text-align: center;
 }
 
-.hero>:nth-child(2){
+.hero> :nth-child(2) {
   font-weight: 400;
   font-size: 24px;
+  text-align: center;
 }
 
-.hero>:nth-child(3){
+.hero> :nth-child(3) {
   font-weight: 400;
   font-size: 20px;
-}
-
-.hero>:nth-child(4){
-  font-weight: 400;
-  font-size: 20px;
+  text-align: center;
 }
 
 .separation{
   height: 5px;
-  background-color: grey;
+  background-color: rgb(61, 59, 59);
 }
