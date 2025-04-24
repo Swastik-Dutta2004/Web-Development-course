@@ -132,17 +132,18 @@ nav button {
   align-items: center;
 }
 
-secImg img{
-  width: 30px;
-}
-
-secImg{
+.secImg {
   position: relative;
 }
 
-.secImg video{
-  position: absolute;
-  top: 92%;
-  right: 306px;
-
+.secImg img {
+  width: 555px;
+  position: relative;
+  z-index: 10;
 }
+
+.secImg video {
+  position: absolute;
+  top: 51px;
+  right: 0;
+  width: 482px;}
