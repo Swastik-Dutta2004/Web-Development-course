@@ -90,9 +90,14 @@ nav button {
   gap: 16px;
 }
 .btn{
+  font-family: 'Poppins', sans-serif;
   padding: 3px 5px;
-  font-weight: bold;
-  background-color: white;
+  font-weight: 400;
+  background-color: rgba(229, 221, 221, 0.073);
+  color: white;
+  border: 1px solid white; 
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .btn-red{
@@ -101,6 +106,12 @@ nav button {
   border-radius: 4px;
   background-color: red;
   color: white;
+}
+.btn-red-sm{
+  padding: 3px 5px;
+  background-color: red;
+  color: white;
+  border-radius: 4px;
 }
 
 .main input {
@@ -112,8 +123,23 @@ nav button {
   border: 1px solid rgba(246, 238, 238, 0.5);
 }
 
-.btn-red-sm{
-  padding: 3px 5px;
-  background-color: red;
+.first{
+  display: flex;
+  justify-content: center;
+  max-width: 70vw;
+  margin: auto;
   color: white;
+  align-items: center;
+}
+
+secImg img{
+  width: 30px;
+}
+
+secImg{
+  position: relative;
+}
+
+secImg video{
+  
 }
