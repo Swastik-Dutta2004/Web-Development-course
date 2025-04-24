@@ -140,6 +140,9 @@ secImg{
   position: relative;
 }
 
-secImg video{
-  
+.secImg video{
+  position: absolute;
+  top: 92%;
+  right: 306px;
+
 }
