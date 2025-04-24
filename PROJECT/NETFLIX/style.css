@@ -103,11 +103,13 @@ nav button {
   color: white;
 }
 
-.main input{
-  padding: 8px 35px;
+.main input {
+  padding: 7px 101px 8px 14px;
+  color: white;
   font-size: 12px;
   border-radius: 4px;
-  background-color: rgba(248, 243, 243, 0.021);
+  background-color: rgba(23, 23, 23, 0.7);
+  border: 1px solid rgba(246, 238, 238, 0.5);
 }
 
 .btn-red-sm{
