@@ -178,6 +178,10 @@ nav button {
     color: white;
 }
 
+.faqBox svg{
+  filter: invert(1);
+}
+
 .faqBox{
   display: flex;
   padding: 13px ;
@@ -188,3 +192,21 @@ nav button {
   cursor: pointer;
   font-size: 21px;
 }                         
+
+.footer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  color: white;
+  
+}
+
+.Footer-item{
+  display: flex;
+  flex-direction: column;
+}
+
+footer{
+  color: white;
+  max-width: 60vw;
+  margin:auto;
+}
