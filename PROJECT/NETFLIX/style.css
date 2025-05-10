@@ -161,3 +161,30 @@ nav button {
   font-family: 'Poppins', sans-serif;
 
 }
+
+.faq h2{
+  text-align: center;
+  padding: 10px 30px 30px 30px;
+  font-size: 48px;
+}
+
+.faq{
+  background-color: black;
+  color: white;
+}
+
+.faqBox:hover{
+  background-color: #414141;
+    color: white;
+}
+
+.faqBox{
+  display: flex;
+  padding: 13px ;
+  justify-content: space-between;
+  max-width: 66vw;
+  margin: 5px auto;
+  background-color: #2d2d2d;
+  cursor: pointer;
+  font-size: 21px;
+}                         
