@@ -203,10 +203,21 @@ nav button {
 .Footer-item{
   display: flex;
   flex-direction: column;
+  gap: 23px;
 }
 
 footer{
   color: white;
   max-width: 60vw;
   margin:auto;
+  padding: 14px;
+}
+
+.footer a{
+  font-size: 14px;
+  color: white;
+}
+
+footer span{
+  padding: 34px 0;
 }
