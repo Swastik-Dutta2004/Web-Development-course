@@ -133,6 +133,12 @@ nav button {
   padding: 10px;
 }
 
+@media screen and (max-width: 1300px){
+  .first{
+    flex-wrap: wrap;
+  }
+}
+
 .secImg {
   position: relative;
 }
@@ -218,6 +224,6 @@ footer{
   color: white;
 }
 
-footer .question{
+footer{
   padding: 34px 0;
 }
