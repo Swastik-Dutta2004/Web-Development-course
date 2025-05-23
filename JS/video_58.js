@@ -25,4 +25,3 @@ const funct1 = (x) => {
 
 funct1(57);
 funct1(455)
-

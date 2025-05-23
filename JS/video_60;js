@@ -1,0 +1,10 @@
+let name = "swastik"
+let friend = "sudip"
+
+console.log(`his name is ${name} and his friend name is ${friend}`);
+
+console.log("his name is " + name + " and his friend name is "+ friend);
+
+let s = "swastik"
+
+console.log(s.toUpperCase());
