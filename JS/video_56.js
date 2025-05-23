@@ -14,11 +14,22 @@ if(age >= 10 && age <= 20){
     
 }
 
-number = 6
+number = 15
 
-if(2/number && 3/number){
+if(number /2 == 0 && number/3 == 0){
     console.log("it is divisble");
 }else{
     console.log("it is not");
+    
+}
+
+if (number/2 == 0) {
+    console.log("it is disible by 2");
+} 
+else if(number % 3 == 0) {
+    console.log("it is disible by 3");   
+}
+else{
+    console.log("you have put something wrong");
     
 }
