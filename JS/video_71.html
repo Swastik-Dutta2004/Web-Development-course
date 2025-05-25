@@ -11,10 +11,10 @@
             <div class="box" style="flex: auto;">Hey i am a box</div>
 
             <script>
-                let dick = document.createElement("div")
-                dick.innerHTML = "I have been inserted <b> Swastik </b>"
-                dick.setAttribute("class","created");
-                document.querySelector(".container").insertAdjacentElement
+                // let dick = document.createElement("div")
+                // dick.innerHTML = "I have been inserted <b> Swastik </b>"
+                // dick.setAttribute("class", "created");
+                document.querySelector(".container").insertAdjacentHTML("afterbegin", '<div class = " created">I have been inserted <b> Swastik </b></div>')
             </script>
         </div>
 </body>
