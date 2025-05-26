@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-        <div class="container">
-            <div class="box" style="flex: auto;"  data-createdby="swa" data-conceptby="dut">Hey i am a box</div>
-            <div class="box" style="flex: auto;">Hey i am a box</div>
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="box"
+        style="flex: auto"
+        data-createdby="swa"
+        data-conceptby="dut"
+      >
+        Hey i am a box
+      </div>
+      <div class="box" style="flex: auto">Hey i am a box</div>
 
-            <script>
-                // let dick = document.createElement("div")
-                // dick.innerHTML = "I have been inserted <b> Swastik </b>"
-                // dick.setAttribute("class", "created");
-                document.querySelector(".container").insertAdjacentHTML("afterbegin", '<div class = " created">I have been inserted <b> Swastik </b></div>')
-            </script>
-        </div>
-</body>
+      <script>
+        //this is the last one
+        let dick = document.createElement("div");
+        dick.innerHTML = "I am <b> append </b>" ;
+        dick.setAttribute("class", "created");
+        document.querySelector(".container").append(dick);
+
+        //this the first one
+        document
+          .querySelector(".container")
+          .insertAdjacentHTML(
+            "afterbegin",
+            '<div class = " created">I am <b> insertAdjacentHTML </b></div>'
+          );
+
+        let trying = document.createElement("div");
+        trying.className = "created";
+        trying.textContent = "I am insertAdjacentElemen";
+        document.querySelector(".container").insertAdjacentElement("afterend",trying)
+      </script>
+    </div>
+  </body>
 </html>
