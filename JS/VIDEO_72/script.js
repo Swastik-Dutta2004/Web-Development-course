@@ -9,5 +9,6 @@ function getRandomColor(){
     return `rgb(${a}, ${b}, ${c})`; 
     
 }
-
+Array.from(boxes).forEach(e =>{
+    e.style.background = getRandomColor();
 })
