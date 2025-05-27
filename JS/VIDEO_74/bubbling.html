@@ -43,6 +43,21 @@
         document.querySelector(".container").addEventListener("click", ()=>{
             alert("You press container")
         })
+
+
+
+    function getRandomColor(){
+
+    let a = Math.ceil(Math.random() * 255);
+    let b = Math.ceil(Math.random() * 255);
+    let c = Math.ceil(Math.random() * 255);
+
+    return `rgb(${a}, ${b}, ${c})`;
+    }
+        
+        setInterval(() =>{
+          document.querySelector(".container").style.background = getRandomColor()
+        })
     </script>
 </body>
 </html>
