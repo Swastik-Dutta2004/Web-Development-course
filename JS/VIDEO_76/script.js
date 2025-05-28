@@ -12,8 +12,9 @@ console.log("Do Sommething else");
 
 console.log("Load data");
 
-let data =  getData()
-console.log(data);
-
+let data =  getData().then((data) =>{
+    console.log(data);
+    
+})
 
 
