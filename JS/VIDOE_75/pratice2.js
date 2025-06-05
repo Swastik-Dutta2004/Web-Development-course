@@ -1,6 +1,10 @@
 console.log("i am done");
 
 let prom1 = new Promise ((resolve, reject) => {
+    let a =  Math.random()
+    if (a < 0.5) {
+        reject("This number cannot support");
+    }
     setTimeout(() =>{
         console.log("yes all is ok");
         resolve("swastik")
