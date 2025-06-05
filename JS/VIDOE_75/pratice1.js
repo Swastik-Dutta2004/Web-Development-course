@@ -9,7 +9,8 @@ let callback = (arg) => {
 let loadSript = (src,callback) => {
     let sc = document.createElement("script")
     sc.src = src;
-    sc.onload = callback("swastik")
+    sc.onload = callback(src)
+    document.head.append(sc)
 }
 
 loadSript("https://www.codewithharry.com/notes/",callback)
