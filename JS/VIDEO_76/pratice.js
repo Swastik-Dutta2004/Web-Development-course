@@ -15,8 +15,8 @@ async function main() {
 
     console.log("do something else");
 
-    let a = await getData()
-    console.log(a);
+    let data = await getData()
+    console.log(data);
     
 
     console.log("Processing Data");
