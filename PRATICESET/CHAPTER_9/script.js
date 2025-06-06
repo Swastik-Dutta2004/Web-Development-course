@@ -8,12 +8,14 @@
 })
 }
 
-
-    getData('test.js')
-    .then((src) => {
-        alert("File has loaded sucessfully")
-    }).catch ((error)  => {
-    console.log(error);
-    
-    alert("Something went wrong")
-})
+async function main() {    
+    try{
+        await getData('test.js')
+        alert("File is not running")
+    }
+    catch (error){
+        console.log(error);
+        alert("Something went wrong")
+    }
+}
+main()
