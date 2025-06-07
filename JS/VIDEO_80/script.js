@@ -25,3 +25,12 @@ class animal {
 }
 
 let a = new animal("SWasTiK","kirnahar")
+
+
+class lion extends animal{
+    constructor(name){
+        super(name)
+    }
+}
+
+let l = new lion("Shera")
