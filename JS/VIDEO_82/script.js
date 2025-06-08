@@ -22,7 +22,17 @@ async function name() {
         d:8
     }
 
-    let {a,b} = obj
-    console.log(a,b);
+    // let {a,b} = obj
+    // console.log(a,b);
     
 })()
+
+function sum(a,b,c){
+    return a+b+c
+}
+
+let arr = [4,6,4,]
+console.log(sum(...arr));
+const obj = {...arr}
+console.log(obj);
+
