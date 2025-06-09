@@ -39,7 +39,6 @@ class student extends human{
         
     }
 }
-
 let s = new student()
 s.eat()
 s.peace()
