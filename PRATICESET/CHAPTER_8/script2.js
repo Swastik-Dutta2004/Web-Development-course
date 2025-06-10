@@ -12,3 +12,21 @@ document.getElementById("addBookMark").addEventListener("click", function(){
 })
 
 let bookmarks = JSON.parse(localStorage.getItem("bookmraks")) || []
+
+bookmarks.push({name: name, url: url})
+
+localStorage.setItem("bookmarks",JSON.stringify(bookmarks))
+
+document.getElementById("sitename").value = ""
+document.getElementById("siteurl").value = ""
+
+function loadBookMarks(){
+    let list = document.getElementById("bookmraks")
+    list.innerHTML = ""
+
+    let bookmarks = JSON.parse(localStorage.getItem("bookmraks")) || []
+
+    bookmarks.forEach(bookmark => {
+        
+    });
+}
