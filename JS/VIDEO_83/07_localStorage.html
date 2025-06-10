@@ -6,17 +6,33 @@
     <title>local storage</title>
 </head>
 <body>
+    <button>Add Notes</button>
+    <div id="write"></div>
     <script>
         
-        if (localStorage.getItem("name")) {
-            let a = localStorage.getItem("name")
-            if(a == "null"){
-                let a = prompt("Enter your name:")
-            localStorage.setItem("name",a)
-        }
-        document.write("welcome "+ a)
-        }
+        // if (localStorage.getItem("name")) {
+        //     let a = localStorage.getItem("name")
+        //     if(a == "null"){
+        //         let a = prompt("Enter your name:")
+        //     localStorage.setItem("name",a)
+        // }
+        // document.write("welcome "+ a)
+        // }
        
+        function saveNoteToLocalStorage(note){
+            localStorage.setItem("note",note)
+        }
+
+        let note = localStorage.getItem("note")
+        if (note) {
+            document.querySelector("#Write").innerHTML = note   
+        }
+
+        document.querySelector("button").addEventListener("click",() =>{
+            let note = prompt("Enter a note")
+            saveNoteToLocalStorage(note)
+            document.write(note)
+        })
     </script>
 </body>
 </html>
