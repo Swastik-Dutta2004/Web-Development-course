@@ -19,20 +19,23 @@
         // document.write("welcome "+ a)
         // }
        
-        function saveNoteToLocalStorage(note){
-            localStorage.setItem("note",note)
-        }
-
         let note = localStorage.getItem("note")
+
         if (note) {
-            document.querySelector("#Write").innerHTML = note   
+            document.querySelector("#write").innerHTML = note  
         }
 
         document.querySelector("button").addEventListener("click",() =>{
             let note = prompt("Enter a note")
             saveNoteToLocalStorage(note)
-            document.write(note)
         })
+
+        
+        function saveNoteToLocalStorage(note){
+            localStorage.setItem("note",note)
+            document.write(note)
+        }
+
     </script>
 </body>
 </html>
