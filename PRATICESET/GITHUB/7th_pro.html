@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button>Add notes</button>
+    <div class="notes"></div>
+    <script>
+        function saveNoteToLocalStorage(note){
+            localStorage.setItem("note",note)
+        }
+
+        let note = localStorage.getItem("note")
+        if(note){
+            document.querySelector(".notes").innerHTML = note
+        }
+        else{
+            document.querySelector("button").addEventListener("click",() => {
+                let note = prompt("Enter your notes ")
+                
+                saveNoteToLocalStorage(note)
+                document.querySelector(".notes").innerHTML = note
+            })
+        }
+    </script>
+</body>
+</html>
