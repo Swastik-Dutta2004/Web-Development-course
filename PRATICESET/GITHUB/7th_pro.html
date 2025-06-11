@@ -18,14 +18,14 @@
         if(note){
             document.querySelector(".notes").innerHTML = note
         }
-        else{
+        
             document.querySelector("button").addEventListener("click",() => {
                 let note = prompt("Enter your notes ")
                 
                 saveNoteToLocalStorage(note)
                 document.querySelector(".notes").innerHTML = note
             })
-        }
+        
     </script>
 </body>
 </html>
