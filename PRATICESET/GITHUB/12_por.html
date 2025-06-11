@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function setAuthToken (){
+            return new Promise(resolve => {
+                let token = prompt("Enter user authentication ")
+            localStorage.setItem("token",token)
+            
+            setTimeout(() => {
+                localStorage.removeItem("token")
+                resolve(alert("Token removed succesfully"))
+            }, 5000);
+    })
+}setAuthToken()
+    </script>
+</body>
+</html>

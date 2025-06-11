@@ -4,18 +4,16 @@ let product = [
     { name: "Laptop", category: "electronics" },
     { name: "Jeans", category: "clothing" }
 ]
-
-function filterProducts(product,category){
+function filterProducts(product,catagory){
     let result = []
-
+    
     for (let i = 0; i < product.length; i++) {
-        if(product[i].category == category){
+        if(product[i].category == catagory){
             result.push(product[i])
-        }
+        }        
     }
     return result
 }
 
-let filtered = filterProducts(product,"electronics")
-
-console.log(filtered);
+let filter = filterProducts(product,"electronics")
+console.log(filter);
