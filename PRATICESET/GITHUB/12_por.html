@@ -10,7 +10,7 @@
         function setAuthToken (){
             return new Promise(resolve => {
                 let token = prompt("Enter user authentication ")
-            localStorage.setItem("token",token)
+                    localStorage.setItem("token",token)
             
             setTimeout(() => {
                 localStorage.removeItem("token")
