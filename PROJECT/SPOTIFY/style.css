@@ -1,3 +1,8 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
 /* body{
     background-color: black;
     color: white;
@@ -6,9 +11,27 @@
 
 .left{
     width: 25vw;
+    padding: 10px;
 }
 
 .right{
     width: 75vw;
 }
+
+.home{
+    padding: 10px;
+}
+
+  .home ul li{
+    display: flex;
+    width: 14px;
+    gap: 15px;
+    list-style: none;
+    padding-top: 12px;
+  }
+
+  .bg-black{
+    background-color: black;
+    color: white;
+  }
 
