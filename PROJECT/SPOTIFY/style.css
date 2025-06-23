@@ -7,10 +7,10 @@
 
 }
 
-/* body{
+body{
     background-color: black;
     color: white;
-} */
+}
 
 
 .left{
@@ -54,15 +54,47 @@
   }
 
   .libary{
-    min-height: 50vh;
+    min-height: 80vh;
+    position: relative;
   }
 
   .footer{
     display: flex;
-    gap: 13px;
     font-size: 10px;
+    color: grey;
+    gap: 13px;
+    position: absolute;
+    bottom: 0;
+    padding: 10px 0;
   }
 
   .footer a{
     color: gray;
+  }
+
+  .right{
+    margin: 16px 0;
+  }
+
+  .header{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(34, 34, 34)
+  }
+
+  .header > *{
+    padding: 20px;
+  }
+
+  .spotify-Playlis{
+    padding: 16px;
+  }
+
+  .spotify-Playlis .card{
+    width: 250px;
+  }
+
+  .card.img{
+    width: 100%;
+    object-fit: contain;
   }
