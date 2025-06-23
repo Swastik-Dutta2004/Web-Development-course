@@ -52,3 +52,17 @@
   .heading img{
     width: 14px;
   }
+
+  .libary{
+    min-height: 50vh;
+  }
+
+  .footer{
+    display: flex;
+    gap: 13px;
+    font-size: 10px;
+  }
+
+  .footer a{
+    color: gray;
+  }
