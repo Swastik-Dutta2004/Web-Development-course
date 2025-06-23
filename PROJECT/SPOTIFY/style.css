@@ -65,7 +65,7 @@ body{
     gap: 13px;
     position: absolute;
     bottom: 0;
-    padding: 10px 0;
+    padding: 10px 0px;
   }
 
   .footer a{
@@ -90,11 +90,24 @@ body{
     padding: 16px;
   }
 
-  .spotify-Playlis .card{
-    width: 250px;
+  .card-container{
+    display: flex;
+    margin: 30px;
+    gap: 10px;
+    flex-wrap: wrap;
   }
 
-  .card.img{
+  .card{
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #252525;
+  }
+  .card > *{
+    padding-top: 10px;
+  }
+
+  .card img{
     width: 100%;
-    object-fit: contain;
+    object-fit:contain;
   }
