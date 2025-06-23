@@ -95,19 +95,56 @@ body{
     margin: 30px;
     gap: 10px;
     flex-wrap: wrap;
+    overflow-y: scroll;
+    max-height: 80vh;
   }
 
   .card{
-    width: 200px;
+    width: 150px;
+    height: 250px;
     padding: 10px;
     border-radius: 5px;
     background-color: #252525;
   }
-  .card > *{
-    padding-top: 10px;
-  }
+  
 
   .card img{
     width: 100%;
     object-fit:contain;
   }
+
+  .card h2{
+    font-size: 15px;
+  }
+
+  .card p {
+    font-size: 12px;
+    padding: 5px 0px ;
+  }
+
+  /* Scrollbar Styling for WebKit Browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;  /* Dark background track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;  /* Scrollbar thumb color */
+  border-radius: 10px;
+  border: 2px solid #1e1e1e; /* Padding effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;  /* Slightly lighter on hover */
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #444 #1e1e1e;
+}
