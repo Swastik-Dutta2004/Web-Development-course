@@ -179,6 +179,7 @@ body{
 .songList{
   height: 444px;
   overflow: auto;
+  padding-bottom: 70px; /* enough space to not collide with footer */
 }
 
 .songList ul{
@@ -186,15 +187,15 @@ body{
 }
 
 .songList ul li{
-    list-style-type: decimal;
     display: flex;
     gap: 10px;
     cursor: pointer;
     border: 2px solid white;
     padding: 10px;
     border-radius: 5px;
-    margin: 5px;
+    margin: 12px 0;
     font-size: 12px;
+    
 }
 
 .songInfo {
