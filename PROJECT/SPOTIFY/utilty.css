@@ -36,3 +36,30 @@
     padding: 10px;
 
 }
+
+/* Scrollbar Styling for WebKit Browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;  /* Dark background track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;  /* Scrollbar thumb color */
+  border-radius: 10px;
+  border: 2px solid #1e1e1e; /* Padding effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;  /* Slightly lighter on hover */
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #444 #1e1e1e;
+}
