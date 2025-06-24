@@ -14,7 +14,7 @@ body{
 
 
 .left{
-    width: 25vw;
+    width: 30vw;
     padding: 10px;
 }
 
@@ -182,4 +182,7 @@ body{
 .songList ul li{
 list-style-type: decimal;
 display: flex;
+gap: 34px;
+cursor: pointer;
+padding: 12px 0 ;
 }
