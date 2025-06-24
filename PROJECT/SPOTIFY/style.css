@@ -162,11 +162,12 @@ body{
 
 .playbar{
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   background-color: rgb(228, 237, 228);
   width: 90%;
   height: 19px;
   padding: 12px;
+  border-radius: 3px;
 }
 
 .songbut{
@@ -175,14 +176,19 @@ body{
   gap: 10px;
 }
 
+.songList{
+  height: 444px;
+  overflow: auto;
+}
+
 .songList ul{
-  padding: 0 30px;
+  padding: 0 30px 30px ;
 }
 
 .songList ul li{
     list-style-type: decimal;
     display: flex;
-    gap: 34px;
+    gap: 10px;
     cursor: pointer;
     border: 2px solid white;
     padding: 10px;
@@ -191,8 +197,18 @@ body{
     font-size: 12px;
 }
 
-.playnow{
+.songInfo {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.playnow {
+  margin-left: auto;
+}
+
+.playnow img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }

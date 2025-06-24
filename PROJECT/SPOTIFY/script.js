@@ -21,9 +21,24 @@ async function main() {
     console.log(songs);
 
     let songUl = document.querySelector(".songList").getElementsByTagName("ul")[0]
-    for (const song of songs) {
-        songUl.innerHTML = songUl.innerHTML + `<li> ${song.replaceAll("%20", " ")} </li>`
-    }
+   for (const song of songs) {
+    // Extract title and artist
+    let [title, artist] = song.replaceAll("%20", " ").replace(".mp3", "").split(" - ");
+    artist = artist || "Unknown Artist";
+
+    // Add the song item to the list
+    songUl.innerHTML += `
+        <li>
+            <img class="invert" src="music.svg" alt="">
+            <div class="songInfo">
+                <div>${title}</div>
+                <div>${artist}</div>
+            </div>
+            <div class="playnow">
+                <img class="invert" src="play2.svg" alt="">
+            </div>
+        </li>`;
+}
 
     var audio = new Audio(songs[1]);
     audio.play();
