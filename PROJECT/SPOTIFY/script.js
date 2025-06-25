@@ -1,5 +1,6 @@
-async function getSongs() {
+let currentSong = new Audio();
 
+async function getSongs() {
     let a = await fetch("http://127.0.0.1:3000/PROJECT/SPOTIFY/songs/")
     let response =  await a.text()
     console.log(response);
@@ -15,15 +16,16 @@ async function getSongs() {
     }
     return songs
 }
-
+  
 const playMusic = (track) => {
-    let audio = new Audio("/songs/" + track)
-    audio.play()
+    // let audio = new Audio("songs/" + encodeURIComponent(track));
+    currentSong.src = "songs/" + encodeURIComponent(track)
+    currentSong.play().catch(err => console.error("Audio play error:", err));
 };
 
 
+
 async function main() {
-    let currentSong;
 
     let songs = await getSongs()
     console.log(songs);
@@ -36,7 +38,7 @@ async function main() {
 
     // Add the song item to the list
     songUl.innerHTML += `
-        <li>
+         <li data-song="${song}">
             <img class="invert" src="music.svg" alt="">
             <div class="songInfo">
                 <div>${title}</div>
@@ -50,11 +52,13 @@ async function main() {
 
    
   // The duration variable now holds the duration (in seconds) of the audio clip
-    Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e =>{
-        e.addEventListener("click",element => {
-            console.log(e.querySelector(".songInfo").firstElementChild.innerHTML)
-            playMusic(e.querySelector(".songInfo").firstElementChild.innerHTML)
-        })
-    })
+    Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
+    e.addEventListener("click", element => {
+        let filename = e.getAttribute("data-song");
+        console.log("Playing:", filename);
+        playMusic(filename);
+    });
+});
+
 }
 main()
