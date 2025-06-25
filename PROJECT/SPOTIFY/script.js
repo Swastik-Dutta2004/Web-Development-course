@@ -21,6 +21,9 @@ const playMusic = (track) => {
     // let audio = new Audio("songs/" + encodeURIComponent(track));
     currentSong.src = "songs/" + encodeURIComponent(track)
     currentSong.play().catch(err => console.error("Audio play error:", err));
+    play.src = "pause.svg"
+    document.querySelector(".songinfo").innerHTML = track
+    document.querySelector(".songTime").innerHTML = "00:00/00:00"
 };
 
 
@@ -59,6 +62,18 @@ async function main() {
         playMusic(filename);
     });
 });
+
+    //Play & Paused 
+    play.addEventListener("click", () => {
+        if(currentSong.paused){
+            currentSong.play()
+            play.src = "pause.svg"
+        }else{
+            currentSong.pause()
+            play.src = "play.svg"
+
+        }
+    })
 
 }
 main()
