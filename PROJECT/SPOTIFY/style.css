@@ -157,13 +157,13 @@ body{
 }
 
 .playbar{
-  position: absolute;
+  position: fixed;
   bottom: 10px;
-  background-color: rgb(228, 237, 228);
-  width: 90%;
-  height: 19px;
+  background-color: rgb(188 210 190);
+  width: 63%;
+  height: 35px;
   padding: 12px;
-  border-radius: 3px;
+  border-radius: 20px;
 }
 
 .songbut{
@@ -207,4 +207,24 @@ body{
   width: 24px;
   height: 24px;
   cursor: pointer;
+}
+
+.seekbar{
+  position: absolute;
+  width: 97%;
+  height: 2px;
+  border: 2px solid red;
+  border-radius: 10px;
+  bottom: 6px;
+}
+
+.circle{
+  width: 13px;
+  height: 13px;
+  background-color: black;
+  border-radius: 50px;
+  position: absolute;
+  bottom: -5px;
+  left: 0px;
+  transition: 0.5s;
 }
