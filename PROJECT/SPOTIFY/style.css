@@ -159,17 +159,33 @@ body{
 .playbar{
   position: fixed;
   bottom: 10px;
-  background-color: rgb(188 210 190);
+  background-color: rgb(224 240 225);
   width: 63%;
   height: 35px;
   padding: 12px;
   border-radius: 20px;
 }
 
+.barEle{
+  display: flex;
+}
+
 .songbut{
   display: flex;
   justify-content: center;
   gap: 10px;
+  position: absolute;
+  left: 50%;
+}
+
+.songTime{
+    position: absolute;
+    right: 25px;
+}
+
+.songinfo{
+  position: absolute;
+    left: 25px;
 }
 
 .songList{
