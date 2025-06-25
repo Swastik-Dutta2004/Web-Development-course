@@ -62,7 +62,7 @@ body{
     font-size: 10px;
     color: grey;
     gap: 13px;
-    position: absolute;
+    position: relative;
     bottom: 0;
     padding: 10px 0px;
   }
@@ -100,7 +100,7 @@ body{
     gap: 10px;
     flex-wrap: wrap;
     overflow-y: scroll;
-    max-height: 80vh;
+    max-height: 95vh;
   }
 
   .card{
@@ -177,7 +177,7 @@ body{
 }
 
 .songList{
-  height: 444px;
+  height: 644px;
   overflow: auto;
   padding-bottom: 70px; /* enough space to not collide with footer */
 }
@@ -195,7 +195,6 @@ body{
     border-radius: 5px;
     margin: 12px 0;
     font-size: 12px;
-    
 }
 
 .songInfo {
