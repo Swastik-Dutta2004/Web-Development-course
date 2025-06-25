@@ -1,5 +1,16 @@
 let currentSong = new Audio();
 
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+
+    const formattedMins = mins.toString().padStart(2, '0');
+    const formattedSecs = secs.toString().padStart(2, '0');
+
+    return `${formattedMins}:${formattedSecs}`;
+}
+
+
 async function getSongs() {
     let a = await fetch("http://127.0.0.1:3000/PROJECT/SPOTIFY/songs/")
     let response =  await a.text()
@@ -17,12 +28,14 @@ async function getSongs() {
     return songs
 }
   
-const playMusic = (track) => {
+const playMusic = (track,pause = false) => {
     // let audio = new Audio("songs/" + encodeURIComponent(track));
     currentSong.src = "songs/" + encodeURIComponent(track)
-    currentSong.play().catch(err => console.error("Audio play error:", err));
-    play.src = "pause.svg";
-    document.querySelector(".songinfo").innerHTML = track
+    if(!pause){
+        currentSong.play().catch(err => console.error("Audio play error:", err));
+        play.src = "pause.svg";
+    }
+    document.querySelector(".songinfo").innerHTML = decodeURI(track)
     document.querySelector(".songTime").innerHTML = "00:00/00:00"
 };
 
@@ -32,7 +45,7 @@ async function main() {
 
     let songs = await getSongs()
     console.log(songs);
-
+    playMusic(songs[0],true)
     let songUl = document.querySelector(".songList").getElementsByTagName("ul")[0]
    for (const song of songs) {
     // Extract title and artist
@@ -73,6 +86,13 @@ async function main() {
             play.src = "play.svg"
 
         }
+    })
+
+    //Time update in Seekbar
+    currentSong.addEventListener("timeupdate", ()=> {
+        console.log(currentSong.currentTime,currentSong.duration);
+        document.querySelector(".songTime").innerHTML = `${formatTime(currentSong.currentTime)}/${formatTime(currentSong.duration)}`
+        document.querySelector(".circle").style.left = currentSong.currentTime/currentSong.duration * 100 + "%"
     })
 
 }
