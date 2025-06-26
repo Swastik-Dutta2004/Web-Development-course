@@ -11,12 +11,6 @@ body{
     color: white;
 }
 
-.container {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
 
 .left{
     width: 30vw;
@@ -74,14 +68,11 @@ body{
     color: gray;
   }
 
- .right {
-  margin: 16px 0;
-  position: relative;
-  width: 100%;              /* ✅ Full width */
-  padding-bottom: 80px;     /* ✅ Leave space for playbar */
-  box-sizing: border-box;   /* ✅ Prevent overflow from padding */
-}
-
+  .right{
+    margin: 16px 0;
+    position: relative;
+    width: 68vw;
+  }
 
   .right .header{
     height: 69px;
@@ -111,16 +102,17 @@ body{
     padding: 16px;
   }
 
-  .card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: flex-start;
-  padding: 10px;
-  width: 100%;             /* ✅ Full width */
-  box-sizing: border-box;
-}
-
+  .card-container{
+    display: flex;
+    margin: 24px 0px 0px;
+    gap: 10px;
+    flex-wrap: wrap;
+    max-height: 95vh;
+    align-items: center;
+    box-sizing: border-box;
+    overflow-y: auto;
+    padding: 10px;
+  }
 
   .card {
   flex: 1 1 150px; /* allow flexibility, min 150px */
@@ -288,23 +280,19 @@ body{
   }
   
   .right {
-  margin: 16px 0;
-  position: relative;
-  width: 68vw;
-  padding-bottom: 80px; /* ✅ gives space for playbar */
-}
-
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;  /* ✅ important */
+  }
 /* .card-container{
   overflow-y: scroll;
   box-sizing: border-box;
 } */
 
-  .playbar {
-  width: 96%;
-  position: fixed; /* ✅ not absolute */
-  bottom: 0;
-}
-
+  .playbar{
+    width: 96%;
+    position: absolute;
+  }
 
   .libary {
     min-height: 52vh;
@@ -319,7 +307,7 @@ body{
 @media (max-width: 768px) {
 .container {
     position: absolute;
-    height: 600px;
+    height: 100%;
     width: 100%;
   }
 }
