@@ -4,22 +4,19 @@
   padding: 0;
   margin: 0;
   font-family: 'Roboto', sans-serif;
-
 }
 
 body{
     background-color: black;
     color: white;
+    height: 600px ;
 }
 
 
 .left{
     width: 30vw;
     padding: 10px;
-}
-
-.right{
-    width: 70vw;
+    height: 50vh;
 }
 
   .home ul li{
@@ -75,7 +72,7 @@ body{
   .right{
     margin: 16px 0;
     position: relative;
-    right: 10px;
+    width: 68vw;
   }
 
   .right .header{
@@ -113,7 +110,7 @@ body{
     max-height: 95vh;
     align-items: center;
     box-sizing: border-box;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   .card {
@@ -278,20 +275,27 @@ body{
     transition: all .3s;
     z-index: 1;
     width: 433px;
+    height: 500px;
   }
   
-  .right{
+  .right {
     width: 100%;
-    height: 100%;
+    box-sizing: border-box;
+    position: relative;  /* ✅ important */
   }
-.card-container{
+/* .card-container{
   overflow-y: scroll;
-}
+  box-sizing: border-box;
+} */
 
   .playbar{
     width: 98%;
-    position: absolute;
+    position: fixed;
   }
+
+  .libary {
+    min-height: 52vh;
+}
 
   .hamburger{
     display: block;
@@ -299,9 +303,9 @@ body{
 
 }
 
-/* @media (max-width: 600px) {
-  .card {
-    flex: 1 1 100%;
-    max-width: 100%;
+@media (max-width: 768px) {
+.card-container {
+    margin-top: 0;
+    padding-top: 0;
   }
-} */
+}
