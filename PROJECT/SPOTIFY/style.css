@@ -15,7 +15,7 @@ body{
 .left{
     width: 30vw;
     padding: 10px;
-    height: 150vh;
+    height: 100%;
 }
 
   .home ul li{
@@ -50,7 +50,7 @@ body{
   }
 
   .libary{
-    min-height: 80vh;
+    height: 100%;
     position: relative;
   }
 
@@ -69,10 +69,10 @@ body{
   }
 
   .right{
-       margin: 16px 0;
+    margin: 16px 0;
     position: relative;
     width: 68vw;
-    height: 150vh
+    height: 100%;
   }
 
   .right .header{
@@ -101,7 +101,7 @@ body{
 
   .spotify-Playlist{
     padding: 16px;
-    height: 100vh;
+    height: 600px;
   }
 
   .card-container{
@@ -109,7 +109,7 @@ body{
     margin: 24px 0px 0px;
     gap: 10px;
     flex-wrap: wrap;
-    max-height: 120vh;
+    max-height: 75vh;
     align-items: center;
     box-sizing: border-box;
     overflow-y: auto;
@@ -178,11 +178,11 @@ body{
 }
 
 .playbar{
-  position: fixed;
+  position: absolute;
   bottom: 15px;
   background-color: rgb(224 240 225);
-  width: 65%;
-  height: 35px;
+  width: 95%;
+  min-height: 35px;
   padding: 12px;
   border-radius: 20px;
 }
@@ -192,7 +192,7 @@ body{
 }
 
 .songbut{
-  display: flex;
+  
   justify-content: center;
   gap: 10px;
   position: absolute;
@@ -210,7 +210,7 @@ body{
 }
 
 .songList{
-  height: 800px;
+  height: 409px;
   overflow: auto;
   padding-bottom: 70px; /* enough space to not collide with footer */
 }
@@ -277,14 +277,13 @@ body{
     left: -100%;
     transition: all .3s;
     z-index: 1;
-    width: 433px;
+    width: 533px;
   }
   
   .right {
-    width: 100%;
+    width: auto;
     box-sizing: border-box;
     position: relative;  /* ✅ important */
-    height: auto;
   }
 
   .playbar{
