@@ -72,7 +72,7 @@ body{
     margin: 16px 0;
     position: relative;
     width: 68vw;
-    height: 100%;
+    height: 1156px;
   }
 
   .right .header{
@@ -99,24 +99,24 @@ body{
     display: none;
 }
 
-  .spotify-Playlist{
-    padding: 16px;
-    height: 600px;
+.spotify-Playlist{
+  padding: 16px;
+  height: 953px;
+}
+
+.card-container{
+  display: flex;
+  margin: 24px 0px 0px;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-height: 107vh;
+  align-items: center;
+  box-sizing: border-box;
+  overflow-y: auto;
+  padding: 10px;
   }
 
-  .card-container{
-    display: flex;
-    margin: 24px 0px 0px;
-    gap: 10px;
-    flex-wrap: wrap;
-    max-height: 75vh;
-    align-items: center;
-    box-sizing: border-box;
-    overflow-y: auto;
-    padding: 10px;
-  }
-
-  .card {
+.card {
   flex: 1 1 150px; /* allow flexibility, min 150px */
   max-width: 200px; /* prevent over-stretching */
   height: 250px;

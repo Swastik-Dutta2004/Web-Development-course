@@ -86,9 +86,12 @@ async function main() {
             play.src = "play.svg"
 
         }
-    })
+    })  
 
-    //Time update in and Seekbar also
+    //previous and next buttons
+    
+
+    //Time update and Seekbar also
     currentSong.addEventListener("timeupdate", ()=> {
         console.log(currentSong.currentTime,currentSong.duration);
         document.querySelector(".songTime").innerHTML = `${formatTime(currentSong.currentTime)}/${formatTime(currentSong.duration)}`
