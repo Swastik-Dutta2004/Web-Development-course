@@ -1,5 +1,5 @@
 let currentSong = new Audio();
-
+let songs;
 function formatTime(seconds) {
     const mins = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
@@ -43,7 +43,7 @@ const playMusic = (track,pause = false) => {
 
 async function main() {
 
-    let songs = await getSongs()
+    songs = await getSongs()
     console.log(songs);
     playMusic(songs[0],true)
     let songUl = document.querySelector(".songList").getElementsByTagName("ul")[0]
@@ -89,7 +89,30 @@ async function main() {
     })  
 
     //previous and next buttons
-    
+   previous.addEventListener("click", () => {
+    console.log("clicked");
+    let fileName = currentSong.src.split("/").pop(); // extract just the file name
+    let index = songs.indexOf(fileName);
+
+    if (index > 0) {
+        playMusic(songs[index - 1]); // Go to previous song
+    } else {
+        console.log("Already at first song");
+    }
+});
+
+next.addEventListener("click", () => {
+    console.log("clicked");
+    let fileName = currentSong.src.split("/").pop(); // extract just the file name
+    let index = songs.indexOf(fileName);
+
+    if (index < songs.length - 1) {
+        playMusic(songs[index + 1]); // Go to next song
+    } else {
+        console.log("Already at last song");
+    }
+});
+
 
     //Time update and Seekbar also
     currentSong.addEventListener("timeupdate", ()=> {
