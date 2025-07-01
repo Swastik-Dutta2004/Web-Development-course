@@ -89,30 +89,22 @@ async function main() {
     })  
 
     //previous and next buttons
-   previous.addEventListener("click", () => {
-    console.log("clicked");
-    let fileName = currentSong.src.split("/").pop(); // extract just the file name
-    let index = songs.indexOf(fileName);
+    previous.addEventListener("click",() =>{
+        console.log("clicked");
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+        if((index-1) >= 0){
+            playMusic(songs[index -1])
+        }
+    })
 
-    if (index > 0) {
-        playMusic(songs[index - 1]); // Go to previous song
-    } else {
-        console.log("Already at first song");
-    }
-});
-
-next.addEventListener("click", () => {
-    console.log("clicked");
-    let fileName = currentSong.src.split("/").pop(); // extract just the file name
-    let index = songs.indexOf(fileName);
-
-    if (index < songs.length - 1) {
-        playMusic(songs[index + 1]); // Go to next song
-    } else {
-        console.log("Already at last song");
-    }
-});
-
+    next.addEventListener("click",() => {
+        console.log("click");
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+        if((index+1) > songs.length){
+            playMusic(songs[index +1])
+        }
+        
+    })
 
     //Time update and Seekbar also
     currentSong.addEventListener("timeupdate", ()=> {
