@@ -11,7 +11,7 @@ body{
    color: white;
 }
 .left{
-    width: 25vw;
+    width: 30vw;
     padding: 10px;
 }
 
@@ -51,6 +51,7 @@ body{
     width: 30px;
 }
 
+
 .libary{
     min-height: 76vh;
     position: relative;
@@ -72,7 +73,8 @@ body{
 .header{
     display: flex;
     justify-content: space-between;
-    background-color: rgb(34, 34, 34)
+    background-color: rgb(34, 34, 34);
+    height: 79px;
 }
 
 .header >*{
@@ -88,16 +90,30 @@ body{
     flex-wrap: wrap;
     gap: 10px;
     margin: 30px;
+    max-height: 62vh;
+    overflow-y: scroll;
 }
 
  .cards{
-    width: 188px;
+    width: 165px;
     padding: 10px;
     border-radius: 5px;
     background-color: #252525;
     gap: 10px;
     position: relative;
 }
+
+.cards h2 {
+  font-size: 15px;
+  margin: 8px 0 4px;
+}
+
+.cards p {
+  font-size: 12px;
+  line-height: 1.3;
+  color: #ccc;
+}
+
 
 .spotifyPlayList img{
     width: 100%;
@@ -110,4 +126,38 @@ body{
     position: absolute;
     top: 119px;
     right: 20px;
+}
+
+.buttons >*{
+    margin: 0 10px;
+}
+.signup{
+    background-color: rgb(34, 34, 34);
+    color: rgb(125, 119, 119);
+    font-weight: bold;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.signup:hover{
+    color: white;
+    font-size: 17px;
+}
+
+.login{
+    width: 79px;
+    background-color: white;
+    border-radius: 30px;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login:hover{
+    width: 82px;
+    font-size: 17px;
 }
