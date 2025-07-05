@@ -58,6 +58,15 @@ body{
     position: relative;
 }
 
+.song-list ul{
+    padding: 0 30px;
+}
+
+.song-list ul li{
+    list-style-type: decimal;
+
+}
+
 .footer{
     font-size: 12px;
     display: flex;
