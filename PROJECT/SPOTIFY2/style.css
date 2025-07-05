@@ -76,20 +76,22 @@ body{
     
 }
 
+.playnow {
+  margin-left: auto;
+}
+
+.playnow img {
+  width: 34px;
+  height: 38px;
+  cursor: pointer;
+}
+
+
 .song-list .info{
     justify-content: center;
     align-items: center;
 }
 
-.play {
-  margin-left: auto;
-}
-
-.play img {
-  width: 38px;
-  height: 34px;
-  cursor: pointer;
-}
 
 .footer{
     font-size: 12px;
@@ -135,6 +137,12 @@ body{
     background-color: #252525;
     gap: 10px;
     position: relative;
+}
+
+.play{
+    position: absolute;
+    top: 110px;
+    right: 19px;
 }
 
 .cards h2 {

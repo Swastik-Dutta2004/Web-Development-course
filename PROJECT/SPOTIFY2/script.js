@@ -22,7 +22,21 @@ async function main() {
 
   let songul = document.querySelector(".song-list").getElementsByTagName("ul")[0]
   for (const song of songs) {
-    songul.innerHTML = songul.innerHTML + `<li> ${song.replaceAll("%20", " ").replace(".mp3", "").split(" - ")} </li>`
+    let [title, artist] = song.replaceAll("%20", " ").replace(".mp3", "").split(" - ");
+    artist = artist || "Unknown Artist";
+
+    // Add the song item to the list
+    songul.innerHTML += `
+         <li data-song="${song}">
+            <img class="invert" src="music.svg" alt="">
+            <div class="songInfo">
+                <div>${title}</div>
+                <div>${artist}</div>
+            </div>
+            <div class="playnow">
+                <img class="invert" src="play2.svg" alt="">
+            </div>
+        </li>`;
     
   }
 
