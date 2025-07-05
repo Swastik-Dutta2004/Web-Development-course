@@ -22,7 +22,7 @@ async function main() {
 
   let songul = document.querySelector(".song-list").getElementsByTagName("ul")[0]
   for (const song of songs) {
-    songul.innerHTML = songul.innerHTML + `<li> ${song.replaceAll("%20"," ")} </li>`
+    songul.innerHTML = songul.innerHTML + `<li> ${song.replaceAll("%20", " ").replace(".mp3", "").split(" - ")} </li>`
     
   }
 
