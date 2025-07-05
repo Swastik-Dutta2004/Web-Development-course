@@ -40,12 +40,12 @@ async function main() {
     
   }
 
-  var audio = new Audio(songs[0]);
-  audio.play();
-
-  audio.addEventListener("loadeddata", () => {
-    console.log(audio.duration, audio.currentSrc, audio.currentTime);
-    // The duration variable now holds the duration (in seconds) of the audio clip
-  });
+ Array.from(document.querySelector(".song-list").getElementsByTagName("li")).forEach(e => {
+    e.addEventListener("click", element => {
+        console.log(e.querySelector(".songInfo").firstElementChild.innerHTML);
+        playMusic(e.querySelector(".songInfo").firstElementChild.innerHTM)
+    })
+    
+ })
 }
 main();
