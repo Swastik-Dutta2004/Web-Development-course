@@ -10,9 +10,14 @@ body{
     background-color: black;
    color: white;
 }
+
 .left{
     width: 30vw;
     padding: 10px;
+}
+
+.hamburger{
+    display: none;
 }
 
  .logo img{
@@ -271,7 +276,7 @@ body{
     }
 
     .card-container{
-        max-height:68vh ;
+        max-height:68vh;
     }
 
     .right{
@@ -281,4 +286,10 @@ body{
     .playbar{
         width: 95vw;
     }
+
+    .hamburger{
+        display: block;
+    }
+
+
 }
