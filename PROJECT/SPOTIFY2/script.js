@@ -71,6 +71,7 @@ async function main() {
         </li>`;
   }
 
+  //left songlist click events
   Array.from(
     document.querySelector(".song-list").getElementsByTagName("li")
   ).forEach((e) => {
@@ -80,6 +81,7 @@ async function main() {
       playMusic(filename);
     });
   });
+
 
   play.addEventListener("click", () => {
     if (currentSong.paused) {
@@ -91,11 +93,18 @@ async function main() {
     }
   });
 
+  //time update and seekbar's circle
   currentSong.addEventListener("timeupdate", () => {
     console.log(currentSong.currentTime, currentSong.duration);
     document.querySelector(".songtime").innerHTML = `${formatTime(
       currentSong.currentTime)}/${formatTime(currentSong.duration)}`
-    document.querySelector("circle").style.left = (currentSong.currentTime/currentSong.duration)*100 + "%";
+    document.querySelector(".circle").style.left = ((currentSong.currentTime/currentSong.duration)*100) + "%";
   });
+
+  document.querySelector(".seekbar").addEventListener("click",(e)=> {
+    console.log(e.target.getBoundingClientRect().width, e.offsetX );
+
+    
+  })
 }
 main();
