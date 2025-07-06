@@ -1,3 +1,5 @@
+let currentSong = new Audio();
+
 async function getSongs() {
   let a = await fetch("http://127.0.0.1:3000/PROJECT/SPOTIFY2/songs/");
   let result = await a.text();
@@ -15,6 +17,13 @@ async function getSongs() {
   }
   return songs;
 }
+
+const playMusic = (track)=>{
+    // let audio = new Audio("songs/" + encodeURIComponent(track));
+    currentSong.src = "songs/" + encodeURIComponent(track)
+    currentSong.play()
+}
+
 async function main() {
   //get the list of all the songs
   let songs = await getSongs();
@@ -42,8 +51,9 @@ async function main() {
 
  Array.from(document.querySelector(".song-list").getElementsByTagName("li")).forEach(e => {
     e.addEventListener("click", element => {
-        console.log(e.querySelector(".songInfo").firstElementChild.innerHTML);
-        playMusic(e.querySelector(".songInfo").firstElementChild.innerHTM)
+        let filename = e.getAttribute("data-song")
+        console.log("Playing: "+filename);
+        playMusic(filename);
     })
     
  })
