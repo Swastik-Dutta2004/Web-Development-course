@@ -186,7 +186,7 @@ body{
 .circle{
     width: 13px;
     height: 13px;
-    background-color: black;
+    background-color: white;
     border-radius: 50px;
     position: absolute;
     bottom: -5px;
@@ -194,16 +194,36 @@ body{
     transition: 0.5s;
 }
 
+.songtime{
+    position: absolute;
+    right: 25px;
+}
+
+.songinfo{
+  position: absolute;
+    left: 25px;
+}
+
+.songsbut{
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    left: 45%;
+    display: flex;
+    cursor: pointer;
+    bottom: 6px;
+}
+
+.barTools{
+    display: flex;
+    justify-content: space-between;
+}
+
 .songsbut img{
   width: 40px; /* or any value like 2em, 100%, etc. */
   height: 40px;
 }
 
-.songsbut{
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-}
 
 .buttons >*{
     margin: 0 10px;

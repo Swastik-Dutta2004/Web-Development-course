@@ -1,5 +1,15 @@
 let currentSong = new Audio();
 
+function formatTime(seconds) {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+
+  const formattedMins = mins.toString().padStart(2, "0");
+  const formattedSecs = secs.toString().padStart(2, "0");
+
+  return `${formattedMins}:${formattedSecs}`;
+}
+
 async function getSongs() {
   let a = await fetch("http://127.0.0.1:3000/PROJECT/SPOTIFY2/songs/");
   let result = await a.text();
@@ -18,21 +28,33 @@ async function getSongs() {
   return songs;
 }
 
-const playMusic = (track)=>{
-    // let audio = new Audio("songs/" + encodeURIComponent(track));
-    currentSong.src = "songs/" + encodeURIComponent(track)
-    currentSong.play()
-    play.src = "pause.svg"
-}
+const playMusic = (track, pause = false) => {
+  // let audio = new Audio("songs/" + encodeURIComponent(track));
+  currentSong.src = "songs/" + encodeURIComponent(track);
+  if(!pause){
+    currentSong.play();
+    play.src = "pause.svg";
+
+  }
+  document.querySelector(".songinfo").innerHTML = decodeURI(track);
+  document.querySelector(".songtime").innerHTML = "00:00/00:00";
+};
 
 async function main() {
+
   //get the list of all the songs
   let songs = await getSongs();
-  console.log(songs);
+  // console.log(songs);
+  playMusic(songs[0],true)
 
-  let songul = document.querySelector(".song-list").getElementsByTagName("ul")[0]
+  let songul = document
+    .querySelector(".song-list")
+    .getElementsByTagName("ul")[0];
   for (const song of songs) {
-    let [title, artist] = song.replaceAll("%20", " ").replace(".mp3", "").split(" - ");
+    let [title, artist] = song
+      .replaceAll("%20", " ")
+      .replace(".mp3", "")
+      .split(" - ");
     artist = artist || "Unknown Artist";
 
     // Add the song item to the list
@@ -47,26 +69,33 @@ async function main() {
                 <img class="invert" src="play2.svg" alt="">
             </div>
         </li>`;
-    
   }
 
- Array.from(document.querySelector(".song-list").getElementsByTagName("li")).forEach(e => {
-    e.addEventListener("click", element => {
-        let filename = e.getAttribute("data-song")
-        console.log("Playing: "+filename);
-        playMusic(filename);
-    })
- })
+  Array.from(
+    document.querySelector(".song-list").getElementsByTagName("li")
+  ).forEach((e) => {
+    e.addEventListener("click", (element) => {
+      let filename = e.getAttribute("data-song");
+      console.log("Playing: " + filename);
+      playMusic(filename);
+    });
+  });
 
- play.addEventListener("click",()=>{
-  if(currentSong.paused){
-    currentSong.play()
-    play.src = "pause.svg"
-  }
-  else{
-    currentSong.pause();
-    play.src = "play.svg"
-  }
- })
+  play.addEventListener("click", () => {
+    if (currentSong.paused) {
+      currentSong.play();
+      play.src = "pause.svg";
+    } else {
+      currentSong.pause();
+      play.src = "play.svg";
+    }
+  });
+
+  currentSong.addEventListener("timeupdate", () => {
+    console.log(currentSong.currentTime, currentSong.duration);
+    document.querySelector(".songtime").innerHTML = `${formatTime(
+      currentSong.currentTime)}/${formatTime(currentSong.duration)}`
+    document.querySelector("circle").style.left = (currentSong.currentTime/currentSong.duration)*100 + "%";
+  });
 }
 main();
