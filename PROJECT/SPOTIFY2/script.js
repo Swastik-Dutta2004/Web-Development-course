@@ -102,9 +102,9 @@ async function main() {
   });
 
   document.querySelector(".seekbar").addEventListener("click",(e)=> {
-    console.log(e.target.getBoundingClientRect().width, e.offsetX );
-
-    
+    let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100
+    document.querySelector(".circle").style.left = percent + "%"
+    currentSong.currentTime = ((currentSong.duration)*percent)/100 
   })
 }
 main();

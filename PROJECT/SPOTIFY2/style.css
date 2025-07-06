@@ -259,3 +259,26 @@ body{
     width: 82px;
     font-size: 17px;
 }
+
+@media (max-width: 1400px) {
+    .left{
+        background-color: red;
+        position: absolute;
+        left: -100%;
+        transition: all .3s;
+        z-index: 1;
+        width: 233px;
+    }
+
+    .card-container{
+        max-height:68vh ;
+    }
+
+    .right{
+        width: 100vw;
+    }
+
+    .playbar{
+        width: 95vw;
+    }
+}
