@@ -191,6 +191,7 @@ body{
     position: absolute;
     bottom: -5px;
     left: 0px;
+    transition: 0.5s;
 }
 
 .songsbut img{
@@ -201,6 +202,7 @@ body{
 .songsbut{
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 .buttons >*{

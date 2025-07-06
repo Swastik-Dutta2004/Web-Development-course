@@ -22,6 +22,7 @@ const playMusic = (track)=>{
     // let audio = new Audio("songs/" + encodeURIComponent(track));
     currentSong.src = "songs/" + encodeURIComponent(track)
     currentSong.play()
+    play.src = "pause.svg"
 }
 
 async function main() {
@@ -55,7 +56,17 @@ async function main() {
         console.log("Playing: "+filename);
         playMusic(filename);
     })
-    
+ })
+
+ play.addEventListener("click",()=>{
+  if(currentSong.paused){
+    currentSong.play()
+    play.src = "pause.svg"
+  }
+  else{
+    currentSong.pause();
+    play.src = "play.svg"
+  }
  })
 }
 main();
