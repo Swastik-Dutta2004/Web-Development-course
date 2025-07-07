@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root{
+    --a:0;
+}
 
 *{
     padding: 0;
@@ -161,12 +164,21 @@ body,html{
     background-color: #252525;
     gap: 10px;
     position: relative;
+    transition: all 0.9s;
+}
+
+.cards:hover{
+    background-color: #343232;
+    cursor: pointer;
+    --a:1
 }
 
 .play{
     position: absolute;
     top: 110px;
     right: 19px;
+    transition: all 1s;
+    opacity: var(--a);
 }
 
 .cards h2 {

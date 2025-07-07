@@ -10,8 +10,8 @@ function formatTime(seconds) {
   return `${formattedMins}:${formattedSecs}`;
 }
 
-async function getSongs() {
-  let a = await fetch("http://127.0.0.1:3000/PROJECT/SPOTIFY2/songs/");
+async function getSongs(folder) {
+  let a = await fetch(`http://127.0.0.1:3000/PROJECT/SPOTIFY2/${folder}/`);
   let result = await a.text();
   console.log(result);
   let div = document.createElement("div");
@@ -22,7 +22,7 @@ async function getSongs() {
   for (let index = 0; index < as.length; index++) {
     const element = as[index];
     if (element.href.endsWith(".mp3")) {
-      songs.push(element.href.split("/songs/")[1]);
+      songs.push(element.href.split(`/${folder}/`)[1]);
     }
   }
   return songs;
@@ -30,7 +30,7 @@ async function getSongs() {
 
 const playMusic = (track, pause = false) => {
   // let audio = new Audio("songs/" + encodeURIComponent(track));
-  currentSong.src = "songs/" + encodeURIComponent(track);
+  currentSong.src = `${folder}` + encodeURIComponent(track);
   if(!pause){
     currentSong.play();
     play.src = "pause.svg";
