@@ -1,5 +1,7 @@
 let currentSong = new Audio();
 let songs;
+let currFolder;
+
 function formatTime(seconds) {
   const mins = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
@@ -11,6 +13,7 @@ function formatTime(seconds) {
 }
 
 async function getSongs(folder) {
+  currFolder = folder;
   let a = await fetch(`http://127.0.0.1:3000/PROJECT/SPOTIFY2/${folder}/`);
   let result = await a.text();
   console.log(result);
@@ -30,7 +33,7 @@ async function getSongs(folder) {
 
 const playMusic = (track, pause = false) => {
   // let audio = new Audio("songs/" + encodeURIComponent(track));
-  currentSong.src = `${folder}` + encodeURIComponent(track);
+  currentSong.src = `/PROJECT/SPOTIFY2/${currFolder}/` + encodeURIComponent(track);
   if(!pause){
     currentSong.play();
     play.src = "pause.svg";
@@ -43,7 +46,7 @@ const playMusic = (track, pause = false) => {
 async function main() {
 
   //get the list of all the songs
-  songs = await getSongs();
+  songs = await getSongs("songs/test");
   // console.log(songs);
   playMusic(songs[0],true)
 
