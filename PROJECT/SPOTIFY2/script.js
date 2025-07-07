@@ -1,5 +1,5 @@
 let currentSong = new Audio();
-
+let song;
 function formatTime(seconds) {
   const mins = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
@@ -43,7 +43,7 @@ const playMusic = (track, pause = false) => {
 async function main() {
 
   //get the list of all the songs
-  let songs = await getSongs();
+  songs = await getSongs();
   // console.log(songs);
   playMusic(songs[0],true)
 
@@ -82,7 +82,7 @@ async function main() {
     });
   });
 
-
+//play pause event listener
   play.addEventListener("click", () => {
     if (currentSong.paused) {
       currentSong.play();
@@ -114,5 +114,16 @@ async function main() {
   document.querySelector(".close").addEventListener("click", ()=>{
     document.querySelector(".left").style.left = "-100%";
   })
+
+  //Add an event listener for next
+  document.querySelector("#previous").addEventListener("click",()=>{
+    console.log("Playing previous song");
+  })
+
+  //Add an event listener for next
+  document.querySelector("#next").addEventListener("click",()=>{
+    console.log("Playing next song");
+  })
+
 }
 main();
