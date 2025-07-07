@@ -147,12 +147,13 @@ async function main() {
 });
 
 //Load the playlist whenevr the cards are clicked
-Array.from(document.getElementsByClassName(".cards")).forEach(e=>{
-  e.addEventListener("click",async item=>{
-    songs = await getSongs(`songs/${item.dataset.folder}`);
-    
+//Load the playlist whenevr the cards are clicked
+Array.from(document.getElementsByClassName("cards")).forEach(e => {
+  e.addEventListener("click", async () => {
+    songs = await getSongs(`songs/${folder}`)
   })
 })
+
 
 
 }
