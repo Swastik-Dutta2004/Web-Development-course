@@ -21,38 +21,15 @@ async function getSongs(folder) {
   div.innerHTML = result;
   let as = div.getElementsByTagName("a");
 
-  let songs = [];
+   songs = [];
   for (let index = 0; index < as.length; index++) {
     const element = as[index];
     if (element.href.endsWith(".mp3")) {
       songs.push(element.href.split(`/${folder}/`)[1]);
     }
   }
-  return songs;
-}
-
-const playMusic = (track, pause = false) => {
-  // let audio = new Audio("songs/" + encodeURIComponent(track));
-  currentSong.src = `/PROJECT/SPOTIFY2/${currFolder}/` + encodeURIComponent(track);
-  if(!pause){
-    currentSong.play();
-    play.src = "pause.svg";
-
-  }
-  document.querySelector(".songinfo").innerHTML = decodeURI(track);
-  document.querySelector(".songtime").innerHTML = "00:00/00:00";
-};
-
-async function main() {
-
-  //get the list of all the songs
-  songs = await getSongs("songs/test");
-  // console.log(songs);
-  playMusic(songs[0],true)
-
-  let songul = document
-    .querySelector(".song-list")
-    .getElementsByTagName("ul")[0];
+  let songul = document.querySelector(".song-list").getElementsByTagName("ul")[0];
+  songul.innerHTML = ""
   for (const song of songs) {
     let [title, artist] = song
       .replaceAll("%20", " ")
@@ -73,6 +50,28 @@ async function main() {
             </div>
         </li>`;
   }
+}
+
+const playMusic = (track, pause = false) => {
+  // let audio = new Audio("songs/" + encodeURIComponent(track));
+  currentSong.src = `/PROJECT/SPOTIFY2/${currFolder}/` + encodeURIComponent(track);
+  if(!pause){
+    currentSong.play();
+    play.src = "pause.svg";
+
+  }
+  document.querySelector(".songinfo").innerHTML = decodeURI(track);
+  document.querySelector(".songtime").innerHTML = "00:00/00:00";
+};
+
+async function main() {
+
+  //get the list of all the songs
+  await getSongs("songs/test");
+  // console.log(songs);
+  playMusic(songs[0],true)
+
+  
 
   //left songlist click events
   Array.from(
@@ -148,7 +147,12 @@ async function main() {
 });
 
 //Load the playlist whenevr the cards are clicked
-document.getElementsByClassName(".cards")
+Array.from(document.getElementsByClassName(".cards")).forEach(e=>{
+  e.addEventListener("click",async item=>{
+    songs = await getSongs(`songs/${item.dataset.folder}`);
+    
+  })
+})
 
 
 }
