@@ -201,7 +201,7 @@ body,html{
     width: 96%;
     height: 1px;
     position: absolute;
-    border: 2px solid red;
+    border: 2px solid rgb(255, 72, 0);
     bottom: 5px;
     left: 15px;
     cursor: pointer;
@@ -290,7 +290,7 @@ body,html{
         left: -100%;
         transition: all .3s;
         z-index: 1;
-        width: 405px;
+        width: 417px;
         height: 100%;
     }
 
@@ -318,6 +318,7 @@ body,html{
         bottom: 36px;
         position: fixed;
     }
+
 
     .seekbar{
         width: calc(100vw - 100px);
