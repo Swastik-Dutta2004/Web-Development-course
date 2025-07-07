@@ -147,6 +147,9 @@ async function main() {
   }
 });
 
+//Load the playlist whenevr the cards are clicked
+document.getElementsByClassName(".cards")
+
 
 }
 main();
