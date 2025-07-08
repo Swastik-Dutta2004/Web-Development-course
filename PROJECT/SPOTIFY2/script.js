@@ -81,7 +81,7 @@ async function displayAlbums() {
       let result = await a.json()
       console.log(result)
       cardContainer.innerHTML = cardContainer.innerHTML + `<div class="cardContainer">
-            <div data-folder="${folder}" class="cards">
+            <div data-folder="test" class="cards">
               <div class="play">
                 <button
                   style="
