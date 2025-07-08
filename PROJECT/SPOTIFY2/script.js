@@ -72,7 +72,10 @@ async function displayAlbums() {
   div.innerHTML = result;
   let anchors = div.getElementsByTagName("a")
   let cardContainer = document.querySelector(".cardContainer")
-  Array.from(anchors).forEach(async e=>{
+  let array =  Array.from(anchors)
+    for (let index = 0; index < array.length; index++) {
+      const e = array[index];
+      
     if(e.href.includes("/songs")){
       let folder = e.href.split("/").slice(-2)[0]
       
@@ -132,7 +135,16 @@ async function displayAlbums() {
   
           </div>`
     }
-  })  
+  }
+
+  //Load the playlist whenevr the cards are clicked
+Array.from(document.getElementsByClassName("cards")).forEach(e=>{
+  e.addEventListener("click",async item=>{
+    songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
+    
+  })
+})
+
 }
 
 async function main() {
@@ -216,16 +228,6 @@ async function main() {
     playMusic(songs[index + 1]);
   }
 });
-
-//Load the playlist whenevr the cards are clicked
-Array.from(document.getElementsByClassName("cards")).forEach(e=>{
-  e.addEventListener("click",async item=>{
-    songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
-    
-  })
-})
-
-
 
 }
 main();
