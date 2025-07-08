@@ -71,6 +71,7 @@ async function displayAlbums() {
   let div = document.createElement("div");
   div.innerHTML = result;
   let anchors = div.getElementsByTagName("a")
+  let cardContainer = document.querySelector(".cardContainer")
   Array.from(anchors).forEach(async e=>{
     if(e.href.includes("/songs")){
       let folder = e.href.split("/").slice(-2)[0]
@@ -80,7 +81,7 @@ async function displayAlbums() {
       let result = await a.json()
       console.log(result)
       cardContainer.innerHTML = cardContainer.innerHTML + `<div class="cardContainer">
-            <div data-folder="test" class="cards">
+            <div data-folder="${folder}" class="cards">
               <div class="play">
                 <button
                   style="
@@ -124,7 +125,7 @@ async function displayAlbums() {
               <p>Hits to boost your moodand fill you with happyiness</p>
             </div>
             <div data-folder="cs" class="cards">
-              <img src="music.jpg" alt="" />
+              <img src="/PROJECT/SPOTIFY2/songs/${folder}/cover.jpg" alt="" />
               <h2>${result.title}</h2>
               <p>${result.description}</p>
             </div>

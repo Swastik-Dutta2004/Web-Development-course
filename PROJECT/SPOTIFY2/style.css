@@ -165,7 +165,9 @@ body,html{
     gap: 10px;
     position: relative;
     transition: all 0.9s;
+    overflow: hidden;
 }
+
 
 .cards:hover{
     background-color: #343232;
