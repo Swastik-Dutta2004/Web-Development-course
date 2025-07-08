@@ -71,9 +71,65 @@ async function displayAlbums() {
   let div = document.createElement("div");
   div.innerHTML = result;
   let anchors = div.getElementsByTagName("a")
-  Array.from(anchors).forEach(e=>{
+  Array.from(anchors).forEach(async e=>{
     if(e.href.includes("/songs")){
-      console.log(e.href.split("/").slice(-2)[0]);
+      let folder = e.href.split("/").slice(-2)[0]
+      
+      //get the metadata of the folder
+      let a = await fetch(`http://127.0.0.1:3000/PROJECT/SPOTIFY2/songs/${folder}/info.json`)
+      let result = await a.json()
+      console.log(result)
+      cardContainer.innerHTML = cardContainer.innerHTML + `<div class="cardContainer">
+            <div data-folder="test" class="cards">
+              <div class="play">
+                <button
+                  style="
+                    background: none;
+                    border: 2px solid black;
+                    cursor: pointer;
+                    padding: 0;
+                    background-color: green;
+                    border-radius: 50%;
+                  "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="48"
+                    height="48"
+                    fill="none"
+                  >
+                    <!-- Green circle -->
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="green"
+                      stroke-width="1.5"
+                    ></circle>
+
+                    <!-- Black play button -->
+                    <path
+                      d="M15.9453 12.3948C15.7686 13.0215 14.9333 13.4644 13.2629 14.3502C11.648 15.2064 10.8406 15.6346 10.1899 15.4625C9.9209 15.3913 9.6758 15.2562 9.47812 15.0701C9 14.6198 9 13.7465 9 12C9 10.2535 9 9.38018 9.47812 8.92995C9.6758 8.74381 9.9209 8.60868 10.1899 8.53753C10.8406 8.36544 11.648 8.79357 13.2629 9.64983C14.9333 10.5356 15.7686 10.9785 15.9453 11.6052C16.0182 11.8639 16.0182 12.1361 15.9453 12.3948Z"
+                      stroke="black"
+                      stroke-width="1.5"
+                      stroke-linejoin="round"
+                      fill="#000"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <img src="music.jpg" alt="" />
+              <h2>Happy Hits</h2>
+              <p>Hits to boost your moodand fill you with happyiness</p>
+            </div>
+            <div data-folder="cs" class="cards">
+              <img src="music.jpg" alt="" />
+              <h2>${result.title}</h2>
+              <p>${result.description}</p>
+            </div>
+  
+          </div>`
     }
   })  
 }

@@ -148,7 +148,7 @@ body,html{
     padding: 16px;
 }
 
-.card-container{
+.cardContainer{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -318,7 +318,7 @@ body,html{
         top: 27px;
     }
 
-    .card-container{
+    .cardContainer{
         max-height:68vh;
     }
 
