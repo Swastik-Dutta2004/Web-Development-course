@@ -65,13 +65,10 @@ const playMusic = (track, pause = false) => {
 };
 
 async function main() {
-
   //get the list of all the songs
   await getSongs("songs/test");
   // console.log(songs);
   playMusic(songs[0],true)
-
-  
 
   //left songlist click events
   Array.from(
@@ -147,10 +144,11 @@ async function main() {
 });
 
 //Load the playlist whenevr the cards are clicked
-//Load the playlist whenevr the cards are clicked
-Array.from(document.getElementsByClassName("cards")).forEach(e => {
-  e.addEventListener("click", async () => {
-    songs = await getSongs(`songs/${folder}`)
+Array.from(document.getElementsByClassName("cards")).forEach(e=>{
+  console.log(e);
+  e.addEventListener("click",async item=>{
+    songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
+    
   })
 })
 
