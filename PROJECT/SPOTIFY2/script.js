@@ -64,11 +64,28 @@ const playMusic = (track, pause = false) => {
   document.querySelector(".songtime").innerHTML = "00:00/00:00";
 };
 
+async function displayAlbums() {
+  let a = await fetch(`http://127.0.0.1:3000/PROJECT/SPOTIFY2/songs/`);
+  let result = await a.text();
+  console.log(result);
+  let div = document.createElement("div");
+  div.innerHTML = result;
+  let anchors = div.getElementsByTagName("a")
+  Array.from(anchors).forEach(e=>{
+    if(e.href.includes("/songs")){
+      console.log(e.href.split("/").slice(-2)[0]);
+    }
+  })  
+}
+
 async function main() {
   //get the list of all the songs
   await getSongs("songs/cs");
   // console.log(songs);
   playMusic(songs[0],true)
+
+  //Display all the albums in the page
+  displayAlbums()
 
   //left songlist click events
   Array.from(
