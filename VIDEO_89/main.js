@@ -9,7 +9,15 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.get("/index", (req, res) => {
+  console.log("Its a get request");
+  res.sendFile('templates/index2.html',{root:__dirname});
+});
 
+app.post("/", (req, res) => {
+  console.log("Its a post request");
+  res.send("Hello World23!");
+});
 
 app.delete("/", (req, res) => {
   console.log("Its a put delete");
