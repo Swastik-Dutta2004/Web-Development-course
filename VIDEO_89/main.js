@@ -14,6 +14,10 @@ app.get("/index", (req, res) => {
   res.sendFile('templates/index2.html',{root:__dirname});
 });
 
+app.get("/api", (req, res) => {
+  res.json({a:1, b:2, c:3, d:4});
+});
+
 app.post("/", (req, res) => {
   console.log("Its a post request");
   res.send("Hello World23!");
