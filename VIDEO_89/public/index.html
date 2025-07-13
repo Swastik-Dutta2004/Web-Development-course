@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post request</title>
+    <title>Testing post request</title>
 </head>
 <body>
     <script>
-        async function testPost() {
-            let a = await fetch("/", {method:"DELETE"})
-            let b = await a.text()
+        async function testPosty(params) {
+            let a = await fetch("/",{method:"DELETE"})
+            let b  = await a.text()
             console.log(b);
         }
-        testPost()
+        testPosty()
     </script>
 </body>
 </html>
