@@ -18,15 +18,15 @@ app.get("/api", (req, res) => {
   res.json({a:1, b:2, c:3, d:4});
 });
 
-app.post("/", (req, res) => {
+app.post("/post", (req, res) => {
   console.log("Its a post request");
-  res.send("Hello World23!");
+  res.send("Hello World post!");
 });
 
-app.delete("/", (req, res) => {
-  console.log("Its a put delete");
-  res.send("Hello World236 delete!");
-});
+// app.delete("/", (req, res) => {
+//   console.log("Its a put delete");
+//   res.send("Hello World236 delete!");
+// });
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

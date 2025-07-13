@@ -8,7 +8,7 @@
 <body>
     <script>
         async function testPosty(params) {
-            let a = await fetch("/",{method:"DELETE"})
+            let a = await fetch("/",{method:"POST"})
             let b  = await a.text()
             console.log(b);
         }
