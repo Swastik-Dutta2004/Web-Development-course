@@ -23,10 +23,10 @@ app.post("/", (req, res) => {
   res.send("Hello World post!");
 });
 
-// app.delete("/", (req, res) => {
-//   console.log("Its a put delete");
-//   res.send("Hello World236 delete!");
-// });
+app.delete("/", (req, res) => {
+  console.log("Its a put delete");
+  res.send("Hello World236 delete!");
+});
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
