@@ -1,11 +1,14 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const fs = require("fs")
 
 // app.use(express.static("public"))
 
 app.use( (req, res, next)=> {
   console.log('M1')
+  fs.appendFileSync("logs.txt",`${Date.now()} is a ${req.method}\n`)
+  
   next()
 })
 
