@@ -3,7 +3,15 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  let siteName = "Adidas"
+  let SiteSearch = "Search product"
+  res.sendFile("templates/index.html",{root:__dirname})
+})
+
+app.get('/blog/:slug', (req, res) => {
+  let blogName = "Adidas how its createrd"
+  let blogSeach = "Waht they sell"
+  res.sendFile("templates/index.html",{root:__dirname})
 })
 
 app.listen(port, () => {
