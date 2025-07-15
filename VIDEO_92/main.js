@@ -2,16 +2,18 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+app.set('view engine','ejs');
+
 app.get('/', (req, res) => {
   let siteName = "Adidas"
   let SiteSearch = "Search product"
-  res.sendFile("templates/index.html",{root:__dirname})
+  res.render("index",{siteName: siteName, SiteSearch: SiteSearch})
 })
 
 app.get('/blog/:slug', (req, res) => {
   let blogName = "Adidas how its createrd"
-  let blogSeach = "Waht they sell"
-  res.sendFile("templates/index.html",{root:__dirname})
+  let blogSeach = "What they sell"
+  res.sendFile("views/index.ejs",{blogName: blogName, blogSeach: blogSeach})
 })
 
 app.listen(port, () => {
