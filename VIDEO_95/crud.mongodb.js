@@ -44,7 +44,15 @@ db.courses.insertMany([
 //   console.log(b);
 
 //Update
-db.courses.updateOne({price:1000000},{$set:{price:1000}})
+// db.courses.updateOne({price:1000000},{$set:{price:1000}})
 
-db.courses.updateMany({price:1000000},{$set:{price:500}})
+// db.courses.updateMany({price:1000000},{$set:{price:500}})
  
+
+//Dalete
+
+db.courses.deleteOne({price:1000})
+db.courses.deleteMany({price:1000})
+
+ let a = db.courses.find({price: {$gt}})
+  console.log(a);
