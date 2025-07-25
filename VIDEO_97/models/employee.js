@@ -1,11 +1,12 @@
-import { boolean } from "webidl-conversions";
+const mongoose = require('mongoose');
+const { boolean } = require('webidl-conversions');
 
 const employeeSchema = new mongoose.Schema({
   name: String,
   salary: Number,
   city: String,
   language: String,
-  isManager: boolean
+  isManager: Boolean
 });
 
 const Employee = mongoose.model('Employee', employeeSchema);
