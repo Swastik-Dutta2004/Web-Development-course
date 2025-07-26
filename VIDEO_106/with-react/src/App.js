@@ -8,7 +8,7 @@ function App() {
   const [value, setrvalue] = useState(0)
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar logoText="CodeWithSwa"/>
       <div className='value'>{value}</div>
       <button onClick={()=>{setrvalue(value + 1)}}>Click me</button>
       <Footer/>
