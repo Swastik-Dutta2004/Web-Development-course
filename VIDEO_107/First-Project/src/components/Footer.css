@@ -2,4 +2,8 @@
     text-align: center;
     background-color: black;
     color: rgb(181, 228, 241);
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    padding: 5px;
 }
