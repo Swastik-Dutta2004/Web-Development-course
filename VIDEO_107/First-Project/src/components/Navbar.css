@@ -1,4 +1,17 @@
-body{
-    background-color: red;
-    color: black;
+nav,ul{
+    display: flex;
+}
+
+li{
+    list-style: none;
+}
+
+ul{
+    gap: 34px;
+    margin: 10px;
+    padding: 10px;
+}
+
+nav{
+    background-color: beige;
 }
