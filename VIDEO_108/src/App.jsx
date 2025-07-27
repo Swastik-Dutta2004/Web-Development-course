@@ -7,8 +7,8 @@ import Navbar from './components/Navbar'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [first, setfirst] = useState(first)
-  
+  const [first, setfirst] = useState(0)
+
   useEffect(() => {
    alert("hey welcome to my page")
   }, [])
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-    <Navbar color={"navy and blue"}/>
+    <Navbar color={"navy" + "blue"}/>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
