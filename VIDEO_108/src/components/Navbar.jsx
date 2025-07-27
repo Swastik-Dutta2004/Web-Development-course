@@ -1,6 +1,18 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 
 const Navbar = ({color}) => {
+    useEffect(() => {
+   alert("hey i will run on every reander")
+  })
+  
+  useEffect(() => {
+   alert("hey welcome to my page. This is the first render")
+  }, [])
+  
+  useEffect(() => {
+   alert("hey i am running beacuse color was changed")
+  }, [color])
+    
   return (
     <div>
       Hey i am {color} color NAvbar 
