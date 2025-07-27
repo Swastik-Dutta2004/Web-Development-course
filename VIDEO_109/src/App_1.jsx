@@ -5,13 +5,13 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [btnCol, setbtnCol] = useState("red")
-  // const btnRef = useRef()
+  const a = useRef(0)
 
-  // useEffect(() => {
-  //  console.log(`rerendering..`);
-  //  btnRef.current.style.backgroundColor = "red"
-  // })
+  useEffect(() => {
+    a.current = a.current + 1
+   console.log("rerendering " + a.current);
+   
+  })
   
 
   return (
@@ -26,8 +26,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button style={{backgroundColor: btnCol, color: 'white', padding: "10px", border: "2px solid black"}}
-        onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
         <p>
