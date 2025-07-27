@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [boobs, setboobs] = useState(false)
+  const [boobs, setboobs] = useState(true)
 
   return (
     <>
@@ -18,10 +18,11 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      {boobs?<button>I wil be appear only when
-         the first button is true</button>:laund}
+      {/* {boobs?<button>I can relased you stress 🙌🍑🍑💦💦</button>:"laund"} */}
+
+      {boobs&&<button>I can relased you stress 🙌🍑🍑💦💦</button>}
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => setboobs(!boobs)}>
           count is {count}
         </button>
         <p>
