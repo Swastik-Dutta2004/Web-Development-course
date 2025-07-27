@@ -12,6 +12,14 @@ const Navbar = ({color}) => {
   useEffect(() => {
    alert("hey i am running beacuse color was changed")
   }, [color])
+
+  useEffect(() => {
+    alert("hey welcome to my page. This is the first render of app.jsx")
+
+    return () => {
+        alert("component was unmounted")
+    }
+  },[])
     
   return (
     <div>
