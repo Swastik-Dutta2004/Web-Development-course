@@ -21,9 +21,11 @@ function App() {
     }
   ])
 
-  const Todo = (todo) =>{return(<>
-  <div className="todo">todo.title</div>
-  <div className="todo">todo.desc</div>
+  const Todo = ({title, desc }) =>{return(<>
+  <div className="m-4 border border-1 border-purple-400">
+    <div className="todo">{title}</div>
+    <div className="todo">{desc}</div>
+  </div>
   </>)}
 
   return (
@@ -39,7 +41,9 @@ function App() {
       <h1>Vite + React</h1>
       {boobs?<button>I can relased you stress 🙌🍑🍑💦💦</button>:<button>Laund</button>}
 
-      <Todo/>
+      {todo.map((item, index) =>{
+        return <Todo key={index} title={item.title} desc= {item.desc}/>
+      })}
       {/* {boobs&&<button>I can relased you stress 🙌🍑🍑💦💦</button>} */}
       <div className="card">
         <button onClick={() => setboobs(!boobs)}>
