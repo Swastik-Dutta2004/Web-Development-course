@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
@@ -8,12 +6,10 @@ function App() {
   // const [name, setname] = useState("swastik")
   const [form, setform] = useState({email:"", phone:""})
 
-  
   const user = (e)=>{
     // setname(e.target.value)
     setform({...form, [e.target.name]: e.target.value})
   }
-
   const handleClick = () =>{
     alert("Hey i am clicked")
       console.log(form);
@@ -31,8 +27,7 @@ function App() {
 
       <input type="text" name= 'email' value={form.email} onChange={user}/>
       <input type="text" name= 'phone' value={form.phone} onChange={user}/>
-
-
+      
       <div className="button">
         <button onClick={handleClick}>Click me</button>
       </div>
