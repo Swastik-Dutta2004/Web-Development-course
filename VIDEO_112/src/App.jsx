@@ -5,8 +5,8 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [name, setname] = useState("swastik")
-
+  // const [name, setname] = useState("swastik")
+  const [form, setform] = useState({email:"", phone:""})
   const handleClick = () =>{
     alert("Hey i am clicked")
   }
@@ -16,7 +16,10 @@ function App() {
   }
 
   const user = (e)=>{
-    setname(e.target.value)
+    // setname(e.target.value)
+    setform({...form, [e.target.name]: e.target.value})
+    console.log(form);
+    
   }
   return (
     <>
@@ -24,11 +27,12 @@ function App() {
         <button onClick={handleClick}>Click me</button>
       </div>
 
-      <div className="red" onMouseOver={notifying}>
+      {/* <div className="red" onMouseOver={notifying}>
         I am red light area
-      </div>
+      </div> */}
 
-      <input type="text" value={name} onChange={user}/>
+      <input type="text" name= 'email' value={form.email} onChange={user}/>
+      <input type="text" name= 'phone' value={form.phone} onChange={user}/>
     </>
   )
 }
