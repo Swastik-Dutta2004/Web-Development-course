@@ -56,7 +56,18 @@ function App() {
                 </div>
 
                 <div className="buttons">
-                  
+                  <button
+                    className="bg-orange-600 hover:bg-orange-700 p-2 py-1 m-1 rounded-xl font-bold "
+                    onClick={HandelEdit}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="bg-orange-600 hover:bg-orange-700 p-2 py-1 m-1 rounded-xl font-bold"
+                    onClick={HandelDelete}
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             );
