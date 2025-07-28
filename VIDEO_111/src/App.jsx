@@ -22,7 +22,15 @@ function App() {
   return (
     <>
     <Navbar/>
-    
+    <div className="conatiner">
+      {Card.map((card) => {
+        return <div key= {card.id} className="card">
+          <h1>{card.title}</h1>
+          <p>{card.body}</p>
+          <span>UserID:{card.userId}</span>
+        </div>
+      })}
+    </div>
     </>
   )
 }
