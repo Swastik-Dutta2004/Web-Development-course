@@ -19,9 +19,9 @@ function App() {
       console.log(form);
   }
 
-  const notifying = () =>{
-    alert("Same on you")    
-  }
+  // const notifying = () =>{
+  //   alert("Same on you")    
+  // }
 
   return (
     <>
