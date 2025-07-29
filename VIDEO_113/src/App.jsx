@@ -17,7 +17,25 @@ function App() {
     console.log(todos);
   };
 
- 
+  const HandelChange = (e) => {
+    setTodo(e.target.value);
+  };
+
+  const HandelCheckbox = (e) => {
+    console.log(e,e.target);
+  const id = e.target.name;
+    console.log(`The id is ${id}`);    
+  const updatedTodos = todos.map((item) => {
+    if (item.id === id) {
+      return { ...item, iscompleted: !item.iscompleted };
+    }
+    console.log(updatedTodos);
+    
+    return item;
+  });
+  setTodos(updatedTodos);
+};
+
   
 
   return (
