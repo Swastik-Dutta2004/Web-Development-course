@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,13 +13,12 @@ function App() {
   const HandelDelete = () => {};
 
   const HandelAdd = () => {
-    setTodos([...todos, { todo, iscompleted: false }]);
+    setTodos([...todos, { id:uuidv4() ,todo, iscompleted: false }]);
     console.log(todos);
   };
 
-  const HandelChange = (e) => {
-    setTodo(e.target.value);
-  };
+ 
+  
 
   return (
     <>
@@ -45,30 +45,17 @@ function App() {
         <div className="todos">
           {todos.map((item, index) => {
             return (
-              <div key={index} className="todo flex justify-between my-2">
-                <input type="checkbox" name="" id="" />
+              <div key={item.id} className="todo flex justify-between my-2">
+                <input onChange={HandelCheckbox} value={item.iscompleted} type="checkbox" name={item.id} id=""/>
                 <div
                   className={`text m-1 ${
-                    item.iscompleted ? "line-through text-gray-500" : ""
+                    item.iscompleted ? "line-through" : ""
                   }`}
                 >
                   {item.todo}
                 </div>
 
-                <div className="buttons">
-                  <button
-                    className="bg-orange-600 hover:bg-orange-700 p-2 py-1 m-1 rounded-xl font-bold "
-                    onClick={HandelEdit}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="bg-orange-600 hover:bg-orange-700 p-2 py-1 m-1 rounded-xl font-bold"
-                    onClick={HandelDelete}
-                  >
-                    Delete
-                  </button>
-                </div>
+                <
               </div>
             );
           })}
