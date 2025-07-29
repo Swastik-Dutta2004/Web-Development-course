@@ -29,8 +29,6 @@ function App() {
     if (item.id === id) {
       return { ...item, iscompleted: !item.iscompleted };
     }
-    console.log(updatedTodos);
-    
     return item;
   });
   setTodos(updatedTodos);
