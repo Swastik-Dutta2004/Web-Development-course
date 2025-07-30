@@ -100,7 +100,7 @@ return (
         <h2 className="text-lg text-white font-bold p-2">Your todo list</h2>
 
         <div className="todos bg-slate-600 p-3 rounded-xl">
-          {todos.map((item, index) => {
+          {todos.map((item) => {
             return (
               <div key={item.id} className="todo flex justify-between my-2 font-bold border border-solid border-white rounded-xl bg-slate-400">
                 <input onChange={HandelCheckbox} checked={item.iscompleted} type="checkbox" name={item.id} />

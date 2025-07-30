@@ -11,21 +11,19 @@ function App() {
     setTodo(e.target.value)
   }
   const HandleAdd = () => {
-    if(todo.trim() === ""){
+    if(todo.trim()=== ""){
       alert("Write something before save")
       return
     }
-    setTodos([...todos, {id:uuidv4(), todo, iscompleted: false}])
+    setTodos([...todos,{id:uuidv4(), todo, iscompleted: false}])
     setTodo("")
   }
+
   const HandleEdit = (id) => {
     const newTodotext = prompt("Enter the What you want yo update")
-    if(newTodotext?.trim()){
-      const updateTodos = todos.map((item) => {
-        return{...item, todo: newTodotext}
-      })
-    }
+    
   }
+
   const HandleDelete = () => {
     
   }
