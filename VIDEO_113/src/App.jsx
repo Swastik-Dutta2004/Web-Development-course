@@ -108,10 +108,7 @@ return (
                 <div
                   className={`text m-1 ${
                     item.iscompleted ? "line-through" : ""
-                  }`}
-                >
-                  {item.todo}
-                </div>
+                  }`}>{item.todo}</div>
 
                 <div className="buttons flex h-full">
                   <button
