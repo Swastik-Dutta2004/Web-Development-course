@@ -1,5 +1,24 @@
 nav{
-  display: flex;
   background: hsla(0, 0%, 0%, 0.801);
-  gap: 20px;
+}
+
+ul{
+  display: flex;
+   gap: 25px;
+}
+
+ul li{
+  color: whitesmoke;
+  list-style: none;
+  padding: 15px;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.red{
+  background: red;
+  color: white;
 }
