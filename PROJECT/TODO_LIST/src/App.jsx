@@ -26,17 +26,20 @@ function App() {
         if(item.id === id){
           return{...item, todo: newTodotext}
         }
+        return item
       })
+      setTodos(upadatedText)
     }
   }
 
-  const HandleDelete = () => {
-    
+  const HandleDelete = (id) => {
+    const upadatedText = todos.filter(item => 
+      item.id !== id
+    )
+    setTodos(upadatedText)
   }
 
-  const HandleCheckbox = () => {
-
-  }
+  
 
   return (
     <>
