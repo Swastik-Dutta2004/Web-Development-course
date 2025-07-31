@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import "./App.css";
 import Navbar from "./components/Navbar";
@@ -6,6 +6,21 @@ import Navbar from "./components/Navbar";
 function App() {
   const [todo, setTodo] = useState("")
   const [todos, setTodos] = useState([])
+  const [isSet, setisSet] = useState(false)
+
+  useEffect(() => {
+    try {
+      const savedTodos = localStorage.getItem("todos")
+      if(savedTodos){
+        const ParsedTodos = JSON.parse(savedTodos)
+        setTodos(ParsedTodos)
+        console.log(ParsedTodos);
+      }
+    } catch (error) {
+      console.error("Error loading todos from localStorage", error);
+    }
+  }, [])
+  
 
   const HandleChange = (e) => {
     setTodo(e.target.value)
