@@ -4,9 +4,9 @@ const Navbar = () => {
   return (
     <div>
       <ul>
-        <a href=""><li>Home</li></a>
-        <a href=""><li>About</li></a>
-        <a href=""><li>Conatct us</li></a>
+        <a href="/"><li>Home</li></a>
+        <a href="/About"><li>About</li></a>
+        <a href="/Contact"><li>Conatct us</li></a>
       </ul>
     </div>
   )
