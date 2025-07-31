@@ -3,25 +3,30 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import About from './components/About'
 import Home from './components/Home'
 import Contact from './components/Contact'
+import User from './components/User'
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      Component: <Home />
+      element: <><Navbar /><Home/></>
     },
     {
-      path: "/About",
-      Component: <About />
+      path: "/about",
+      element: <><Navbar /><About/></>
     },
     {
-       path: "/Contact",
-      Component: <Contact />
+       path: "/contact",
+      element: <><Navbar /><Contact/></>
+    },
+    {
+       path: "/user/:username",
+      element: <><Navbar /><User /></>
     }
   ])
   return (
     <>
-    <Navbar/>
+    
     <RouterProvider router={router}/>
     </>
   )
