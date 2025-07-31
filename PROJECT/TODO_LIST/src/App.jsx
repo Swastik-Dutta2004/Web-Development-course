@@ -20,8 +20,14 @@ function App() {
   }
 
   const HandleEdit = (id) => {
-    const newTodotext = prompt("Enter the What you want yo update")
-    
+    const newTodotext = prompt("Enter your todo")
+    if(newTodotext?.trim()){
+      const upadatedText = todos.map((item) => {
+        if(item.id === id){
+          return{...item, todo: newTodotext}
+        }
+      })
+    }
   }
 
   const HandleDelete = () => {
@@ -64,7 +70,7 @@ function App() {
           <div className="todos items-center gap-2 bg-white p-3 rounded shadow mb-2">
             {todos.map((item) => {
               return (
-            <div className="flex items-center gap-3 flex-1 justify-between border border-black m-2 rounded-lg">
+            <div key={item.id} className="flex items-center gap-3 flex-1 justify-between border border-black m-2 rounded-lg">
               <input type="checkbox" onChange={HandleCheckbox} checked = {item.iscompleted} name={item.id}/>
               
             <div className={` ${item.iscompleted? "line-through" : ""}`}>{item.todo}</div>
