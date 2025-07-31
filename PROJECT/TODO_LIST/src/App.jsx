@@ -8,19 +8,31 @@ function App() {
   const [todos, setTodos] = useState([])
   const [isSet, setisSet] = useState(false)
 
+ useEffect(() => {
+   if(isSet){
+    try {
+      localStorage.setItem("todos", JSON.stringify(todos))
+      console.log("saved Todos:",todos);
+    } catch (error) {
+      console.error("Error saving todos to localStorage:", error);
+    }
+   }
+ }, [todos,isSet])
+ 
   useEffect(() => {
     try {
       const savedTodos = localStorage.getItem("todos")
       if(savedTodos){
         const ParsedTodos = JSON.parse(savedTodos)
         setTodos(ParsedTodos)
-        console.log(ParsedTodos);
+        console.log(ParsedTodos); 
       }
     } catch (error) {
       console.error("Error loading todos from localStorage", error);
+    } finally{
+      setisSet(true)
     }
   }, [])
-  
 
   const HandleChange = (e) => {
     setTodo(e.target.value)
