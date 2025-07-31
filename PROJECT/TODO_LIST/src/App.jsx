@@ -39,7 +39,16 @@ function App() {
     setTodos(upadatedText)
   }
 
-  
+  const HandleCheckbox = (e) => {
+    const id = e.target.name
+    const updateTodos = todos.map((item) => {
+      if(item.id === id){
+        return{...item, iscompleted: !item.iscompleted}
+      }
+      return item
+    })
+    setTodos(updateTodos)
+  }
 
   return (
     <>
