@@ -81,51 +81,74 @@ function App() {
 };
 
 return (
-    <>
-      <Navbar />
-      <div className="container mx-auto my-5 rounded-xl p-5 bg-black min-h-[80vh]">
-        <div className="addtodo flex flex-col items-center justify-center gap-4">
-          <h2 className="text-lg text-white font-bold">Add Todo</h2>
-          <input
-            className="text-black w-80 p-2 rounded cursor-pointer" placeholder= "Write your Todo"
-            value={todo}
-            type="text"
-            onChange={HandelChange}
-          />
-          <button
-            className="bg-green-900 hover:bg-orange-700 px-4 py-2 rounded-xl font-bold text-white"
-            onClick={HandelAdd}>Save</button>
+   <>
+  <Navbar />
+  <div className="container mx-auto my-8 px-4 sm:px-8 max-w-3xl bg-gray-900 text-white rounded-2xl shadow-lg py-6 min-h-[80vh]">
+    
+    {/* Add Todo Section */}
+    <div className="addtodo flex flex-col items-center gap-4 mb-8">
+      <h2 className="text-2xl font-semibold">Add Todo</h2>
+      <input
+        type="text"
+        placeholder="Write your Todo"
+        value={todo}
+        onChange={HandelChange}
+        className="w-full sm:w-96 p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-orange-400"
+      />
+      <button
+        onClick={HandelAdd}
+        className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-lg transition-all"
+      >
+        Save
+      </button>
+    </div>
+
+    {/* Todo List Section */}
+    <h2 className="text-xl font-semibold mb-4">Your Todo List</h2>
+    <div className="todos space-y-4 ">
+      {todos.map((item) => (
+        <div
+          key={item.id}
+          className="flex flex-col sm:flex-row justify-between items-center bg-gray-700 rounded-lg p-4 shadow-md"
+        >
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <input
+              type="checkbox"
+              checked={item.iscompleted}
+              onChange={HandelCheckbox}
+              name={item.id}
+              className="w-5 h-5"
+            />
+            <p
+              className={`text-lg ${
+                item.iscompleted ? "line-through text-gray-300" : ""
+              }`}
+            >
+              {item.todo}
+            </p>
+          </div>
+
+          {/* Buttons */}
+          <div className="flex gap-3 mt-3 sm:mt-0">
+            <button
+              onClick={() => HandelEdit(item.id)}
+              className="bg-green-600 hover:bg-green-700 text-white px-4 py-1 rounded-md"
+            >
+              Edit
+            </button>
+            <button
+              onClick={() => HandelDelete(item.id)}
+              className="bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded-md"
+            >
+              Delete
+            </button>
+          </div>
         </div>
+      ))}
+    </div>
+  </div>
+</>
 
-        <h2 className="text-lg text-white font-bold p-2">Your todo list</h2>
-
-        <div className="todos bg-slate-600 p-3 rounded-xl">
-          {todos.map((item) => {
-            return (
-              <div key={item.id} className="todo flex justify-between my-2 font-bold border border-solid border-white rounded-xl bg-slate-400">
-                <input onChange={HandelCheckbox} checked={item.iscompleted} type="checkbox" name={item.id} />
-
-                <div
-                  className={`text m-1 ${
-                    item.iscompleted ? "line-through" : ""
-                  }`}>{item.todo}</div>
-
-                <div className="buttons flex h-full">
-                  <button
-                    className="bg-green-800 hover:bg-white p-2 py-1 m-1 rounded-xl font-bold text-black "
-                    onClick={() => HandelEdit(item.id)}>Edit
-                  </button>
-                  <button
-                    className="bg-orange-600 hover:bg-white p-2 py-1 m-1 rounded-xl font-bold text-black"
-                    onClick={() => HandelDelete(item.id)}>Delete
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </>
   );
 }
 
