@@ -1,28 +1,30 @@
-import { useMemo, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useMemo, useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
-const num = new Array (30_000_000).fill(0).map((_, i) => {
-  return{
+const num = new Array(30_000_000).fill(0).map((_, i) => {
+  return {
     index: i,
-    ismagical: i===29_000_000
-  }
-})
+    ismagical: i === 29_000_000,
+  };
+});
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [numbers, setnumbers] = useState(num)
+  const [count, setCount] = useState(0);
+  const [numbers, setnumbers] = useState(num);
 
   // const magical = numbers.find(item => item.ismagical === true)
 
-   const magical = useMemo(() =>  numbers.find(item => item.ismagical === true)
-, [])
+  const magical = useMemo(
+    () => numbers.find((item) => item.ismagical === true),
+    []
+  );
 
   return (
     <>
       <div>
-      <span>Magical Nmber is {magical.index}</span>
+        <span>Magical Nmber is {magical.index}</span>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -32,7 +34,19 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button
+          onClick={() => {
+            setCount((count) => count + 1);
+            if (count === 10) {
+              new Array(30_000_000).fill(0).map((_, i) => {
+                return {
+                  index: i,
+                  ismagical: i === 29_000_000,
+                };
+              });
+            }
+          }}
+        >
           count is {count}
         </button>
         <p>
@@ -43,7 +57,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
