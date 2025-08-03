@@ -18,13 +18,13 @@ function App() {
 
   const magical = useMemo(
     () => numbers.find((item) => item.ismagical === true),
-    []
+    [numbers]
   );
 
   return (
     <>
       <div>
-        <span>Magical Nmber is {magical.index}</span>
+        <span>Magical Number is {magical.index}</span>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -38,12 +38,12 @@ function App() {
           onClick={() => {
             setCount((count) => count + 1);
             if (count === 10) {
-              new Array(30_000_000).fill(0).map((_, i) => {
+              setnumbers(new Array(10_000_000).fill(0).map((_, i) => {
                 return {
                   index: i,
-                  ismagical: i === 29_000_000,
+                  ismagical: i === 9_000_000,
                 };
-              });
+              }))
             }
           }}
         >
