@@ -7,21 +7,37 @@ function App() {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data)
+  const delay =  (d) => {
+    return new Promise((resolve, reject)=>{
+      setTimeout(() => {
+        resolve()
+      }, d* 1000);
+    })
+  }
+
+  const onSubmit = async (data) => {
+    await delay(2)
+    console.log(data)
+  }
   
   return (
     <>
+    {isSubmitting && <div>Loading...</div>}
      <div className="conatiner">
       <form action="" onSubmit={handleSubmit(onSubmit)}>
-        <input  {...register("username", {required: true, minLength: 3, maxLength: 8})} type="text" placeholder='Username'/>
-        {errors.username && <div className=''>There is an error ion your Username</div>}
-        <br />
+        <div className="username">
+        <input  {...register("username", {required: {value:true, message:"These filed is required"}, minLength: {value:3, message:"Min length is 3"}, maxLength: {value:8, message:"Max length is 8"}})} type="text" placeholder='Username'/>
+        {errors.username && <div className='red'>{errors.username.message}</div>}
+        </div>
+
+        <div className="password">
         <input {...register("password")} type="password" placeholder='Password'/>
-        <br />
-        <input type="submit" value="submit" />
+        </div>
+
+        <input disabled={isSubmitting} type="submit" value="submit" />
       </form>
      </div>
     </>
