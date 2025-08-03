@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -14,11 +14,15 @@ function App() {
   const [count, setCount] = useState(0)
   const [numbers, setnumbers] = useState(num)
 
-  const magical = numbers.find(item => item.ismagical === true)
+  // const magical = numbers.find(item => item.ismagical === true)
+
+   const magical = useMemo(() =>  numbers.find(item => item.ismagical === true)
+, [])
 
   return (
     <>
       <div>
+      <span>Magical Nmber is {magical.index}</span>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
