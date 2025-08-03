@@ -6,7 +6,7 @@ const Navbar = ({adjective, getadjective}) => {
     
   return (
     <div>I am {adjective} Navbar
-    <button onClick={() => {getadjective}}></button>
+    <button onClick={() => {getadjective}}>{getadjective()}</button>
     </div>
   )
 }
