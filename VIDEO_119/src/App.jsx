@@ -22,12 +22,12 @@ function App() {
   const onSubmit = async (data) => {
     await delay(2);
     console.log(data);
-    if (data.username !== "shubham") {
-      setError("myform",{message :"Your form is not in good order"})
-    }
-    if(data.username){
-      setError("Blocked",{message:"This Person is blocked"})
-    } 
+    // if (data.username !== "shubham") {
+    //   setError("myform",{message :"Your form is not in good order"})
+    // }
+    // if(data.username){
+    //   setError("Blocked",{message:"This Person is blocked"})
+    // } 
   };
 
   return (
@@ -64,8 +64,8 @@ function App() {
 
           <div className="submit">
             <input disabled={isSubmitting} type="submit" value="submit" />
-            {errors.myform && (<div className="red">{errors.myform.message}</div>)}
-            {errors.Blocked && (<div className="red">{errors.Blocked.message}</div>)}
+            {/* {errors.myform && (<div className="red">{errors.myform.message}</div>)}
+            {errors.Blocked && (<div className="red">{errors.Blocked.message}</div>)} */}
           </div>
         </form>
       </div>
