@@ -18,6 +18,7 @@ function App() {
       <button onClick={()=> {dispatch(decrement())}}>-</button>
       currenty the value is {count}
       <button onClick={() => {dispatch(increment())}}>+</button>
+      <button onClick={()=>{dispatch(multiply())}}>*</button>
     </div>
    </>
   )
