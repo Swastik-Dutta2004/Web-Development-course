@@ -5,7 +5,20 @@ import "./App.css";
 
 
 function App() {
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
   
+  const delay = (d)=> {
+    return new Promise((reject, resolve) => {
+      setTimeout(() => {
+        resolve()
+      }, d*1000);
+    })
+  }
+
+const onSubmit =  async (data) => {
+  await delay(2)
+  console.log(data);
+}
 
 
   return (
