@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import { POST } from "./api/add/route";
 
@@ -21,7 +22,7 @@ export default function Home() {
   return (
     <div>
       <h1 className="text-xl font-bold">Next.js Api routes</h1>
-      <button onClick={handleclick}>Click me</button>
+      <button className="butt" onClick={handleclick}>Click me</button>
     </div>
   );
 }
