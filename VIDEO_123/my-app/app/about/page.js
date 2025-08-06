@@ -1,8 +1,12 @@
 import React from 'react'
+import Script from 'next/script'
 
 const about = () => {
   return (
     <div>
+        <Script>
+            {`alert ("welcome to about section")`}
+        </Script>
         I am about
     </div>
   )
