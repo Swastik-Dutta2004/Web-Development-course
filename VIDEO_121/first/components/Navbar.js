@@ -2,8 +2,8 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div>I am Navbar</div>
+    <div>Hey i am Navbar</div>
   )
 }
 
-export default Navbar       
+export default Navbar
