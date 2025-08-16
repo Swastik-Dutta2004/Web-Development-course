@@ -2,7 +2,9 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>I am About</div>
+    <div>
+      <h1>Hey i am reviceing nextjs</h1>
+    </div>
   )
 }
 
