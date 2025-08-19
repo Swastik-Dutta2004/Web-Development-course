@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'www.menucool.com',
+        hostname: 'i.pinimg.com',
         port: '',
         search: '',
       },
