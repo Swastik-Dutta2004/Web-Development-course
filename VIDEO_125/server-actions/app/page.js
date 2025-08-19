@@ -1,18 +1,12 @@
-import Image from "next/image";
-import fs from 'fs/promises'
+"use client"
+import { submitAction } from "@/actions/form";
+import { useRef } from "react";
 
 export default function Home() {
-const submitAction = async (e) => {
-  "use server"
-  console.log(e.get("name"), e.get("Address"));
-  let a = await fs.writeFile("swa.txt","Hey its me SwAA 😁")
-  console.log(a);
-  
-}
-
+  let ref = useRef()
   return (
     <div>
-      <form className="mx-auto my-5" action={submitAction}>
+      <form className="mx-auto my-5" ref= {ref} action={(e) => {submitAction(e); ref.current.reset()}}>
         <div className="py-2">
           <label className="px-5" htmlFor="Name">Name</label>
           <input className="bg-white text-black " type="text" name="name" id="name" />
