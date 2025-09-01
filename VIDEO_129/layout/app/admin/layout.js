@@ -8,7 +8,7 @@ export const metadata = {
 export default function AdminLayout({ children }) {
   return (
     <>
-    <span>Admin header</span>
+    <span>Admin Navbar</span>
         {children}
     </>
   );
