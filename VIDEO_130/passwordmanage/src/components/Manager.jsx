@@ -1,6 +1,12 @@
 import React from 'react'
+import { useRef } from 'react'
 
 const Manager = () => {
+    const ref = useRef()
+    let showPassword = () => {
+        alert("your Password will show be open")
+        ref.current.src = "src/showeye.svg"
+    }
 return (
     <>
         <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
@@ -21,8 +27,8 @@ return (
 
                     <div className="relative">
                         <input className='rounded-full border border-green-400 w-full px-3 py-1' type="text" placeholder='Password' />
-                        <span className='absolute right-3 top-1'>
-                            <img src="eye.svg" alt="eye" />
+                        <span className='absolute right-3 top-1'onClick={showPassword}>
+                            <img ref={ref} src="src/eye.svg" alt="eye" />
                         </span>
                     </div>
                 </div>
