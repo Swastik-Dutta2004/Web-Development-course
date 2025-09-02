@@ -21,8 +21,8 @@ return (
 
                     <div className="relative">
                         <input className='rounded-full border border-green-400 w-full px-3 py-1' type="text" placeholder='Password' />
-                        <span>
-                            <img src="" alt="" />
+                        <span className='absolute right-3 top-1'>
+                            <img src="eye.svg" alt="eye" />
                         </span>
                     </div>
                 </div>
