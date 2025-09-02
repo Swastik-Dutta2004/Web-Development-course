@@ -12,13 +12,24 @@ const Manager = () => {
                     <span className='text-green-800'>Ge/&gt;</span>
                 </h1>
                 <p className='text-yellow-400 text-center'>Your own Password Manager</p>
-                <div className='flex flex-col text-white p-4 gap-3'>
-                    <input className='rounded-xl border border-green-400 w-full px-4 py-1' type="text" />
-                    <div className='flex'>
-                        <input type="text" />
-                        <input type="text" />
+
+
+                <div className='flex flex-col text-black p-4 gap-3 items-center'>
+                    <input className='rounded-full border border-green-400 w-full px-3 py-1' type="text" />
+                    <div className='flex w-full justify-between gap-8'>
+                        <input className='rounded-full border border-green-400 w-full px-3 py-1' type="text" />
+                        <input className='rounded-full border border-green-400 w-full px-3 py-1' type="text" />
                     </div>
+                    <button className='flex justify-center items-center border border-white rounded-full text-white w-fit px-3 py-1 hover:bg-green-800 hover:text-black font-bold transition delay-150'>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/efxgwrkc.json"
+                            trigger="hover"
+                            colors="primary:#ffffff,secondary:#ffffff">
+                        </lord-icon>
+
+                        Add Item</button>
                 </div>
+
             </div>
 
         </>
