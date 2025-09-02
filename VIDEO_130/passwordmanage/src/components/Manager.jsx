@@ -20,7 +20,7 @@ const Manager = () => {
                         <input className='rounded-full border border-green-400 w-full px-3 py-1' type="text" />
                         <input className='rounded-full border border-green-400 w-full px-3 py-1' type="text" />
                     </div>
-                    <button className='flex justify-center items-center border border-white rounded-full text-white w-fit px-3 py-1 hover:bg-green-800 hover:text-black font-bold transition delay-150'>
+                    <button className='flex justify-center items-center border-2 border-white rounded-full text-white w-fit px-5 py-1 hover:bg-green-800 hover:text-black hover:border-yellow-700 font-bold transition delay-150 gap-2'>
                         <lord-icon
                             src="https://cdn.lordicon.com/efxgwrkc.json"
                             trigger="hover"
