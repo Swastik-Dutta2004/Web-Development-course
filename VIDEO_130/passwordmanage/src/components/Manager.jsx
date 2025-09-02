@@ -1,15 +1,31 @@
 import React from 'react'
-import { useRef } from 'react'
+import { useRef,useState } from 'react'
 
 const Manager = () => {
-    const ref = useRef()
-    let showPassword = () => {
-        alert("your Password will show be open")
-        ref.current.src = "src/showeye.svg"
+const ref = useRef()
+const [form, setform] = useState({site:"", username: "", password:""})
+
+let showPassword = () => {
+    alert("your Password will show be open")
+    if (ref.current.src.includes("src/showeye.svg")) {
+        ref.current.src = "src/crosseye.svg"
     }
+    else {
+        ref.current.src = "src/showeye.svg"
+
+    }
+}
+
+const saveChange = () => {
+
+}
+
+const handelchange = (e) => {
+    setform({...from,[e.target.name]: e.target.value})
+}
 return (
     <>
-        <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+        <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
 
         <div className='max-w-6xl mycontainer text-white'>
             <h1 className='font-bold text-2xl text-center'>
@@ -21,18 +37,18 @@ return (
 
 
             <div className='flex flex-col text-black p-4 gap-3 items-center'>
-                <input className='rounded-full border border-green-400 w-full px-3 py-1' type="text" placeholder='Enter website Link' />
+                <input value={form.site} onChange={handelchange} className='rounded-full border border-green-400 w-full px-3 py-1' type="text" placeholder='Enter website Link' name='site' />
                 <div className='flex w-full justify-between gap-8'>
-                    <input className='rounded-full border border-green-400 w-full px-3 py-1' type="text" placeholder='Username' />
+                    <input value={form.username} onChange={handelchange} className='rounded-full border border-green-400 w-full px-3 py-1' type="text" placeholder='Username' name='username' />
 
                     <div className="relative">
-                        <input className='rounded-full border border-green-400 w-full px-3 py-1' type="text" placeholder='Password' />
-                        <span className='absolute right-3 top-1'onClick={showPassword}>
-                            <img ref={ref} src="src/eye.svg" alt="eye" />
+                        <input value={form.password} onChange={handelchange} className='rounded-full border border-green-400 w-full px-3 py-1' type="text" placeholder='Password' name='password'/>
+                        <span className='absolute right-3 top-1' onClick={showPassword}>
+                            <img ref={ref} src="src/crosseye.svg" alt="eye" />
                         </span>
                     </div>
                 </div>
-                <button className='flex justify-center items-center border-2 border-white rounded-full text-white w-fit px-5 py-1 hover:bg-green-800 hover:text-black hover:border-yellow-700 font-bold transition delay-150 gap-2'>
+                <button onClick={saveChange} className='flex justify-center items-center border-2 border-white rounded-full text-white w-fit px-5 py-1 hover:bg-green-800 hover:text-black hover:border-yellow-700 font-bold transition delay-150 gap-2'>
                     <lord-icon
                         src="https://cdn.lordicon.com/efxgwrkc.json"
                         trigger="hover"
