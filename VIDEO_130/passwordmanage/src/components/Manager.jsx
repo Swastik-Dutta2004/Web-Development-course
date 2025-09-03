@@ -1,9 +1,18 @@
 import React from 'react'
-import { useRef,useState } from 'react'
+import { useRef,useState,useEffect } from 'react'
 
 const Manager = () => {
 const ref = useRef()
 const [form, setform] = useState({site:"", username: "", password:""})
+const [passwordArray, setpasswordArray] = useState([])
+
+useEffect(() => {
+  let passwords = localStorage.getItem("password")
+  if(passwords){
+    setpasswordArray(JSON.parse(passwords))
+  }
+}, [])
+
 
 let showPassword = () => {
     alert("your Password will show be open")
