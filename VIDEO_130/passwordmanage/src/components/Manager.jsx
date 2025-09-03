@@ -17,11 +17,12 @@ let showPassword = () => {
 }
 
 const saveChange = () => {
-
+    console.log(form);
+    
 }
 
 const handelchange = (e) => {
-    setform({...from,[e.target.name]: e.target.value})
+    setform({...form,[e.target.name]: e.target.value})
 }
 return (
     <>
