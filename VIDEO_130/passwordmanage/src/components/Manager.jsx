@@ -35,14 +35,7 @@ const Manager = () => {
     const handelchange = (e) => {
         setform({ ...form, [e.target.name]: e.target.value })
     }
-
-    const musicData = [
-        { id: 1, song: 'The Sliding Mr. Bones (Next Stop, Pottersville)', artist: 'Malcolm Lockyer', year: 1961 },
-        { id: 2, song: 'Witchy Woman', artist: 'The Eagles', year: 1972 },
-        { id: 3, song: 'Shining Star', artist: 'Earth, Wind, and Fire', year: 1975 },
-        { id: 4, song: 'Bohemian Rhapsody', artist: 'Queen', year: 1975 },
-        { id: 5, song: 'Hotel California', artist: 'The Eagles', year: 1976 },
-    ];
+    
 
     return (
         <>
@@ -97,8 +90,8 @@ const Manager = () => {
                                 </tr>
                             </thead>
                             <tbody className='divide-y divide-slate-700'>
-                                {passwordArray.map((row) => (
-                                    <tr key={row.id} className='bg-slate-900/40 hover:bg-slate-800/50 transition-colors'>
+                                {passwordArray.map((row,index) => (
+                                    <tr key={index} className='bg-slate-900/40 hover:bg-slate-800/50 transition-colors'>
                                         <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-white text-center'>
                                             {row.site}
                                         </td>
