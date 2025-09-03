@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from 'react'
 
 const Manager = () => {
     const ref = useRef()
+    const passwordref = useRef()
     const [form, setform] = useState({ site: "", username: "", password: "" })
     const [passwordArray, setpasswordArray] = useState([])
 
@@ -15,12 +16,18 @@ const Manager = () => {
 
 
     let showPassword = () => {
-        alert("your Password will show be open")
+        passwordref.current.type = "text"
+        console.log(ref.current.src);
+        
         if (ref.current.src.includes("src/showeye.svg")) {
             ref.current.src = "src/crosseye.svg"
+            passwordref.current.type = "password"
+
         }
         else {
             ref.current.src = "src/showeye.svg"
+            passwordref.current.type = "text"
+
 
         }
     }
@@ -35,7 +42,7 @@ const Manager = () => {
     const handelchange = (e) => {
         setform({ ...form, [e.target.name]: e.target.value })
     }
-    
+
 
     return (
         <>
@@ -56,7 +63,7 @@ const Manager = () => {
                         <input value={form.username} onChange={handelchange} className='rounded-full border border-green-400 w-full px-3 py-1' type="text" placeholder='Username' name='username' />
 
                         <div className="relative">
-                            <input value={form.password} onChange={handelchange} className='rounded-full border border-green-400 w-full px-3 py-1' type="text" placeholder='Password' name='password' />
+                            <input ref={passwordref} value={form.password} onChange={handelchange} className='rounded-full border border-green-400 w-full px-3 py-1' type="password" placeholder='Password' name='password' />
                             <span className='absolute right-3 top-1' onClick={showPassword}>
                                 <img ref={ref} src="src/crosseye.svg" alt="eye" />
                             </span>
@@ -92,13 +99,13 @@ const Manager = () => {
                             <tbody className='divide-y divide-slate-700'>
                                 {passwordArray.map((row,index) => (
                                     <tr key={index} className='bg-slate-900/40 hover:bg-slate-800/50 transition-colors'>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-white text-center'>
-                                            {row.site}
+                                        <td className='max-w-32 py-4 whitespace-nowrap text-sm font-medium text-white text-center'><a href="row.site">
+                                            {row.site}</a>
                                         </td>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300 text-center'>
+                                        <td className='max-w-32 py-4 whitespace-nowrap text-sm text-gray-300 text-center'>
                                             {row.username}
                                         </td>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-300 text-center'>
+                                        <td className='max-w-32 py-4 whitespace-nowrap text-sm text-gray-300 text-center'>
                                             {row.password}
                                         </td>
                                     </tr>
