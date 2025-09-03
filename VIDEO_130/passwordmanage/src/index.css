@@ -3,11 +3,6 @@
 @tailwind utilities;
 
 
-@layer components {
-  .mycontainer {
-    @apply  container px-10 py-10 mx-auto ;
-  }
-}
 
 .icon{
   color: white;
