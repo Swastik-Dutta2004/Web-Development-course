@@ -23,17 +23,19 @@ function App() {
 
       }
       setpassword(pass)
-    }, [length, numberAllowed, charAllowed, ],
+    }, [length, numberAllowed, charAllowed,],
   )
 
 
   const copyToClipboard = () => {
+    passworRef.current?.select()
+    // passworRef.current?.setSelectionRange(0,3)
     window.navigator.clipboard.writeText(password)
   }
   useEffect(() => {
     passwordGenerator()
   }, [length, setNumberAllowed, setcharAllowed, passwordGenerator])
-  
+
 
   return (
     <>
@@ -47,11 +49,12 @@ function App() {
             readOnly
             ref={passworRef}
           />
-          <button onClick={copyToClipboard} className='bg-blue-600 text-lg font-bold rounded px-2 my-auto text-teal-50 p-1 hover:bg-blue-800 transition duration-150'>Copy</button>
+          <button onClick={copyToClipboard} className='bg-blue-600 text-lg font-bold rounded px-2 my-auto text-teal-50 p-1 hover:bg-blue-800 transition duration-150 cursor-pointer'>Copy</button>
         </div>
         <div className="flex gap-4">
-          <div className=" flex gap-x-2 items-center">
+          <div className=" flex gap-x-2 items-center ">
             <input type="range"
+              className='cursor-pointer'
               min={8}
               max={40}
               value={length}
@@ -61,20 +64,22 @@ function App() {
           </div>
           <div className="">
             <input type="checkbox"
+              className='cursor-pointer'
               defaultChecked={numberAllowed}
               id='numberInput'
               onChange={() => {
-                setNumberAllowed((prev) =>  !prev )
+                setNumberAllowed((prev) => !prev)
               }}
             />
             <label className='font-bold'>Number</label>
           </div>
           <div className="">
             <input type="checkbox"
+              className='cursor-pointer'
               defaultChecked={charAllowed}
               id='characterInput'
               onChange={() => {
-                setcharAllowed((prev) =>  !prev )
+                setcharAllowed((prev) => !prev)
               }}
             />
             <label className='font-bold'>Character</label>
