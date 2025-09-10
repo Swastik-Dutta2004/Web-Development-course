@@ -16,13 +16,29 @@ function App() {
 
       if (numberAllowed) string += "0123456789"
       if (charAllowed) string += "!@#$%^&*()_+-=[]{}|;:.<>?/`~"
+
+      for (let index = 1; index <= array.length; index++) {
+        let char = Math.floor(Math.random() * string.length + 1)
+        pass = string.charAt(char)
+
+      }
+      setpassword(pass)
     }, [length, numberAllowed, charAllowed, setpassword],
   )
 
 
   return (
     <>
-      <h1 className='text-6xl text-center text-purple-600'>PAssword manager</h1>
+      <div className="w-full max-w-md mx-auto shadow-lg rounded-lg px-4 my-8 text-purple-800 bg-amber-500"> 
+        <h1 className='text-2xl font-bold text-center'>PassWord Generator</h1>
+        <div className="flex">
+          <input type="text"
+            value={password}
+            placeholder='Password'
+            className="w-full py-1 px-2 my-3 rounded bg-amber-300 text-black"
+ />
+        </div>
+      </div>
     </>
   )
 }
