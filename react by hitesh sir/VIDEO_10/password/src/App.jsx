@@ -1,6 +1,4 @@
-import { useState, useCallback } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import './App.css'
 
 function App() {
@@ -9,27 +7,37 @@ function App() {
   const [charAllowed, setcharAllowed] = useState(false)
   const [password, setpassword] = useState("")
 
+  const passworRef = useRef(null)
+
   const passwordGenerator = useCallback(
     () => {
       let pass = ""
-      let string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+      let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
-      if (numberAllowed) string += "0123456789"
-      if (charAllowed) string += "!@#$%^&*()_+-=[]{}|;:.<>?/`~"
+      if (numberAllowed) str += "0123456789"
+      if (charAllowed) str += "!@#$%^&*()_+-=[]{}|;:.<>?/`~"
 
-      for (let index = 1; index <= array.length; index++) {
-        let char = Math.floor(Math.random() * string.length + 1)
-        pass = string.charAt(char)
+      for (let index = 1; index <= length; index++) {
+        let char = Math.floor(Math.random() * str.length + 1)
+        pass += str.charAt(char)
 
       }
       setpassword(pass)
-    }, [length, numberAllowed, charAllowed, setpassword],
+    }, [length, numberAllowed, charAllowed, ],
   )
 
 
+  const copyToClipboard = () => {
+    window.navigator.clipboard.writeText(password)
+  }
+  useEffect(() => {
+    passwordGenerator()
+  }, [length, setNumberAllowed, setcharAllowed, passwordGenerator])
+  
+
   return (
     <>
-      <div className="w-full max-w-md mx-auto shadow-lg rounded-lg px-4 my-8 text-purple-800 bg-amber-500"> 
+      <div className="w-full max-w-md mx-auto shadow-lg rounded-lg px-4 my-8 text-purple-800 bg-amber-500 py-4">
         <h1 className='text-2xl font-bold text-center'>PassWord Generator</h1>
         <div className="flex gap-2">
           <input type="text"
@@ -37,18 +45,39 @@ function App() {
             placeholder='Password'
             className="w-full py-1 px-2 my-3 rounded bg-amber-300 text-black outline-none"
             readOnly
-            />
-            <button className='bg-blue-600 text-lg font-bold rounded px-2 my-auto text-teal-50 p-1 hover:bg-blue-800 transition duration-150'>Copy</button>
+            ref={passworRef}
+          />
+          <button onClick={copyToClipboard} className='bg-blue-600 text-lg font-bold rounded px-2 my-auto text-teal-50 p-1 hover:bg-blue-800 transition duration-150'>Copy</button>
         </div>
         <div className="flex gap-4">
           <div className=" flex gap-x-2 items-center">
             <input type="range"
-            max={100}
-            min={8}
-            value={length}
-            onChange={(e) => {setLength(e.target.value)}}
+              min={8}
+              max={40}
+              value={length}
+              onChange={(e) => { setLength(e.target.value) }}
             />
             <label className='font-bold'>Lenght: {length}</label>
+          </div>
+          <div className="">
+            <input type="checkbox"
+              defaultChecked={numberAllowed}
+              id='numberInput'
+              onChange={() => {
+                setNumberAllowed((prev) =>  !prev )
+              }}
+            />
+            <label className='font-bold'>Number</label>
+          </div>
+          <div className="">
+            <input type="checkbox"
+              defaultChecked={charAllowed}
+              id='characterInput'
+              onChange={() => {
+                setcharAllowed((prev) =>  !prev )
+              }}
+            />
+            <label className='font-bold'>Character</label>
           </div>
         </div>
       </div>
