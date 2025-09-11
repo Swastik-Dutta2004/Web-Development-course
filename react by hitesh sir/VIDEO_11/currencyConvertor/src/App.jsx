@@ -7,7 +7,7 @@ function App() {
   const [amount, setamount] = useState(0)
   const [from, setfrom] = useState("usd")
   const [To, setTo] = useState("inr")
-  const [CurrencyConvertor, setCurrencyConvertor] = useState(0)
+  const [AmountConvertor, setAmountConvertor] = useState(0)
 
   const currencyInfo = usecurrencyInfo(from)
   const option = Object.keys(currencyInfo)
@@ -15,18 +15,61 @@ function App() {
   const swap = () => {
     setfrom(To)
     setTo(from)
-    setamount(CurrencyConvertor)
-    setCurrencyConvertor(amount)
+    setamount(AmountConvertor)
+    setAmountConvertor(amount)
 
     const convert = () => {
-      amount * currencyInfo(To)
+      setAmountConvertor(amount * currencyInfo[To])
     }
   }
   return (
-    <>
-      <h1 className='text-center text-4xl font-bold bg-amber-950 text-white'>Currency Convertor</h1>
-    </>
-  )
+        <div
+            className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
+            style={{
+                backgroundImage: `url('https://images.pexels.com/photos/27771819/pexels-photo-27771819.jpeg ')`,
+            }}
+        >
+            <div className="w-full">
+                <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
+                    <form
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                           
+                        }}
+                    >
+                        <div className="w-full mb-1">
+                            <InputBox
+                                label="From"
+                                amount = {amount}
+                                CurrencyOptions = {option}
+                                onCurrencyChange = {(currency) => {setamount(amount)}}
+                                selectCurrency =  {from}
+                                
+                            />
+                        </div>
+                        <div className="relative w-full h-0.5">
+                            <button
+                                type="button"
+                                className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white rounded-md bg-blue-600 text-white px-2 py-0.5"
+                                
+                            >
+                                swap
+                            </button>
+                        </div>
+                        <div className="w-full mt-1 mb-4">
+                            <InputBox
+                                label="To"
+                                
+                            />
+                        </div>
+                        <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
+                            Convert 
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default App
