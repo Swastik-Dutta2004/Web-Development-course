@@ -33,7 +33,7 @@ export default function Footer() {
                         <div>
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Follow us</h2>
                             <ul className="text-gray-500 font-medium">
-                                <li className={({ isActive) =>  `mb-4 ${isActive ? "text-orange-700" : "text-gray-700"}` }>
+                                <li className={({isActive}) =>  `mb-4 ${isActive ? "text-orange-700" : "text-gray-700"}` }>
                                     <a
                                         href="https://github.com/hiteshchoudhary"
                                         className="hover:underline"
