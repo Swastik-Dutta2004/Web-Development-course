@@ -36,7 +36,7 @@ export default function Footer() {
                             <ul className="text-gray-500 font-medium">
                                 <li className={({isActive}) =>  `mb-4 ${isActive ? "text-orange-700" : "text-gray-700"}` }>
                                     <a
-                                        href="https://github.com/hiteshchoudhary"
+                                        href="https://github.com/Swastik-Dutta2004"
                                         className="hover:underline"
                                         target="_blank"
                                         rel="noreferrer"
