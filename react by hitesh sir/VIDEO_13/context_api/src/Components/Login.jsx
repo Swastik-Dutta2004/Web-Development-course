@@ -1,12 +1,15 @@
 import React from 'react'
 import { useState, useContext } from 'react'
-import useContext from '../Context/UserContext'
+import userContext from '../Context/UserContext'
 
 function Login() {
     const [username, setUsername] = useState('')
     const [Password, setPassword] = useState('')
-    const handlechange = () => {
-        set
+
+    const {setuser} = useContext(userContext)
+    const handlechange = (e) => {
+       e.preventDefault()
+       setuser({username, Password})
     }
     return (
         <div>

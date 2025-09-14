@@ -10,3 +10,5 @@ const UserContextPorvider = ({ children }) => {
         </useContext.Provider>
     )
 }
+
+export default UserContextPorvider
