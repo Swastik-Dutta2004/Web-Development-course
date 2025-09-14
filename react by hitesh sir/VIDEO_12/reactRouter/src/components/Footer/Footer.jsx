@@ -19,12 +19,12 @@ export default function Footer() {
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Resources</h2>
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
-                                    <Link to="/" className="hover:underline">
+                                    <Link to="/" className={({ isActive }) => `hover:underline ${isActive ? "text-orange-700" : "text-gray-700"}`}>
                                         Home
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/about" className="hover:underline">
+                                    <Link to="/about" className={({ isActive }) => `hover:underline ${isActive ? "text-orange-700" : "text-gray-700"}`}>
                                         About
                                     </Link>
                                 </li>
@@ -33,7 +33,7 @@ export default function Footer() {
                         <div>
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Follow us</h2>
                             <ul className="text-gray-500 font-medium">
-                                <li className="mb-4">
+                                <li className={({ isActive) =>  `mb-4 ${isActive ? "text-orange-700" : "text-gray-700"}` }>
                                     <a
                                         href="https://github.com/hiteshchoudhary"
                                         className="hover:underline"
@@ -44,7 +44,7 @@ export default function Footer() {
                                     </a>
                                 </li>
                                 <li>
-                                    <Link to="/" className="hover:underline">
+                                    <Link to="/" className={(isActive) =>`hover:underline ${isActive ? "text-orange-700" : "text-gray-700"}` }>
                                         Discord
                                     </Link>
                                 </li>
@@ -54,12 +54,12 @@ export default function Footer() {
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Legal</h2>
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
-                                    <Link to="#" className="hover:underline">
+                                    <Link to="#" className={(isActive) => `hover:underline ${isActive ? "text-orange-700": "text-gray-700"}`}>
                                         Privacy Policy
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="#" className="hover:underline">
+                                    <Link to="#" className={(isActive) => `hover:underline ${isActive ? "text-orange-700": "text-gray-700"}`}>
                                         Terms &amp; Conditions
                                     </Link>
                                 </li>
