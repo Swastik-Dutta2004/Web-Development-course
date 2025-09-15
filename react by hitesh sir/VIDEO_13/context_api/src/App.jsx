@@ -1,32 +1,35 @@
-import { useState } from "react";
-import UserContextPorvider from "./Context/UserContextProvider";
-import "./App.css";
-import Login from "./Components/Login";
-import Profile from "./Components/Profile";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   return (
-    <UserContextPorvider>
-      <div className="min-h-screen bg-gradient-to-br from-orange-100 via-white to-orange-200 flex flex-col items-center justify-center p-6">
-        {/* Heading */}
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-800 mb-10 text-center drop-shadow">
-          Stay Focused And Consistent 🚀
-        </h1>
-
-        {/* Login + Profile Section */}
-        <div className="grid gap-8 w-full max-w-3xl sm:grid-cols-2">
-          <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-200">
-            <Login />
-          </div>
-          <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-200">
-            <Profile />
-          </div>
-        </div>
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
       </div>
-    </UserContextPorvider>
-  );
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
 
-export default App;
+export default App
