@@ -9,6 +9,7 @@ function AddTodo() {
     const addTodoHandler = (e) => {
         e.preventDeafault()
         displatch(addTodo(Input))
+        setInput('')
     }
 
   return (
