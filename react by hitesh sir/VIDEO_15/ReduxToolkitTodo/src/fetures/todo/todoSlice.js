@@ -30,3 +30,7 @@ export const todoslice = createSlice({
         }
     }
 })
+
+export const {addtodo, RemovedTodo, upadateTodo} = todoslice.actions
+
+export default todoslice.reducer
