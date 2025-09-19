@@ -16,7 +16,10 @@ export const todoslice = createSlice({
                 id: nanoid(),
                 text: action.payload
             }
+            state.todos.push(todo)
         },
-        RemovedTodo: () => {}
+        RemovedTodo: (state, action) => {
+            state.todos = state.todos.filter((todo) => todo.id !== action.payload)
+        }
     }
 })
