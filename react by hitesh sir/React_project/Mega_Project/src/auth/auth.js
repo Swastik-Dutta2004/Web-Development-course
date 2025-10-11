@@ -11,6 +11,13 @@ export class AuthService{
             .setProject(conf.appwriteProjectId)
         this.account = new Account(this.client)
     }
+    async createAccount({email, password, name}){
+        try {
+            await this.account.create(email, password, name)
+        } catch (error) {
+            throw error
+        }
+    }
 }
 
 
