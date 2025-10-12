@@ -112,6 +112,13 @@ export class Service {
             return false
         }
     }
+
+    getFilePreview(FiledID){
+        return this.bucket.getFilePreview(
+            conf.appwriteBucketId,
+            FiledID
+        )
+    }
 }
 
 const service = new Service()
