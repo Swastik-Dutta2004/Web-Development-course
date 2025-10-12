@@ -82,9 +82,36 @@ export class Service {
             )
         } catch (error) {
             console.log("appwrite service :: getPosts :: error", error);
+            return false
         }
     }
     
+    async uplodeFile(file){
+        try {
+            return await this.bucket.createFile(
+                conf.appwriteBucketId,
+                ID.unique(),
+                file
+            )
+            
+        } catch (error) {
+           console.log("appwrite service :: updatePost :: error", error);   
+           return false
+        }
+    }
+
+    async deleteFile(FileID){
+        try {
+            await this.bucket.deleteFile(
+                conf.appwriteBucketId,
+                FileID,
+            )
+            return true
+        } catch (error) {
+            console.log("appwrite service :: updatePost :: error", error);
+            return false
+        }
+    }
 }
 
 const service = new Service()
