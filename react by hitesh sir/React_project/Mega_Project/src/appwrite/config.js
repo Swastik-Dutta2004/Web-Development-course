@@ -46,7 +46,7 @@ export class Service {
         }
     }
 
-    async deletePost(slug ) {
+    async deletePost(slug) {
         try {
              await this.databases.deleteDocument(
                 conf.appwriteDatabaseId,
@@ -55,12 +55,12 @@ export class Service {
             )
             return true
         } catch (error) {
-            console.log("appwrite service :: updatePost :: error", error);
+            console.log("appwrite service :: deletePost :: error", error);
             return false
         }
     }
 
-    async getComputedStyle(slug){
+    async getPost(slug){
         try {
             return await this.databases.getDocument(
                 conf.appwriteDatabaseId,
@@ -68,24 +68,23 @@ export class Service {
                 slug
             )
         } catch (error) {
-            console.log("appwrite service :: updatePost :: error", error);
-
-            
+            console.log("appwrite service :: getPost :: error", error);
+            return false            
         }
     }
-
-    async listPost(slug){
+    
+    async getPosts(queries = [Query.equal("status", "active")]){
         try {
             return await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                slug,
+                queries,
             )
         } catch (error) {
-            console.log("appwrite service :: updatePost :: error", error);
-
+            console.log("appwrite service :: getPosts :: error", error);
         }
     }
+    
 }
 
 const service = new Service()
