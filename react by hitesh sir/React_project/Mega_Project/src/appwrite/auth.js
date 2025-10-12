@@ -3,7 +3,7 @@ import { Client, Account, ID} from 'appwrite';
 
 
 
-export class AuthService {
+export class AuthService      {
     client = new Client();
     account;
 
@@ -20,11 +20,39 @@ export class AuthService {
 
             if (userAccount) {
                 // use another methord 
+                return this.login({email, password})
             } else {
                 return userAccount
             }
         } catch (error) {
             throw error
+        }
+    }
+
+    async login ({email, password}){
+        try {
+            return await this.account.createEmailPasswordSession(email,password);
+        } catch (error) {
+            throw error
+        }
+    }
+
+    async getCurrenyAccount(){
+        try {
+            return await this.account.get()
+        } catch (error) {
+            console.log("Appwrite serives :: getcurretUser :: error", error);
+            
+        }
+        return null
+    }
+
+    async logout (){
+        try {
+            await this.account.deleteSession()
+        } catch (error) {
+            console.log("Appwrite serives :: getcurretUser :: error", error);
+
         }
     }
 }
