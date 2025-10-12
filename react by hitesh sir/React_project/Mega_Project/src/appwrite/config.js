@@ -74,7 +74,18 @@ export class Service {
         }
     }
 
-    
+    async listPost(slug){
+        try {
+            return await this.databases.listDocuments(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug,
+            )
+        } catch (error) {
+            console.log("appwrite service :: updatePost :: error", error);
+
+        }
+    }
 }
 
 const service = new Service()
