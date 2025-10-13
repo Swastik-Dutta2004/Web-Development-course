@@ -48,8 +48,18 @@ const Header = () => {
           <ul className='flex ml-auto'>
             {navItem .map((items) => 
               items.active ? (
-                <li key={items.name}></li>
+                <li key={items.name}>
+                  <button
+                  onClick={() => navigate(items.slug)}
+                  className='inline-block px-6 py-2 duration-200 hover:to-blue-100 rounded-bl-full'
+                  >{items.name}</button>
+                </li>
               ) : null
+              )}
+              {authStatus && (
+                <li>
+                  <LogoutBtn/>
+                </li>
               )}
           </ul>
         </nav>
