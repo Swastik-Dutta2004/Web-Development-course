@@ -6,13 +6,13 @@ import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
   const authService = useSelector((state) => state.auth.status)
-  const navigate =  useNavigate()
+  const navigate = useNavigate()
 
 
   const navItem = [
     {
       name: 'Home',
-      slug:  "/",
+      slug: "/",
       active: true
     },
     {
@@ -37,7 +37,24 @@ const Header = () => {
     },
   ]
   return (
-    <header></header>
+    <header className='py-3 shadow bg-gray-500'>
+      <Container>
+        <nav className='flex'>
+          <div className='mr-4'>
+            <Link to='/'>
+              <Logo width='70px' />
+            </Link>
+          </div>
+          <ul className='flex ml-auto'>
+            {navItem .map((items) => 
+              items.active ? (
+                <li key={items.name}></li>
+              ) : null
+              )}
+          </ul>
+        </nav>
+      </Container>
+    </header>
   )
 }
 
