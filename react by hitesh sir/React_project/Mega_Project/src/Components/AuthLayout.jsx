@@ -13,11 +13,10 @@ export default AuthLayout = ({children, authentication = true}) => {
         } else if(!authentication && authStatus !== authentication){
             navigate("/")
         }
+        setLoading(false)
     }, [navigate, authentication, authStatus])
     
     
-  return (
-    <div>AuthLayout</div>
-  )
+  return Loading ? <h1>Loading...</h1> : <>{children}</>
 }
 
