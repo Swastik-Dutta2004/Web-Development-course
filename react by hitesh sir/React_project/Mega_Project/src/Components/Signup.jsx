@@ -77,6 +77,10 @@ const Signup = () => {
                         })}
                         />
 
+                        <Button
+                        type = "submit" 
+                        classname='w-full'
+                        >Create Account</Button>
                     </div>
                 </form>
             </div>
