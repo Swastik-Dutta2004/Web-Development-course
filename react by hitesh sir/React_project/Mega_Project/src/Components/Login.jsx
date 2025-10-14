@@ -1,10 +1,10 @@
 import React from 'react'
-import { data, Link, useNavigate } from 'react-router-dom'
+import {Link, useNavigate } from 'react-router-dom'
 import { login as authLogin } from '../Store/authSlice'
 import { Button, Input, Logo } from './Index'
 import { useDispatch } from 'react-redux'
 import authService from '../appwrite/auth'
-import { useForm, useFrom } from "react-hook-form"
+import { useForm } from "react-hook-form"
 
 const Login = () => {
 
@@ -63,6 +63,19 @@ const Login = () => {
                                 }
                             })}
                         />
+
+                        <Input
+                            lable= "Password"
+                            placeHolder = "Enter your Password"
+                            type = "Password"
+                            {...register("Password",{
+                                required: true,
+                            })}
+                        />
+                        <Button
+                        type='submit'
+                        classname='w-full'
+                        >Sign in</Button>
                     </div>
                 </form>
             </div>
