@@ -13,23 +13,19 @@ const Login = () => {
     const { register, handleSubmit } = useForm()
     const [error, seterror] = useState(null)
 
-    const login = async (data) => {
-        seterror("")
+ const login = async(data) => {
+        setError("")
         try {
-            const sesssion = await authService.login(data)
-            if (sesssion) {
-                const userDate = await authService.getCurrentUser()
-                if (userDate) {
-                    dispatch.authLogin(userDate)
-                    navigate("/")
-                }
+            const session = await authService.login(data)
+            if (session) {
+                const userData = await authService.getCurrentUser()
+                if(userData) dispatch(authLogin(userData));
+                navigate("/")
             }
         } catch (error) {
-            seterror(error.message)
-
+            setError(error.message)
         }
     }
-
     return (
         <div className='flex items-center justify-center w-full'>
             <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
