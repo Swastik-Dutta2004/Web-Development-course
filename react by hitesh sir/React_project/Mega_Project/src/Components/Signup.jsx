@@ -1,33 +1,88 @@
 import React from 'react'
 import authService from "../appwrite/auth"
-import {data, Link, useNvaigate} from 'react-router-dom'
-import {login} from "../Store/authSlice"
-import {Button, Input, Logo} from "./Index"
+import { data, Link, useNvaigate } from 'react-router-dom'
+import { login } from "../Store/authSlice"
+import { Button, Input, Logo } from "./Index"
 import { useDispatch } from 'react-redux'
-import {useForm, useFrom} from "react-hook-form"
+import { useForm, useFrom } from "react-hook-form"
 
 const Signup = () => {
     const dispatch = useDispatch()
     const [error, seterror] = useState(null)
     const navigate = useNvaigate()
-    const {handleSubmit, register} = useForm() 
-    
-    const create = async(data) => {
+    const { handleSubmit, register } = useForm()
+
+    const create = async (data) => {
         seterror("")
         try {
             const userData = await authService.createAccount(data)
             if (userData) {
                 const userData = await authService.getCurrentUser()
-                if (userData) dispatch (login(userData))
-                    navigate("/")
+                if (userData) dispatch(login(userData))
+                navigate("/")
             }
         } catch (error) {
             seterror(error.message)
         }
     }
-  return (
-    <div>Signup</div>
-  )
+    return (
+        <div className="flex items-center justify-center">
+            <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
+                <div className="mb-2 flex justify-center">
+                    <span className="inline-block w-full max-w-[100px]">
+                        <Logo width="100%" />
+                    </span>
+                </div>
+                <h2 className="text-center text-2xl font-bold leading-tight">Sign up to create account</h2>
+                <p className="mt-2 text-center text-base text-black/60">
+                    Already have an account?&nbsp;
+                    <Link
+                        to="/login"
+                        className="font-medium text-primary transition-all duration-200 hover:underline"
+                    >
+                        Sign In
+                    </Link>
+                </p>
+                {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
+
+                <form onChange={handleSubmit(create)}>
+                    <div className='space-y-5'>
+                        <Input
+                            label="Full Name:"
+                            placeholder="Enter Your full name"
+                            {...register("name", {
+                                required: true
+                            })}
+                        />
+
+                        <Input
+                            lable="Email"
+                            placeHolder="Enter Your Email"
+                            type="email"
+                            {...register("email", {
+                                required: true,
+                                validate: {
+                                    matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                                        "Email address must be a valid address"
+                                }
+                            })}
+                        />
+
+                        <Input
+                        lable = "Password"
+                        type = "Password"
+                        placeHolder = "ENter your Password"
+                        {...register("password",{
+                            required:true
+                        })}
+                        />
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    )
 }
 
 export default Signup
