@@ -1,20 +1,11 @@
 import React from 'react'
 import {Editor} from '@tinymce/tinymce-react'
 
-const RTE = () => {
+const RTE = ({name, control, label, deffaultvalue = ""}) => {
   return (
-    <Editor
-    initialValue='Defult Value'
-    init={
-        {branding: false,
-            height: 500,
-            members: true,
-            plugins: [
-                ''
-            ]
-        }
-    }
-    />
+    <div className='w-full'>
+        {label && <label className='inline-block mb-1 pl-1'>{label}</label>}
+    </div>
   )
 }
 
