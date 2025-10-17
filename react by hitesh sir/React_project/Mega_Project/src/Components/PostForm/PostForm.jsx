@@ -54,11 +54,14 @@ function PostForm({ Post }) {
   }
 
   const slugTransform = useCallback((value) => {
-    if (value && typeof value === 'String') 
+    if (value && typeof value === 'String') {
       return value
-        .trim()
-        
-    
+      .trim()
+      .toLowerCase()
+      .replace(/^[a-zA-Z\d\s]/g, '-')
+    }
+
+
   })
 
   return (
