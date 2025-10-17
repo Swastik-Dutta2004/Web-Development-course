@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, Watch } from 'react-hook-form'
 import { Button, Input, Select, RTE } from '../Index'
 import appwriteService from '../../appwrite/config'
 import { useNavigate } from 'react-router-dom'
@@ -54,15 +54,26 @@ function PostForm({ Post }) {
   }
 
   const slugTransform = useCallback((value) => {
-    if (value && typeof value === 'String') {
+    if (value && typeof value === 'String') 
       return value
       .trim()
       .toLowerCase()
-      .replace(/^[a-zA-Z\d\s]/g, '-')
-    }
+      .replace(/^[a-zA-Z\d\s]+/g, '-')
+      .replace(/\s/g, '-')
 
+    return ''
+  },[])
 
-  })
+  React.useEffect(() => {
+    const subscribption = Watch((value, {name}) => {
+      if (name === 'title') {
+        setValue('slug', slugTransform(value.title,
+          {shouldValidation: true}
+        ))
+      }
+    })
+  }, [Watch, slugTransform, setValue])
+  
 
   return (
     <div>PostForm</div>
