@@ -1,20 +1,27 @@
 import React, {useState, useEffect} from 'react'
 import { Container, PostCard } from '../Components'
 import appwriteService from "../appwrite/config"
+import Conatiner from '../Components/container/Conatiner'
 
 function AllPost() {
-    const [Post, setPost] = useState([])
+    const [Posts, setPosts] = useState([])
     useEffect(() => {}, [])
 
-    appwriteService.getPost([]).then((Posts) => {
+    appwriteService.getPosts([]).then((Posts) => {
         if (Posts) {
-            setPost(Posts.documents)
+            setPosts(Posts.documents)
         }
     })
     
   return (
-    <div>AllPost</div>
+    <div>
+        <Conatiner>
+        {Posts.map((post) => {
+            <PostCard key={post.$id} post ={post}/>
+        })}
+        </Conatiner>
+    </div>
   )
-}
 
+}
 export default AllPost
