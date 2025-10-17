@@ -5,6 +5,10 @@ import Logo from "./Logo";
 import LogoutBtn from "./Header/LogoutBtn";
 import Button from "./Button"
 import RTE from "./RTE"
+import Signup from "./Signup";
+import Login from './Login'
+import Post from './Post'
+import PostFrom from './PostForm/PostForm'
 
 export{
     Header,
@@ -13,5 +17,8 @@ export{
     Logo,
     LogoutBtn,
     Button,
-    RTE
+    RTE,
+    Signup,
+    Login,
+    PostFrom,
 }
