@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 import { Button, Input, Select, RTE } from '../Index'
 import appwriteService from '../../appwrite/config'
@@ -52,6 +52,14 @@ function PostForm({ Post }) {
       }
     }
   }
+
+  const slugTransform = useCallback((value) => {
+    if (value && typeof value === 'String') 
+      return value
+        .trim()
+        
+    
+  })
 
   return (
     <div>PostForm</div>
