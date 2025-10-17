@@ -9,6 +9,7 @@ import Signup from "./Signup";
 import Login from './Login'
 import Post from './Post'
 import PostFrom from './PostForm/PostForm'
+import PostCard from './Postcard'
 
 export{
     Header,
@@ -21,4 +22,5 @@ export{
     Signup,
     Login,
     PostFrom,
+    PostCard,
 }
