@@ -20,9 +20,13 @@ function EditPage() {
       }
     }, [slug, navigate])
     
-  return (
-    <div>EditPage</div>
-  )
+  return Post ? (
+    <div className='pu-4'>
+        <Container>
+            <PostFrom Post={Post}/>
+        </Container>
+    </div>
+  ) : null
 }
 
 export default EditPage
