@@ -1,6 +1,6 @@
 import React from 'react'
 import authService from "../appwrite/auth"
-import { data, Link, useNvaigate } from 'react-router-dom'
+import { Link, useNvaigate } from 'react-router-dom'
 import { login } from "../Store/authSlice"
 import { Button, Input, Logo } from "./Index"
 import { useDispatch } from 'react-redux'
