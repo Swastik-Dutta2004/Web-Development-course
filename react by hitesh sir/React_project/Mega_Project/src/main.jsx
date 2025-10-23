@@ -4,8 +4,14 @@ import './index.css'
 import App from './App.jsx'
 import { Provider } from 'react-redux'
 import store from './Store/Store.js'
-import { createBrowserRouter, Router, RouterProvider, UNSAFE_createBrowserHistory } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './pages/HomePage.jsx'
+import AddFrom from './pages/AddFrom.jsx'
+import AllPost from './pages/AllPost.jsx'
+import EditPage from './pages/EditPage.jsx'
+import Post from './pages/Post.jsx'
+import Signup from './pages/Signup.jsx'
+import { AuthLayout, Login } from './Components/Index.js'
 
 
   const router = createBrowserRouter([
@@ -15,7 +21,7 @@ import HomePage from './pages/HomePage.jsx'
     children: [
         {
             path: "/",
-            element: <Home />,
+            element: <HomePage />,
         },
         {
             path: "/login",
@@ -38,7 +44,7 @@ import HomePage from './pages/HomePage.jsx'
             element: (
                 <AuthLayout authentication>
                     {" "}
-                    <AllPosts />
+                    <AllPost />
                 </AuthLayout>
             ),
         },
@@ -47,7 +53,7 @@ import HomePage from './pages/HomePage.jsx'
             element: (
                 <AuthLayout authentication>
                     {" "}
-                    <AddPost />
+                    <AddFrom />
                 </AuthLayout>
             ),
         },
@@ -56,7 +62,7 @@ import HomePage from './pages/HomePage.jsx'
             element: (
                 <AuthLayout authentication>
                     {" "}
-                    <EditPost />
+                    <EditPage />
                 </AuthLayout>
             ),
         },
