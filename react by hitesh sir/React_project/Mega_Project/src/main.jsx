@@ -24,7 +24,7 @@ import { AuthLayout, Login } from './Components/Index.js'
             element: <HomePage />,
         },
         {
-            path: "/login",
+            path: "/Login",
             element: (
                 <AuthLayout authentication={false}>
                     <Login />
@@ -32,7 +32,7 @@ import { AuthLayout, Login } from './Components/Index.js'
             ),
         },
         {
-            path: "/signup",
+            path: "/Signup",
             element: (
                 <AuthLayout authentication={false}>
                     <Signup />
