@@ -5,7 +5,7 @@ import Logo from "./Logo";
 import LogoutBtn from "./Header/LogoutBtn";
 import Button from "./Button"
 import RTE from "./RTE"
-import Signup from "./Signup";
+import Signup from "./SignupComponents";
 import Login from './Login'
 import PostFrom from './PostForm/PostForm'
 import PostCard from './Postcard'

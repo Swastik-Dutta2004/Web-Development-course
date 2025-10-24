@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import authService from "../appwrite/auth"
 import { Link, useNavigate } from 'react-router-dom'
 import { login } from "../Store/authSlice"
@@ -6,7 +6,7 @@ import { Button, Input, Logo } from "./Index"
 import { useDispatch } from 'react-redux'
 import { useForm } from "react-hook-form"
 
-const Signup = () => {
+const SignupComponents = () => {
     const dispatch = useDispatch()
     const [error, seterror] = useState(null)
     const navigate = useNavigate()
@@ -89,4 +89,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default SignupComponents
