@@ -1,41 +1,40 @@
 import React from 'react'
 import { Container, Logo, LogoutBtn } from '../Index'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 
-const Header = () => {
+function Header() {
   const authStatus = useSelector((state) => state.auth.status)
   const navigate = useNavigate()
-
 
   const navItem = [
     {
       name: 'Home',
-      slug: "/",
-      active: true
+      slug: '/',
+      active: true,
     },
     {
-      name: "Login",
-      slug: "/login",
-      active: !authStatus
+      name: 'Login',
+      slug: '/login',
+      active: !authStatus,
     },
     {
-      name: "Sigup",
-      slug: "/Sigup",
-      active: !authStatus
+      name: 'Signup', // corrected spelling
+      slug: '/signup',
+      active: !authStatus,
     },
     {
-      name: "All Posts",
-      slug: "/all-Post",
-      active: authStatus
+      name: 'All Posts',
+      slug: '/all-posts',
+      active: authStatus,
     },
     {
-      name: "Add Post",
-      slug: "/add-Post",
-      active: authStatus
+      name: 'Add Post',
+      slug: '/add-post',
+      active: authStatus,
     },
   ]
+
   return (
     <header className='py-3 shadow bg-gray-500'>
       <Container>
@@ -45,22 +44,24 @@ const Header = () => {
               <Logo width='70px' />
             </Link>
           </div>
-          <ul className='flex ml-auto'>
-            {navItem .map((items) => 
-              items.active ? (
-                <li key={items.name}>
+          <ul className='flex ml-auto items-center gap-2'>
+            {navItem.map((item) =>
+              item.active ? (
+                <li key={item.name}>
                   <button
-                  onClick={() => navigate(items.slug)}
-                  className='inline-block px-6 py-2 duration-200 hover:to-blue-100 rounded-bl-full'
-                  >{items.name}</button>
+                    onClick={() => navigate(item.slug)}
+                    className='inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-bl-full'
+                  >
+                    {item.name}
+                  </button>
                 </li>
               ) : null
-              )}
-              {authStatus && (
-                <li>
-                  <LogoutBtn/>
-                </li>
-              )}
+            )}
+            {authStatus && (
+              <li>
+                <LogoutBtn />
+              </li>
+            )}
           </ul>
         </nav>
       </Container>

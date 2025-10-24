@@ -13,75 +13,61 @@ import Post from './pages/Post.jsx'
 import Signup from './pages/Signup.jsx'
 import { AuthLayout, Login } from './Components/Index.js'
 
-
-  const router = createBrowserRouter([
+const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     children: [
-        {
-            path: "/",
-            element: <HomePage />,
-        },
-        {
-            path: "/Login",
-            element: (
-                <AuthLayout authentication={false}>
-                    <Login />
-                </AuthLayout>
-            ),
-        },
-        {
-            path: "/Signup",
-            element: (
-                <AuthLayout authentication={false}>
-                    <Signup />
-                </AuthLayout>
-            ),
-        },
-        {
-            path: "/all-posts",
-            element: (
-                <AuthLayout authentication>
-                    {" "}
-                    <AllPost />
-                </AuthLayout>
-            ),
-        },
-        {
-            path: "/add-post",
-            element: (
-                <AuthLayout authentication>
-                    {" "}
-                    <AddFrom />
-                </AuthLayout>
-            ),
-        },
-        {
-            path: "/edit-post/:slug",
-            element: (
-                <AuthLayout authentication>
-                    {" "}
-                    <EditPage />
-                </AuthLayout>
-            ),
-        },
-        {
-            path: "/post/:slug",
-            element: <Post />,
-        },
+      { path: '/', element: <HomePage /> },
+      {
+        path: '/login',
+        element: (
+          <AuthLayout authentication={false}>
+            <Login />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: '/signup',
+        element: (
+          <AuthLayout authentication={false}>
+            <Signup />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: '/all-posts',
+        element: (
+          <AuthLayout authentication>
+            <AllPost />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: '/add-post',
+        element: (
+          <AuthLayout authentication>
+            <AddFrom />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: '/edit-post/:slug',
+        element: (
+          <AuthLayout authentication>
+            <EditPage />
+          </AuthLayout>
+        ),
+      },
+      { path: '/post/:slug', element: <Post /> },
     ],
-},
+  },
 ])
 
-  
-
-
 createRoot(document.getElementById('root')).render(
-
   <StrictMode>
     <Provider store={store}>
-    <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </Provider>
-  </StrictMode>,
+  </StrictMode>
 )
