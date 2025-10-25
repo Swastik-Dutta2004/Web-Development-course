@@ -1,14 +1,19 @@
-import { useState } from 'react'
+import React from 'react'
 import Navbar from './Components/Navbar'
 import Hero from './Components/Hero'
+import HomeCard from './Components/HomeCard'
+import JobListing from './Components/JobListings'
+import ViewAllJobs from './Components/ViewAllJobs'
 
-function App() {
-  const [count, setCount] = useState(0)
 
+const App = () => {
   return (
     <>
       <Navbar />
-      <Hero />
+      <Hero/>
+      <HomeCard/>
+      <JobListing/>
+      <ViewAllJobs/>
     </>
   )
 }
