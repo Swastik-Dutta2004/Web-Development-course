@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 const JobListing = ({job}) => {
-  return (
+    const [showFullDescription, setShowFullDescription] = useState(false)
+
+    let description = job.description
+
+    if (!showFullDescription) {
+        description = description.substring(0,90) + '...'
+    }
+
+    return (
     <div className='bg-white rounded-xl shadow-md relative'>
       <div className='p-4'>
         <div className='mb-6'>
