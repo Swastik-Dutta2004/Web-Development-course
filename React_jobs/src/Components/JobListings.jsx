@@ -1,10 +1,26 @@
 import React from 'react'
-import Jobs from '../jobs.json'
 import JobListing from './JobListing'
+import { useState, useEffect } from 'react'
 
 const JobListings = ({isHome = false}) => {
 
-    const Joblistings = isHome ? Jobs.slice(0,3) : Jobs
+    const [Jobs, setJobs] = useState([])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+      const fetchJobs = async () => {
+        try {
+            const res = await fetch('http://localhost:8000/jobs')
+            const data = await res.json()
+            setJobs(data)
+        } catch (error) {
+            console.log("Error Fetching data");
+            
+        }
+      }
+      fetchJobs()
+    }, [])
+    
     
     return (
         <div>
