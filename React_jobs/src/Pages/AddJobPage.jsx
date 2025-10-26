@@ -1,6 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
-const AddJobPage = () => {
+import { useNavigate } from 'react-router-dom';
+
+
+const AddJobPage = ({addJobSubmit}) => {
     const [title, setTitle] = useState('');
     const [type, setType] = useState('Full-Time');
     const [location, setLocation] = useState('');
@@ -11,8 +14,28 @@ const AddJobPage = () => {
     const [contactEmail, setContactEmail] = useState('');
     const [contactPhone, setContactPhone] = useState('');
 
+    const Navigate = useNavigate()
+
     const submitForm = (e) => {
-        e.preventdefault()
+        e.preventDefault()
+
+        const newJob = {
+            title,
+            type,
+            location,
+            description,
+            salary,
+            company:{
+                name: companyName,
+                description: companyDescription,
+                contactEmail,
+                contactPhone
+            }
+        }
+        addJobSubmit(newJob)
+
+        return Navigate ('/jobs')
+        
     }
 
     return (
@@ -35,7 +58,7 @@ const AddJobPage = () => {
                                 className='border rounded w-full py-2 px-3'
                                 required
                                 value={type}
-                                onChange={(e) => {e.target.value}}
+                                onChange={(e) => setType(e.target.value)}
                             >
                                 <option value='Full-Time'>Full-Time</option>
                                 <option value='Part-Time'>Part-Time</option>
