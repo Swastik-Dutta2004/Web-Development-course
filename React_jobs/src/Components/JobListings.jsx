@@ -2,7 +2,7 @@ import React from 'react'
 import Jobs from '../jobs.json'
 import JobListing from './JobListing'
 
-const Joblistings = ({isHome = false}) => {
+const JobListings = ({isHome = false}) => {
 
     const Joblistings = isHome ? Jobs.slice(0,3) : Jobs
     
