@@ -15,7 +15,8 @@ const JobListings = ({isHome = false}) => {
             setJobs(data)
         } catch (error) {
             console.log("Error Fetching data");
-            
+        } finally{
+            setLoading(false)
         }
       }
       fetchJobs()
@@ -34,7 +35,7 @@ const JobListings = ({isHome = false}) => {
                         <Spinner loading={loading} />
                     ) : (
                         <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-                           {Joblistings.map((job) => (
+                           {Jobs.map((job) => (
                             <JobListing key={job.id} job={job}/>
                            ))} 
                         </div>
