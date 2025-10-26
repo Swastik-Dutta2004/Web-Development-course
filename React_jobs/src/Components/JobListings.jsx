@@ -1,6 +1,6 @@
-import React from 'react'
 import JobListing from './JobListing'
 import { useState, useEffect } from 'react'
+import Spinner from './Spinner'
 
 const JobListings = ({isHome = false}) => {
 
@@ -21,7 +21,6 @@ const JobListings = ({isHome = false}) => {
       }
       fetchJobs()
     }, [])
-    
     
     return (
         <div>
