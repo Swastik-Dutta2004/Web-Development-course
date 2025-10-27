@@ -12,18 +12,15 @@ import AddJobPage from './Pages/AddJobPage'
 const App = () => {
 
   const addJob = async (newJob) => {
-    const res = await fetch('api/jobs',{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json', 
-      },
-      body: JSON.stringify(newJob)
-    })
-    return
+    
   }
 
   const deleteJob = async(id) => {
-    console.log('delete', id);
+    const res = await fetch(`/api/jobs/${id}`,{
+      method: 'DELETE',
+      
+    })
+    return
     
   }
 
