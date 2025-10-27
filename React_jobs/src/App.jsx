@@ -22,12 +22,17 @@ const App = () => {
     return
   }
 
+  const deleteJob = async(id) => {
+    console.log('delete', id);
+    
+  }
+
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/' element={<MainLayout />}>
       <Route index element={<HomePage />} />
       <Route path='/jobs' element={<JobsPage />} />
-      <Route path='/Add-job' element={<AddJobPage addJobSunmit={addJob}/>} />
-      <Route path='/jobs/:id' element={<JobPage />} loader={JobLoader} />
+      <Route path='/Add-job' element={<AddJobPage addJobSubmit={addJob}/>} />
+      <Route path='/jobs/:id' element={<JobPage deleteJob = {deleteJob} />} loader={JobLoader} />
       <Route path='*' element={<NotFoundPage />} />
     </Route>
   ))

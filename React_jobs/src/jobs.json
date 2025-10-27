@@ -83,6 +83,20 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
+    },
+    {
+      "id": "fd75",
+      "title": "rfefgfdfsdv",
+      "type": "Remote",
+      "location": "dddddc",
+      "description": "vdsvsdvcsd",
+      "salary": "$60K - 70K",
+      "company": {
+        "name": "dcvdcdcvds",
+        "description": "dcvsdcvsdcd",
+        "contactEmail": "duttaswastik@gmail.com",
+        "contactPhone": "0876543347"
+      }
     }
   ]
 }
