@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import "./App.css";
 import Navbar from "./components/Navbar";
@@ -8,28 +8,28 @@ function App() {
   const [todos, setTodos] = useState([])
   const [isSet, setisSet] = useState(false)
 
- useEffect(() => {
-   if(isSet){
-    try {
-      localStorage.setItem("todos", JSON.stringify(todos))
-      console.log("saved Todos:",todos);
-    } catch (error) {
-      console.error("Error saving todos to localStorage:", error);
+  useEffect(() => {
+    if (isSet) {
+      try {
+        localStorage.setItem("todos", JSON.stringify(todos))
+        console.log("saved Todos:", todos);
+      } catch (error) {
+        console.error("Error saving todos to localStorage:", error);
+      }
     }
-   }
- }, [todos,isSet])
- 
+  }, [todos, isSet])
+
   useEffect(() => {
     try {
       const savedTodos = localStorage.getItem("todos")
-      if(savedTodos){
+      if (savedTodos) {
         const ParsedTodos = JSON.parse(savedTodos)
         setTodos(ParsedTodos)
-        console.log(ParsedTodos); 
+        console.log(ParsedTodos);
       }
     } catch (error) {
       console.error("Error loading todos from localStorage", error);
-    } finally{
+    } finally {
       setisSet(true)
     }
   }, [])
@@ -38,20 +38,20 @@ function App() {
     setTodo(e.target.value)
   }
   const HandleAdd = () => {
-    if(todo.trim()=== ""){
+    if (todo.trim() === "") {
       alert("Write something before save")
       return
     }
-    setTodos([...todos,{id:uuidv4(), todo, iscompleted: false}])
+    setTodos([...todos, { id: uuidv4(), todo, iscompleted: false }])
     setTodo("")
   }
 
   const HandleEdit = (id) => {
     const newTodotext = prompt("Enter your todo")
-    if(newTodotext?.trim()){
+    if (newTodotext?.trim()) {
       const upadatedText = todos.map((item) => {
-        if(item.id === id){
-          return{...item, todo: newTodotext}
+        if (item.id === id) {
+          return { ...item, todo: newTodotext }
         }
         return item
       })
@@ -60,7 +60,7 @@ function App() {
   }
 
   const HandleDelete = (id) => {
-    const upadatedText = todos.filter(item => 
+    const upadatedText = todos.filter(item =>
       item.id !== id
     )
     setTodos(upadatedText)
@@ -69,8 +69,8 @@ function App() {
   const HandleCheckbox = (e) => {
     const id = e.target.name
     const updateTodos = todos.map((item) => {
-      if(item.id === id){
-        return{...item, iscompleted: !item.iscompleted}
+      if (item.id === id) {
+        return { ...item, iscompleted: !item.iscompleted }
       }
       return item
     })
@@ -109,21 +109,21 @@ function App() {
           <div className="todos items-center gap-2 bg-white p-3 rounded shadow mb-2">
             {todos.map((item) => {
               return (
-            <div key={item.id} className="flex items-center gap-3 flex-1 justify-between border border-black m-2 rounded-lg">
-              <input type="checkbox" onChange={HandleCheckbox} checked = {item.iscompleted} name={item.id}/>
-              
-            <div className={` ${item.iscompleted? "line-through" : ""}`}>{item.todo}</div>
+                <div key={item.id} className="flex items-center gap-3 flex-1 justify-between border border-black m-2 rounded-lg">
+                  <input type="checkbox" onChange={HandleCheckbox} checked={item.iscompleted} name={item.id} />
 
-            {/* Right: Edit and Delete Buttons */}
-            <div className="buttons flex gap-2">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded" onClick={() => HandleEdit(item.id)}>
-                Edit
-              </button>
-              <button className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded" onClick={() => HandleDelete(item.id)}>
-                Delete
-              </button>
-            </div>
-            </div>
+                  <div className={` ${item.iscompleted ? "line-through" : ""}`}>{item.todo}</div>
+
+                  {/* Right: Edit and Delete Buttons */}
+                  <div className="buttons flex gap-2">
+                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded" onClick={() => HandleEdit(item.id)}>
+                      Edit
+                    </button>
+                    <button className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded" onClick={() => HandleDelete(item.id)}>
+                      Delete
+                    </button>
+                  </div>
+                </div>
               );
             })}
           </div>

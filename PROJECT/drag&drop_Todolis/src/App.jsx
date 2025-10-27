@@ -9,8 +9,14 @@ function App() {
 
   return (
     <>
-    <Navbar/>
-    
+      <Navbar />
+      <div>
+        <div className=''>
+          <h1>Add Todo</h1>
+          <input type="text" placeholder='Write Your todo'/>
+          <button>Save</button>
+        </div>
+      </div>
     </>
   )
 }
