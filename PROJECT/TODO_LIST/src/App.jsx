@@ -38,7 +38,7 @@ function App() {
     setTodo(e.target.value)
   }
   const HandleAdd = () => {
-    if (todo.trim() === "") {
+    if (todo.trim === "") {
       alert("Write something before save")
       return
     }

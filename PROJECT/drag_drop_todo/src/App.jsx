@@ -1,20 +1,29 @@
 import { useState } from "react";
 import "./App.css";
 import Navbar from "./Components/Navbar";
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [Todo, setTodo] = useState('')
   const [Todos, setTodos] = useState([])
 
   const addtodo = () => {
-    if (setTodo.trim() === "") {
-      alert("write Somethink before save")
-      return
+    if (Todo.trim() === "") {
+      alert("Write something before saving!");
+      return;
     }
 
-    setTodos([...Todos])
-    setTodo('')
+    const newTodo = { id: uuidv4(), text: Todo };
+    setTodos([...Todos, newTodo]);
+    setTodo("");
+  };
+
+
+  const deleteTodo = (id) => {
+    const updateTodo = Todos.filter(items => items.id === !id)
+    setTodos(updateTodo)
   }
+
   return (
     <>
       <Navbar />
@@ -29,7 +38,7 @@ function App() {
           <input
             type="text"
             value={Todo}
-            onChange={(e)=> setTodo(e.target.value) }
+            onChange={(e) => setTodo(e.target.value)}
             placeholder="Write your todo..."
             className="flex-1 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
@@ -43,33 +52,34 @@ function App() {
 
         {/* Todo List */}
         <div className="space-y-3">
-          {Todo.length() === 0 ? (
-            <p className="text-gray-500 text-center">No todos yet</p>) : (
-              Todos.map((Todo,index) => (
-                <div
-                key={index}
+          {Todos.length === 0 ? (
+            <p className="text-gray-500 text-center">No todos yet 😴</p>
+          ) : (
+            Todos.map((items) => (
+              <div
+                key={items.id}
                 className="flex justify-between items-center bg-gray-100 border border-gray-200 rounded-lg px-4 py-3 hover:shadow-md transition"
               >
-                <p className="text-gray-700 font-medium"></p>
+                <p className="text-gray-700 font-medium">{items.text}</p>
 
                 <div className="flex gap-2">
                   <button className="text-blue-600 hover:text-blue-800 font-semibold"
-                  onClick={}>
+                  >
                     Edit
                   </button>
                   <button
-                    
+                    onClick={() => deleteTodo(items.id)}
                     className="text-red-600 hover:text-red-800 font-semibold"
                   >
                     Delete
                   </button>
                 </div>
               </div>
-              ))
-            )
+            ))
+          )
           }
-              
-          
+
+
         </div>
       </div>
     </>
