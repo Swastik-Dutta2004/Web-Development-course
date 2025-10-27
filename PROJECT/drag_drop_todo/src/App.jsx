@@ -24,6 +24,20 @@ function App() {
     setTodos(updateTodo)
   }
 
+  const EditTodo = (id) => {
+    const newTodotext = prompt("Enter your todo")
+    if (newTodotext?.trim()) {
+      const upadatedText = todos.map((item) => {
+        if (item.id === id) {
+          return { ...item, todo: newTodotext }
+        }
+        return item
+      })
+      setTodos(upadatedText)
+    }
+  
+  }
+
   return (
     <>
       <Navbar />
@@ -63,7 +77,9 @@ function App() {
                 <p className="text-gray-700 font-medium">{items.text}</p>
 
                 <div className="flex gap-2">
-                  <button className="text-blue-600 hover:text-blue-800 font-semibold"
+                  <button
+                  onClick={() => EditTodo(items.id)}
+                  className="text-blue-600 hover:text-blue-800 font-semibold"
                   >
                     Edit
                   </button>
