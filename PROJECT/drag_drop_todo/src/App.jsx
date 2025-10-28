@@ -27,7 +27,7 @@ function App() {
       }
       return items
     })
-    setTodos(updateTodo)
+    setTodos(check)
   }
 
 
@@ -117,7 +117,7 @@ function App() {
 
                 <div className="flex gap-2">
 
-                  <input type="checkbox" onChange={HandleChange} checked ={items.iscompleted} name={items.id}/>
+                  <input type="checkbox" onChange={HandleChecked} checked ={items.iscompleted} name={items.id}/>
                   <button
                     onClick={() => EditTodo(items.id)}
                     className="text-blue-600 hover:text-blue-800 font-semibold"
