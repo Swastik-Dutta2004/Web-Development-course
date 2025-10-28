@@ -20,18 +20,18 @@ function App() {
 
 
   const deleteTodo = (id) => {
-    const updateTodo = Todos.filter(items => items.id === !id)
+    const updateTodo = Todos.filter(items => items.id !== id)
     setTodos(updateTodo)
   }
 
   const EditTodo = (id) => {
     const newTodotext = prompt("Enter your todo")
     if (newTodotext?.trim()) {
-      const upadatedText = todos.map((item) => {
-        if (item.id === id) {
-          return { ...item, todo: newTodotext }
+      const upadatedText = Todos.map((items) => {
+        if (items.id === id) {
+          return { ...items, text: newTodotext }
         }
-        return item
+        return items
       })
       setTodos(upadatedText)
     }
