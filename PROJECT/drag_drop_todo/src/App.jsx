@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 function App() {
   const [Todo, setTodo] = useState('')
   const [Todos, setTodos] = useState([])
+  const [isSet, setIsSet] = useState(false)
 
   const addtodo = () => {
     if (Todo.trim() === "") {
@@ -18,6 +19,15 @@ function App() {
     setTodo("");
   };
 
+  useEffect(() => {
+    try {
+      const getData =  localStorage.getItem("Todos")
+      const todo = getData.
+    } catch (error) {
+      
+    }
+  }, [third])
+  
 
   const deleteTodo = (id) => {
     const updateTodo = Todos.filter(items => items.id !== id)
