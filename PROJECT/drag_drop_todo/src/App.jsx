@@ -113,7 +113,7 @@ function App() {
                 key={items.id}
                 className="flex justify-between items-center bg-gray-100 border border-gray-200 rounded-lg px-4 py-3 hover:shadow-md transition"
               >
-                <p className= {`${items.iscompleted ? "line-through" : ""}text-gray-700 font-medium`}>{items.text}</p>
+                <p className= {`${items.iscompleted ? "line-through" : ""} text-gray-700 font-medium`}>{items.text}</p>
 
                 <div className="flex gap-2">
 
