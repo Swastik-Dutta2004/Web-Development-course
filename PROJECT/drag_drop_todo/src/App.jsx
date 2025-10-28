@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./Components/Navbar";
 import { v4 as uuidv4 } from 'uuid';
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+
 
 function App() {
   const [Todo, setTodo] = useState('')
@@ -23,7 +25,7 @@ function App() {
     const id = e.target.name
     const check = Todos.map((items) => {
       if (items.id === id) {
-        return{...items, iscompleted: !items.iscompleted}
+        return { ...items, iscompleted: !items.iscompleted }
       }
       return items
     })
@@ -104,40 +106,71 @@ function App() {
         </div>
 
         {/* Todo List */}
+        {/* Todo List */}
         <div className="space-y-3">
           {Todos.length === 0 ? (
             <p className="text-gray-500 text-center">No todos yet 😴</p>
           ) : (
-            Todos.map((items) => (
-              <div
-                key={items.id}
-                className="flex justify-between items-center bg-gray-100 border border-gray-200 rounded-lg px-4 py-3 hover:shadow-md transition"
-              >
-                <p className= {`${items.iscompleted ? "line-through" : ""} text-gray-700 font-medium`}>{items.text}</p>
+            <DragDropContext
+              onDragEnd={(result) => {
+                if (!result.destination) return; // if dropped outside the list, do nothing
+                const updatedTodos = Array.from(Todos);
+                const [movedItem] = updatedTodos.splice(result.source.index, 1);
+                updatedTodos.splice(result.destination.index, 0, movedItem);
+                setTodos(updatedTodos);
+              }}
+            >
+              <Droppable droppableId="todos">
+                {(provided) => (
+                  <div {...provided.droppableProps} ref={provided.innerRef}>
+                    {Todos.map((items, index) => (
+                      <Draggable key={items.id} draggableId={items.id} index={index}>
+                        {(provided) => (
+                          <div
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            className="flex justify-between items-center bg-gray-100 border border-gray-200 rounded-lg px-4 py-3 mb-2 hover:shadow-md transition"
+                          >
+                            <p
+                              className={`text-gray-700 font-medium ${items.iscompleted ? "line-through" : ""
+                                }`}
+                            >
+                              {items.text}
+                            </p>
 
-                <div className="flex gap-2">
-
-                  <input type="checkbox" onChange={HandleChecked} checked ={items.iscompleted} name={items.id}/>
-                  <button
-                    onClick={() => EditTodo(items.id)}
-                    className="text-blue-600 hover:text-blue-800 font-semibold"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => deleteTodo(items.id)}
-                    className="text-red-600 hover:text-red-800 font-semibold"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            ))
-          )
-          }
-
-
+                            <div className="flex gap-2">
+                              <input
+                                type="checkbox"
+                                onChange={HandleChecked}
+                                checked={items.iscompleted}
+                                name={items.id}
+                              />
+                              <button
+                                onClick={() => EditTodo(items.id)}
+                                className="text-blue-600 hover:text-blue-800 font-semibold"
+                              >
+                                Edit
+                              </button>
+                              <button
+                                onClick={() => deleteTodo(items.id)}
+                                className="text-red-600 hover:text-red-800 font-semibold"
+                              >
+                                Delete
+                              </button>
+                            </div>
+                          </div>
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+            </DragDropContext>
+          )}
         </div>
+
       </div>
     </>
   );
