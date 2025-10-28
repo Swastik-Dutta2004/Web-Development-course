@@ -19,6 +19,18 @@ function App() {
     setTodo("");
   };
 
+  const HandleChecked = (e) => {
+    const id = e.target.name
+    const check = Todos.map((items) => {
+      if (items.id === id) {
+        return{...items, iscompleted: !items.iscompleted}
+      }
+      return items
+    })
+    setTodos(updateTodo)
+  }
+
+
   useEffect(() => {
     try {
       const SavedTodo = JSON.parse(localStorage.getItem("Todos"))
@@ -44,7 +56,6 @@ function App() {
       }
     }
   }, [Todos, isSet])
-
 
 
   const deleteTodo = (id) => {
@@ -102,9 +113,11 @@ function App() {
                 key={items.id}
                 className="flex justify-between items-center bg-gray-100 border border-gray-200 rounded-lg px-4 py-3 hover:shadow-md transition"
               >
-                <p className="text-gray-700 font-medium">{items.text}</p>
+                <p className= {`${items.iscompleted ? "line-through" : ""}text-gray-700 font-medium`}>{items.text}</p>
 
                 <div className="flex gap-2">
+
+                  <input type="checkbox" onChange={HandleChange} checked ={items.iscompleted} name={items.id}/>
                   <button
                     onClick={() => EditTodo(items.id)}
                     className="text-blue-600 hover:text-blue-800 font-semibold"
