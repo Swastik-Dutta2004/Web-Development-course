@@ -21,11 +21,10 @@ function App() {
 
   useEffect(() => {
     try {
-      const SavedTodo = localStorage.getItem("Todos")
+      const SavedTodo = JSON.parse(localStorage.getItem("Todos"))
       if (SavedTodo) {
-        const todo = JSON.parse(SavedTodo)
         setTodos(SavedTodo)
-        console.log(todo);
+        console.log(SavedTodo);
       }
     } catch (error) {
       console.error("Error in loading todos from localstorage", error);
