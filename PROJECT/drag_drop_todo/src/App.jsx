@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Navbar from "./Components/Navbar";
 import { v4 as uuidv4 } from 'uuid';
@@ -21,13 +21,32 @@ function App() {
 
   useEffect(() => {
     try {
-      const getData =  localStorage.getItem("Todos")
-      const todo = getData.
+      const SavedTodo = localStorage.getItem("Todos")
+      if (SavedTodo) {
+        const todo = JSON.parse(SavedTodo)
+        setTodos(SavedTodo)
+        console.log(todo);
+      }
     } catch (error) {
-      
+      console.error("Error in loading todos from localstorage", error);
     }
-  }, [third])
-  
+    finally {
+      setIsSet(true)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (isSet) {
+      try {
+        localStorage.setItem("Todos", JSON.stringify(Todos))
+        console.log("Saved todos", Todos);
+      } catch (error) {
+        console.error("Error in saving todos in localStronge", error);
+      }
+    }
+  }, [Todos, isSet])
+
+
 
   const deleteTodo = (id) => {
     const updateTodo = Todos.filter(items => items.id !== id)
@@ -45,7 +64,7 @@ function App() {
       })
       setTodos(upadatedText)
     }
-  
+
   }
 
   return (
@@ -88,8 +107,8 @@ function App() {
 
                 <div className="flex gap-2">
                   <button
-                  onClick={() => EditTodo(items.id)}
-                  className="text-blue-600 hover:text-blue-800 font-semibold"
+                    onClick={() => EditTodo(items.id)}
+                    className="text-blue-600 hover:text-blue-800 font-semibold"
                   >
                     Edit
                   </button>

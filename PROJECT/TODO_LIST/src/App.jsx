@@ -9,17 +9,6 @@ function App() {
   const [isSet, setisSet] = useState(false)
 
   useEffect(() => {
-    if (isSet) {
-      try {
-        localStorage.setItem("todos", JSON.stringify(todos))
-        console.log("saved Todos:", todos);
-      } catch (error) {
-        console.error("Error saving todos to localStorage:", error);
-      }
-    }
-  }, [todos, isSet])
-
-  useEffect(() => {
     try {
       const savedTodos = localStorage.getItem("todos")
       if (savedTodos) {
@@ -34,11 +23,23 @@ function App() {
     }
   }, [])
 
+   useEffect(() => {
+    if (isSet) {
+      try {
+        localStorage.setItem("todos", JSON.stringify(todos))
+        console.log("saved Todos:", todos);
+      } catch (error) {
+        console.error("Error saving todos to localStorage:", error);
+      }
+    }
+  }, [todos, isSet])
+  
+
   const HandleChange = (e) => {
     setTodo(e.target.value)
   }
   const HandleAdd = () => {
-    if (todo.trim === "") {
+    if (todo.trim() === "") {
       alert("Write something before save")
       return
     }
