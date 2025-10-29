@@ -6,7 +6,7 @@ const NoteFrom = ({addtext}) => {
 
     const HandleSubmit =(e) => {
         e.preventDefult()
-        if (text.trim() === "") return
+        if (Notes.trim() === "") return
         addtext(Notes, Color)
         setNotes("")
     }

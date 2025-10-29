@@ -1,10 +1,33 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import NoteFrom from './Components/NoteFrom'
 import NoteList from './Components/NoteList'
 import './App.css'
 
 function App() {
-  const [Notes, setNotes] = useState([])
+  const [notes, setNotes] = useState([])
+
+  const deleteNote = (id) => {
+    setNotes(notes.filter((note) => note.id !== id))
+  }
+
+  const addNote = (Text, color) => {
+    const newNote = {
+      id: Date.now(),
+      Text,
+      color
+    }
+    setNotes([newNote, ...notes])
+  }
+
+  useEffect(() => {
+   const savedNote = JSON.parse(localStorage.getItem("notes"))
+   setNotes(savedNote)
+  }, [])
+  
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes))
+  }, [third])
+  
 
   return (
     <>
