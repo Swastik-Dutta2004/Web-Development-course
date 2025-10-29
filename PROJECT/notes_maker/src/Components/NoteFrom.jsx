@@ -4,7 +4,8 @@ const NoteFrom = () => {
     const [Notes, setNotes] = useState("")
     const [Color, setColor] = useState("#fef08a")
 
-    const HandleSubmit = 
+    const HandleSubmit =() => {
+    }
 
     return (
         <form action="">
