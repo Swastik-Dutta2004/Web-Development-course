@@ -10,10 +10,10 @@ function App() {
     setNotes(notes.filter((note) => note.id !== id))
   }
 
-  const addNote = (Text, color) => {
+  const addNote = (text, color) => {
     const newNote = {
       id: Date.now(),
-      Text,
+      text,
       color
     }
     setNotes([newNote, ...notes])
@@ -31,8 +31,8 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1>Notes maker</h1>
+      <div className="min-h-screen bg-yellow-50 p-6">
+        <h1 className="text-3xl font-bold mb-6 text-center text-yellow-700">Notes maker</h1>
         <NoteFrom addNote = {addNote}/>
         <NoteList notes={notes} deleteNote={deleteNote}/>
       </div>
