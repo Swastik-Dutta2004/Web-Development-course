@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NoteItem = () => {
+function NoteItem({notes, deleteNote}) {
   return (
     <div>NoteItem</div>
   )
