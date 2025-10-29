@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
-const NoteFrom = ({addtext}) => {
+const NoteFrom = ({addNote}) => {
     const [Notes, setNotes] = useState("")
     const [Color, setColor] = useState("#fef08a")
 
     const HandleSubmit =(e) => {
-        e.preventDefult()
+        e.preventDefault()
         if (Notes.trim() === "") return
-        addtext(Notes, Color)
+        addNote(Notes, Color)
         setNotes("")
     }
 
@@ -27,7 +27,7 @@ const NoteFrom = ({addtext}) => {
             />
             <button onClick={HandleSubmit}
             className="bg-yellow-600 text-white px-4 py-2 rounded-md"
-            >Submit</button>
+            >Add</button>
         </form>
     )
 }

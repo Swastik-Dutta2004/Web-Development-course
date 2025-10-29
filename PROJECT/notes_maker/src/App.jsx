@@ -20,21 +20,21 @@ function App() {
   }
 
   useEffect(() => {
-   const savedNote = JSON.parse(localStorage.getItem("notes"))
+   const savedNote = JSON.parse(localStorage.getItem("notes")) || []
    setNotes(savedNote)
   }, [])
   
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes))
-  }, [third])
+  }, [notes])
   
 
   return (
     <>
       <div>
         <h1>Notes maker</h1>
-        <NoteFrom/>
-        <NoteList/>
+        <NoteFrom addNote = {addNote}/>
+        <NoteList notes={notes} deleteNote={deleteNote}/>
       </div>
     </>
   )
