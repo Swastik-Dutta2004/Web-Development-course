@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import NoteFrom from './Components/NoteFrom'
+import NoteList from './Components/NoteList'
 import './App.css'
 
 function App() {
@@ -10,6 +10,8 @@ function App() {
     <>
       <div>
         <h1>Notes maker</h1>
+        <NoteFrom/>
+        <NoteList/>
       </div>
     </>
   )
