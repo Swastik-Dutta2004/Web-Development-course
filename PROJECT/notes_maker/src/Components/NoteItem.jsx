@@ -7,7 +7,7 @@ function NoteItem({ note, deleteNote }) {
       style={{ backgroundColor: note.color }}
     >
       <p className="font-medium text-gray-800 leading-relaxed whitespace-pre-wrap break-words">
-        {note.text}
+        {note.noteText}
       </p>
       <button
         onClick={() => deleteNote(note.id)}

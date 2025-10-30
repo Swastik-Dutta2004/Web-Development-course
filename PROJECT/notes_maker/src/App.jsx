@@ -18,13 +18,13 @@ function App() {
     setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id))
   }
 
-  const addNote = (text, color) => {
+  const addNote = (noteText, color) => {
     const newNote = {
       id: Date.now(),
-      text,
+      noteText,
       color
     }
-    console.log("New note added:", text, color);
+    console.log("New note added:", noteText, color);
     setNotes((prevNotes) => [newNote, ...prevNotes])
   }
 
