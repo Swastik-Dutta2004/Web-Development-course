@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function NoteFrom({ addNote }) {
+function NoteForm({ addNote }) {
   const [noteText, setNoteText] = useState("")
   const [color, setColor] = useState("#fef08a")
 
@@ -42,4 +42,4 @@ function NoteFrom({ addNote }) {
   )
 }
 
-export default NoteFrom
+export default NoteForm
