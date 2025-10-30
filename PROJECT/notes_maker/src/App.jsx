@@ -9,18 +9,15 @@ function App() {
     return savedNotes ? JSON.parse(savedNotes) : []
   })
 
-  // Save notes whenever they change
   useEffect(() => {
     console.log("Saving to localStorage:", notes)
     localStorage.setItem("notes", JSON.stringify(notes))
   }, [notes])
 
-  // delete a note
   const deleteNote = (id) => {
     setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id))
   }
 
-  // add a new note
   const addNote = (text, color) => {
     const newNote = {
       id: Date.now(),
