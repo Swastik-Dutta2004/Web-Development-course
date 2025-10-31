@@ -2,27 +2,32 @@ import JobListing from './JobListing'
 import { useState, useEffect } from 'react'
 import Spinner from './Spinner'
 
-const JobListings = ({isHome = false}) => {
+const JobListings = ({ isHome = false }) => {
 
     const [Jobs, setJobs] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-      const fetchJobs = async () => {
-        const apiurl = isHome ? '/api/jobs?_limit=3' : '/api/jobs'
-        try {
-            const res = await fetch(apiurl)
-            const data = await res.json()
-            setJobs(data)
-        } catch (error) {
-            console.log("Error Fetching data",error);
-        } finally{
-            setLoading(false)
+        const fetchJobs = async () => {
+            const apiurl = isHome ? '/api/jobs?_limit=3' : '/api/jobs'
+            try {
+                const res = await fetch(apiurl)
+                if (!res.ok) {
+                    throw new error(`HTTP error! status: ${res.status}`);
+                }
+                const text = await res.text(); // get raw text first
+                const data =  text ? JSON.parse(text) : []
+
+                setJobs(data)
+            } catch (error) {
+                console.log("Error Fetching data", error);
+            } finally {
+                setLoading(false)
+            }
         }
-      }
-      fetchJobs()
+        fetchJobs()
     }, [])
-    
+
     return (
         <div>
             <section className='bg-blue-50 px-4 py-10'>
@@ -35,9 +40,9 @@ const JobListings = ({isHome = false}) => {
                         <Spinner loading={loading} />
                     ) : (
                         <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-                           {Jobs.map((job) => (
-                            <JobListing key={job.id} job={job}/>
-                           ))} 
+                            {Jobs.map((job) => (
+                                <JobListing key={job.id} job={job} />
+                            ))}
                         </div>
                     )}
                 </div>
