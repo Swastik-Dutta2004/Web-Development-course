@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div>
       <Navbar/>
-      <Hero title = "Becoming a web Developer" sebtitle = "Just fucking Do it"/>
+      <Hero title = "Becoming a web Developer" subtitle = "Just fucking Do it"/>
     </div>
   )
 }
