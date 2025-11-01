@@ -1,7 +1,8 @@
 import React from 'react'
 import Navbar from './Components/Navbar'
 import Hero from './Components/Hero'
-import HomeCard from './Components/HomeCard'
+import HomeCards from './Components/HomeCards'
+import JobListings from './Components/JobListings'
 
 
 const App = () => {
@@ -9,7 +10,8 @@ const App = () => {
     <div>
       <Navbar/>
       <Hero title = "Becoming a web Developer" subtitle = "Just fucking Do it"/>
-      <HomeCard/>
+      <HomeCards/>
+      <JobListings/>
     </div>
   )
 }
