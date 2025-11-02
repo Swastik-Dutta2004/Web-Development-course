@@ -1,9 +1,12 @@
 import React from 'react'
 import Jobs from '../jobs.json'
 import JobListing from './JobListing'
+import Spinner from './Spinner'
 
-const JobListings = () => {
-    const recentJobs = Jobs.jobs.slice(0, 3)
+
+const JobListings = ({isHome = false}) => {
+    const recentJobs = isHome ? Jobs.slice(0, 3) : Jobs
+
     return ( 
         <div>
             <section className='bg-blue-50 px-4 py-10'>
