@@ -1,11 +1,29 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import Jobs from '../jobs.json'
 import JobListing from './JobListing'
 import Spinner from './Spinner'
 
 
 const JobListings = ({isHome = false}) => {
-    const recentJobs = isHome ? Jobs.slice(0, 3) : Jobs
+    const [jobs, setJobs] = useState([])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+     const fetchData = async () => {
+        try {
+            const res = await fetch("http://localhost:8000/jobs")
+            const data = await res.json()
+            setJobs(data)
+        } catch (error) {
+           console.error("Data not found", error);
+        }
+        finally{
+            setLoading(false)
+        }
+     }
+     fetchData()
+    }, [])
+    
 
     return ( 
         <div>
