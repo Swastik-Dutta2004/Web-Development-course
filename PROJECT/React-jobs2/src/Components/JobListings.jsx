@@ -4,28 +4,30 @@ import JobListing from './JobListing'
 import Spinner from './Spinner'
 
 
-const JobListings = ({isHome = false}) => {
+const JobListings = ({ isHome = false }) => {
     const [jobs, setJobs] = useState([])
     const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-     const fetchData = async () => {
-        try {
-            const res = await fetch("http://localhost:8000/jobs")
-            const data = await res.json()
-            setJobs(data)
-        } catch (error) {
-           console.error("Data not found", error);
-        }
-        finally{
-            setLoading(false)
-        }
-     }
-     fetchData()
-    }, [])
     
 
-    return ( 
+    useEffect(() => {
+        const fetchData = async () => {
+            const apiUrl = isHome? 'http://localhost:8000/jobs?_limit=3' : 'http://localhost:8000/jobs'
+            try {
+                const res = await fetch(apiUrl)
+                const data = await res.json()
+                setJobs(data)
+            } catch (error) {
+                console.error("Data not found", error);
+            }
+            finally {
+                setLoading(false)
+            }
+        }
+        fetchData()
+    }, [])
+
+
+    return (
         <div>
             <section className='bg-blue-50 px-4 py-10'>
                 <div className='container-xl lg:container m-auto'>
@@ -37,9 +39,10 @@ const JobListings = ({isHome = false}) => {
                         <Spinner loading={loading} />
                     ) : (
                         <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-                            {recentJobs.map((job) => {
-                                <JobListing key={job.id} jober={job} />
-                            })}
+                            {jobs.map(job => (
+                                <JobListing key={job.id} job={job} />
+                            ))}
+
                         </div>
                     )}
                 </div>
