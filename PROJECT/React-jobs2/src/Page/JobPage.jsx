@@ -1,10 +1,11 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useLoaderData } from 'react-router-dom'
 import Spinner from '../Components/Spinner'
 
 const JobPage = () => {
     // const [Jobs, setJobs] = useState(null)
     // const [Loading, setLoading] = useState(true)
     const { id } = useParams()
+    const Jobs = useLoaderData()
 
     // useEffect(() => {
     //     const fetchJob = async () => {
@@ -22,9 +23,8 @@ const JobPage = () => {
     //     fetchJob()
     // }, [])
 
-    return (
-        Loading ? <Spinner/> : <div>{Jobs.title}</div>
-    )
+    return <h1>{Jobs.title}</h1>
+    
 }
 
 const jobLoader = async ({params}) => {
