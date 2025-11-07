@@ -1,20 +1,23 @@
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
-const AddPage = () => {
-const [type, setType] = useState()
-const [title, settitle] = useState()
-const [salary, setSalary] = useState()
-const [description, setdescription] = useState()
-const [location, setLocation] = useState()
-const [companyName, setCompanyName] = useState()
-const [companyDescription, setCompanyDescription] = useState()
-const [CompanyEmail, setCompanyEmail] = useState()
-const [companyPhone, setCompanyPhone] = useState()
+const AddPage = ({addJobsSubmit}) => {
+const [type, setType] = useState('Full-Time')
+const [title, settitle] = useState('')
+const [salary, setSalary] = useState('Under $50K')
+const [description, setdescription] = useState('')
+const [location, setLocation] = useState('')
+const [companyName, setCompanyName] = useState('')
+const [companyDescription, setCompanyDescription] = useState('')
+const [CompanyEmail, setCompanyEmail] = useState('')
+const [companyPhone, setCompanyPhone] = useState('')
+
+const Navigate = useNavigate()
 
 const submitForm = (e) => {
-    e.preventDefult()
+    e.preventDefault() 
 
     const FromSubmit = {
         type,
@@ -29,8 +32,9 @@ const submitForm = (e) => {
             Phone: companyPhone
         }
     }
-    console.log(FromSubmit);
+    addJobsSubmit(FromSubmit);
     
+    Navigate('/jobs')
 }
    return (
         <section className='bg-indigo-50'>
@@ -73,7 +77,7 @@ const submitForm = (e) => {
                                 placeholder='eg. Beautiful Apartment In Miami'
                                 required
                                 value={title}
-                                onChange={(e) => setTitle(e.target.value)}
+                                onChange={(e) => settitle(e.target.value)}
                             />
                         </div>
                         <div className='mb-4'>
@@ -90,7 +94,7 @@ const submitForm = (e) => {
                                 rows='4'
                                 placeholder='Add any job duties, expectations, requirements, etc'
                                 value={description}
-                                onChange={(e) => setDescription(e.target.value)}
+                                onChange={(e) => setdescription(e.target.value)}
                             ></textarea>
                         </div>
 
