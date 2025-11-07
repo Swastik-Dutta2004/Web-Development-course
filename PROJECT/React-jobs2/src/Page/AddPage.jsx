@@ -10,8 +10,28 @@ const [description, setdescription] = useState()
 const [location, setLocation] = useState()
 const [companyName, setCompanyName] = useState()
 const [companyDescription, setCompanyDescription] = useState()
-const [contactEmail, setCompanyEmail] = useState()
+const [CompanyEmail, setCompanyEmail] = useState()
 const [companyPhone, setCompanyPhone] = useState()
+
+const submitForm = (e) => {
+    e.preventDefult()
+
+    const FromSubmit = {
+        type,
+        title,
+        salary,
+        description,
+        location,
+        company: {
+            name: companyName,
+            Description: companyDescription,
+            Email: CompanyEmail,
+            Phone: companyPhone
+        }
+    }
+    console.log(FromSubmit);
+    
+}
    return (
         <section className='bg-indigo-50'>
             <div className='container m-auto max-w-2xl py-24'>
@@ -171,7 +191,7 @@ const [companyPhone, setCompanyPhone] = useState()
                                 className='border rounded w-full py-2 px-3'
                                 placeholder='Email address for applicants'
                                 required
-                                value={contactEmail}
+                                value={CompanyEmail}
                                 onChange={(e) => {setCompanyEmail(e.target.value)}}
 />
                         </div>
@@ -192,7 +212,7 @@ const [companyPhone, setCompanyPhone] = useState()
                                 onChange={(e) => setCompanyPhone(e.target.value)}
                             />
                         </div>
-
+ 
                         <div>
                             <button
                                 className='bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline'
