@@ -97,7 +97,8 @@ const JobPage = () => {
                                     Edit Job
                                 </Link>
                                 <button
-                                    
+                                    onClick={() => onDeleteClick(Jobs.id)}
+                                    className='bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block'
                                 >
                                     Delete Job
                                 </button>
@@ -112,7 +113,7 @@ const JobPage = () => {
 }
 
 const jobLoader = async ({ params }) => {
-    const res = await fetch(`/api/Jobs/${params.id}`)
+    const res = await fetch(`/api/jobs/${params.id}`)
     const data = await res.json()
     return data
 }
